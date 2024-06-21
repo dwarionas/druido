@@ -1,3 +1,4 @@
+
 import { Bird, Rabbit, Settings, Share, Turtle } from "lucide-react";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 import { Button } from "../ui/button";
@@ -6,8 +7,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
+import { createClient } from "@/lib/supabase/server";
+import { logout } from "@/app/(auth)/login/actions";
 
-export default function Header() {
+export default async function Header() {
+
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser()
+
     return (
         <header className="sticky top-0 z-10 flex h-[53px] items-center gap-1 border-b bg-background px-4">
             <h1 className="text-xl font-semibold select-none">Druido</h1>
@@ -130,14 +137,16 @@ export default function Header() {
                     </form>
                 </DrawerContent>
             </Drawer>
-            <Button
-                variant="outline"
-                size="sm"
-                className="ml-auto gap-1.5 text-sm"
-            >
-                <Share className="size-3.5" />
-                Share
-            </Button>
+            
+            <form action={logout} className="ml-auto gap-1.5 text-sm">
+                <Button
+                    variant="outline"
+                    size="sm"
+                    type="submit"
+                >
+                    {user?.user_metadata.username || 'Undefined username'}
+                </Button>
+            </form>
         </header>
     )
 }
