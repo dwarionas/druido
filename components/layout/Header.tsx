@@ -8,7 +8,7 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
 import { createClient } from "@/lib/supabase/server";
-import { logout } from "@/app/(auth)/login/actions";
+import { logout } from "@/app/(auth)/actions";
 
 export default async function Header() {
 

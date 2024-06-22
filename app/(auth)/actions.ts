@@ -33,6 +33,15 @@ export async function signup(formData: FormData) {
     },
   });
 
+  const d = {
+    username: formData.get('username'),
+    email: formData.get('email'),
+    reg_date: String(new Date()),
+    is_logged: true,
+    is_online: true
+  }
+
+
   if (error) {
     redirect('/error')
   }
