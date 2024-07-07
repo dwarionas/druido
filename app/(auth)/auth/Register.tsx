@@ -1,4 +1,3 @@
-import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -10,10 +9,12 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 import { signup } from "../actions"
 
 export function RegForm() {
+
   return (
     <form>
         <Card className="mx-auto max-w-sm"> 
@@ -50,9 +51,6 @@ export function RegForm() {
                 <div className="grid gap-2">
                     <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <Link href="#" className="ml-auto inline-block text-sm underline">
-                        Forgot your password?
-                    </Link>
                     </div>
                     <Input id="password" type="password" name="password" required />
                 </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Skeleton } from "@/components/ui/skeleton"
-import useChatStore from "@/lib/store";
+import useChatStore from "@/lib/zustand/store";
 
 const ChatItem = ({ id }: { id: number }) => {
     const chat = useChatStore(state => state);

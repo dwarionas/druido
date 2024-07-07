@@ -1,50 +1,47 @@
-'use server'
+'use server';
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
+import axios from 'axios'
 import { createClient } from '@/lib/supabase/server'
 
 export async function login(formData: FormData) {
-  const supabase = createClient()
+	const supabase = createClient()
 
-  const { error } = await supabase.auth.signInWithPassword({ 
-    email: formData.get('email') as string, 
-    password: formData.get('password') as string 
-  })
+	const { error } = await supabase.auth.signInWithPassword({ 
+		email: formData.get('email') as string, 
+		password: formData.get('password') as string 
+	})
 
-  if (error) redirect('/error');
+	if (error) redirect('/error');
 
-  revalidatePath('/', 'layout');
-  redirect('/');
+	revalidatePath('/', 'layout');
+	redirect('/');
 }
 
 export async function signup(formData: FormData) {
-  const supabase = createClient()
-  const username = formData.get('username') as string;
+	const supabase = createClient()
+	const username = formData.get('username') as string;
 
-  const { data, error } = await supabase.auth.signUp({
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-    options: {
-      data: {
-        username
-      },
-    },
+	const { data: sbRegData, error } = await supabase.auth.signUp({
+	email: formData.get('email') as string,
+	password: formData.get('password') as string,
+	options: {
+		data: {
+		username
+		},
+	},
+	});
+
+	if (error) {	
+		redirect('/error')
+	}	
+
+  const { data: mongoRegData } = await axios.post('http://localhost:7060/api/user/create', {
+	sbUserID: sbRegData.user?.id,
+	email: sbRegData.user?.email,
+	username: sbRegData.user?.user_metadata.username
   });
-
-  const d = {
-    username: formData.get('username'),
-    email: formData.get('email'),
-    reg_date: String(new Date()),
-    is_logged: true,
-    is_online: true
-  }
-
-
-  if (error) {
-    redirect('/error')
-  }
 
   revalidatePath('/', 'layout')
   redirect('/')
@@ -56,7 +53,7 @@ export async function logout() {
   const { error } = await supabase.auth.signOut();
 
   if (error) {
-    redirect('/error')
+	redirect('/error')
   }
 
   revalidatePath('/', 'layout')
