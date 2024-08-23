@@ -1,8 +1,5 @@
-
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Main() {
-	return (
-		<>MAIN PAGE <Link href={'/auth'}>Login</Link></> 
-	)
+	return <Link href={"/auth"}>Login</Link>;
 }

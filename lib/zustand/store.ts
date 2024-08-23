@@ -1,19 +1,22 @@
+import { UrlModel } from "@/types/service";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 interface State {
-    selectedChat: number | undefined;
+    links: UrlModel[];
 }
 
 interface Actions {
-    setSelectedChat: (id: number) => void;
+    setLinks: (array: UrlModel[]) => void;
+    pushLink: (entity: UrlModel) => void;
 }
 
-const useChatStore = create<State & Actions>()(devtools(immer((set) => ({
-    selectedChat: undefined,
+const useLinksStore = create<State & Actions>()(devtools(immer((set) => ({
+    links: [],
 
-    setSelectedChat: (id) => set({selectedChat: id})
+    setLinks: (array) => set({links: array}),
+    pushLink: (link) => set((state) => ({ links: [link, ...state.links] }))
 }))));
 
-export default useChatStore;
+export default useLinksStore;
