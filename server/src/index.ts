@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { authRouter } from './routes/auth';
 import { decksRouter } from './routes/decks';
 import { cardsRouter } from './routes/cards';
 
@@ -14,6 +15,7 @@ app.use(express.json());
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/druido';
 mongoose.connect(MONGO_URI).then(() => console.log('Connected to MongoDB'));
 
+app.use('/api/auth', authRouter);
 app.use('/api/decks', decksRouter);
 app.use('/api/cards', cardsRouter);
 
