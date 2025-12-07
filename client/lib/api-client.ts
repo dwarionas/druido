@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://druido-server.vercel.app";
 
 export interface ApiError {
 	message: string;
@@ -22,7 +22,6 @@ async function request<T>(path: string, options: RequestInit & { parseJson?: boo
 	});
 
 	if (!parseJson) {
-		// @ts-expect-error allow non-JSON
 		return res as T;
 	}
 
