@@ -1,3 +1,7 @@
+# Live demo
+
+https://druido.me
+
 ## DRUIDO
 
 Druido is an FSRS-based spaced repetition app (Anki-style) with:
