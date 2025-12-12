@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { cardsApi, Card, decksApi, DeckSummary } from "@/lib/decks-api";
 import { Card as UICard, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +17,6 @@ function SearchContent() {
 	React.useEffect(() => {
 		if (!initialQ) return;
 		void runSearch(initialQ);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [initialQ]);
 
 	async function runSearch(q: string) {
@@ -74,9 +74,9 @@ function SearchContent() {
 							</CardHeader>
 							<CardContent>
 								{deck.description && <p className="text-xs text-muted-foreground mb-1">{deck.description}</p>}
-								<a href={`/app/decks/${deck.id}`} className="text-xs font-medium text-primary underline underline-offset-4">
+								<Link href={`/app/decks/${deck.id}`} className="text-xs font-medium text-primary underline underline-offset-4">
 									Open deck
-								</a>
+								</Link>
 							</CardContent>
 						</UICard>
 					))}
@@ -104,15 +104,17 @@ function SearchContent() {
 
 export default function SearchPage() {
 	return (
-		<Suspense fallback={
-			<div className="space-y-4">
-				<section>
-					<h1 className="text-2xl font-semibold mb-2">Search</h1>
-					<p className="text-sm text-muted-foreground">Search across all your cards by question or answer.</p>
-				</section>
-				<p className="text-muted-foreground">Loading...</p>
-			</div>
-		}>
+		<Suspense
+			fallback={
+				<div className="space-y-4">
+					<section>
+						<h1 className="text-2xl font-semibold mb-2">Search</h1>
+						<p className="text-sm text-muted-foreground">Search across all your cards by question or answer.</p>
+					</section>
+					<p className="text-muted-foreground">Loading...</p>
+				</div>
+			}
+		>
 			<SearchContent />
 		</Suspense>
 	);

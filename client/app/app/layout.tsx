@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -11,10 +12,10 @@ function SearchFormInner() {
 	const searchParams = useSearchParams();
 	const [query, setQuery] = React.useState(searchParams.get("q") || "");
 
-	function handleSearchSubmit(e: React.FormEvent) {
+	const handleSearchSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		router.push(`/app/search?q=${encodeURIComponent(query)}`);
-	}
+	};
 
 	return (
 		<form onSubmit={handleSearchSubmit} className="flex flex-1 items-center gap-2">
@@ -46,12 +47,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 
 	React.useEffect(() => {
 		if (!loading && !user) {
-			const targetLogin =
-				typeof window !== "undefined" && window.location.hostname.endsWith("localhost")
-					? "http://localhost:8000/login"
-					: "https://druido.me/login";
-
-			router.push(targetLogin);
+			router.push("/login");
 		}
 	}, [loading, user, router]);
 
@@ -67,12 +63,12 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 		<div className="min-h-dvh bg-background">
 			<header className="border-b bg-muted/40">
 				<div className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-2">
-					<a href={"/app"} className="font-semibold">
+					<Link href={"/app"} className="font-semibold">
 						Druido
-					</a>
+					</Link>
 					<SearchForm />
 					<span className="text-sm text-muted-foreground hidden sm:inline">{user.name}</span>
-					<Button variant="ghost" size="sm" onClick={() => logout().then(() => router.push("/login"))}>
+					<Button variant="destructive" size="sm" onClick={() => logout().then(() => router.push("/login"))}>
 						Logout
 					</Button>
 				</div>
