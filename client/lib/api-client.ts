@@ -1,52 +1,42 @@
-function getApiBaseUrl(): string {
-	if (typeof window !== "undefined" && window.location.hostname === "localhost") {
-		return "http://localhost:4000";
-	}
-	return process.env.NEXT_PUBLIC_API_URL || "https://druido-server.vercel.app";
-}
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
-export interface ApiError {
-	message: string;
-	status: number;
-	errors?: unknown;
-}
+async function request<T>(
+	method: string,
+	path: string,
+	body?: unknown,
+): Promise<T> {
+	const url = `${API_URL}${path}`;
 
-async function request<T>(path: string, options: RequestInit & { parseJson?: boolean } = {}): Promise<T> {
-	const { parseJson = true, ...init } = options;
-
-	const token = typeof window !== "undefined" ? window.localStorage.getItem("druido_token") : null;
-
-	const res = await fetch(`${getApiBaseUrl()}${path}`, {
-		...init,
+	const init: RequestInit = {
+		method,
+		credentials: 'include',
 		headers: {
-			"Content-Type": "application/json",
-			...(token ? { Authorization: `Bearer ${token}` } : {}),
-			...(init.headers || {}),
+			'Content-Type': 'application/json',
 		},
-		credentials: "include",
-	});
+	};
 
-	if (!parseJson) {
-		return res as T;
+	if (body && (method === 'POST' || method === 'PATCH')) {
+		init.body = JSON.stringify(body);
 	}
 
-	const data = await res.json().catch(() => null);
+	const res = await fetch(url, init);
 
 	if (!res.ok) {
-		const error: ApiError = {
-			message: (data && (data.message as string)) || "Request failed",
-			status: res.status,
-			errors: data?.errors,
-		};
-		throw error;
+		const data = await res.json().catch(() => null);
+		const message = data?.message || res.statusText;
+		throw new Error(Array.isArray(message) ? message.join(', ') : message);
 	}
 
-	return data as T;
+	if (res.status === 204) {
+		return undefined as T;
+	}
+
+	return res.json();
 }
 
-export const apiClient = {
-	get: <T>(path: string) => request<T>(path, { method: "GET" }),
-	post: <T>(path: string, body?: unknown) => request<T>(path, { method: "POST", body: body ? JSON.stringify(body) : undefined }),
-	patch: <T>(path: string, body?: unknown) => request<T>(path, { method: "PATCH", body: body ? JSON.stringify(body) : undefined }),
-	delete: <T>(path: string) => request<T>(path, { method: "DELETE" }),
+export const api = {
+	get: <T>(path: string) => request<T>('GET', path),
+	post: <T>(path: string, body?: unknown) => request<T>('POST', path, body),
+	patch: <T>(path: string, body?: unknown) => request<T>('PATCH', path, body),
+	del: <T>(path: string) => request<T>('DELETE', path),
 };
