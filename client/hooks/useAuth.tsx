@@ -1,117 +1,81 @@
 "use client";
 
-import React from "react";
-import { apiClient, ApiError } from "@/lib/api-client";
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { api } from "@/lib/api-client";
 
-export interface AuthUser {
+interface User {
 	id: string;
 	email: string;
-	name?: string;
-	token?: string;
+	name: string | null;
 }
 
-interface AuthContextValue {
-	user: AuthUser | null;
+interface AuthContextType {
+	user: User | null;
 	loading: boolean;
 	error: string | null;
 	login: (email: string, password: string) => Promise<void>;
 	register: (email: string, password: string, name?: string) => Promise<void>;
 	logout: () => Promise<void>;
-	refreshUser: () => Promise<void>;
 }
 
-const AuthContext = React.createContext<AuthContextValue | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-	const [user, setUser] = React.useState<AuthUser | null>(null);
-	const [loading, setLoading] = React.useState(true);
-	const [error, setError] = React.useState<string | null>(null);
+	const [user, setUser] = useState<User | null>(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 
-	const fetchMe = React.useCallback(async () => {
-		setLoading(true);
-		setError(null);
+	const fetchUser = useCallback(async () => {
 		try {
-			const data = await apiClient.get<AuthUser>("/auth/me");
+			const data = await api.get<User | null>("/auth/me");
 			setUser(data);
-		} catch (err) {
+		} catch {
 			setUser(null);
 		} finally {
 			setLoading(false);
 		}
 	}, []);
 
-	React.useEffect(() => {
-		void fetchMe();
-	}, [fetchMe]);
+	useEffect(() => {
+		fetchUser();
+	}, [fetchUser]);
 
-	const login = React.useCallback(async (email: string, password: string) => {
+	const login = useCallback(async (email: string, password: string) => {
 		setError(null);
 		try {
-			const data = await apiClient.post<AuthUser>("/auth/login", { email, password });
-			if (data.token) {
-				if (typeof window !== "undefined") {
-					window.localStorage.setItem("druido_token", data.token);
-				}
-			}
+			const data = await api.post<User>("/auth/login", { email, password });
 			setUser(data);
-		} catch (err) {
-			const e = err as ApiError;
-			setError(e.message || "Login failed");
+		} catch (err: any) {
+			setError(err.message || "Login failed");
 			throw err;
 		}
 	}, []);
 
-	const register = React.useCallback(async (email: string, password: string, name?: string) => {
+	const register = useCallback(async (email: string, password: string, name?: string) => {
 		setError(null);
 		try {
-			const data = await apiClient.post<AuthUser>("/auth/register", { email, password, name });
-			if (data.token) {
-				if (typeof window !== "undefined") {
-					window.localStorage.setItem("druido_token", data.token);
-				}
-			}
+			const data = await api.post<User>("/auth/register", { email, password, name });
 			setUser(data);
-		} catch (err) {
-			const e = err as ApiError;
-			setError(e.message || "Registration failed");
+		} catch (err: any) {
+			setError(err.message || "Registration failed");
 			throw err;
 		}
 	}, []);
 
-	const logout = React.useCallback(async () => {
-		setError(null);
-		try {
-			await apiClient.post<unknown>("/auth/logout", {});
-		} catch (err) {
-			const e = err as ApiError;
-			setError(e.message || "Logout failed");
-		} finally {
-			if (typeof window !== "undefined") {
-				window.localStorage.removeItem("druido_token");
-			}
-			setUser(null);
-		}
+	const logout = useCallback(async () => {
+		await api.post("/auth/logout");
+		setUser(null);
 	}, []);
 
-	const refreshUser = React.useCallback(fetchMe, [fetchMe]);
-
-	const value: AuthContextValue = {
-		user,
-		loading,
-		error,
-		login,
-		register,
-		logout,
-		refreshUser,
-	};
-
-	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+	return (
+		<AuthContext.Provider value={{ user, loading, error, login, register, logout }}>
+			{children}
+		</AuthContext.Provider>
+	);
 }
 
-export function useAuth(): AuthContextValue {
-	const ctx = React.useContext(AuthContext);
-	if (!ctx) {
-		throw new Error("useAuth must be used within an AuthProvider");
-	}
+export function useAuth() {
+	const ctx = useContext(AuthContext);
+	if (!ctx) throw new Error("useAuth must be used within AuthProvider");
 	return ctx;
 }
