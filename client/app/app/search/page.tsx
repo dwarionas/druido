@@ -3,7 +3,7 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { cardsApi, Card, decksApi, DeckSummary } from "@/lib/decks-api";
+import { listCards, getDecksSummary, type Card, type DeckSummary } from "@/lib/decks-api";
 import { Card as UICard, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 function SearchContent() {
@@ -22,7 +22,7 @@ function SearchContent() {
 	async function runSearch(q: string) {
 		setLoading(true);
 		try {
-			const [deckData, cardData] = await Promise.all([decksApi.list(q), cardsApi.list({ q })]);
+			const [deckData, cardData] = await Promise.all([getDecksSummary(q), listCards(undefined, q)]);
 			setDecks(deckData);
 			setCards(cardData);
 		} finally {
@@ -39,43 +39,43 @@ function SearchContent() {
 	return (
 		<div className="space-y-4">
 			<section>
-				<h1 className="text-2xl font-semibold mb-2">Search</h1>
-				<p className="text-sm text-muted-foreground">Search across all your cards by question or answer.</p>
+				<h1 className="text-2xl font-semibold mb-2">Пошук</h1>
+				<p className="text-sm text-muted-foreground">Шукай серед усіх карток та колод.</p>
 			</section>
 
 			<form onSubmit={handleSubmit} className="flex gap-2">
 				<input
 					className="flex-1 rounded-md border bg-background px-3 py-2 text-sm"
-					placeholder="Search cards..."
+					placeholder="Пошук карток..."
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
 				<button className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground" type="submit">
-					Search
+					Шукати
 				</button>
 			</form>
 
-			{loading && <p className="text-muted-foreground">Searching...</p>}
+			{loading && <p className="text-muted-foreground">Шукаю...</p>}
 
 			{!loading && decks.length === 0 && cards.length === 0 && initialQ && (
-				<p className="text-muted-foreground">No results for "{initialQ}".</p>
+				<p className="text-muted-foreground">Нічого не знайдено за «{initialQ}».</p>
 			)}
 
 			{!loading && decks.length > 0 && (
 				<section className="space-y-2">
-					<h2 className="text-sm font-medium">Decks</h2>
+					<h2 className="text-sm font-medium">Колоди</h2>
 					{decks.map((deck) => (
 						<UICard key={deck.id}>
 							<CardHeader>
 								<CardTitle className="flex items-center justify-between gap-2 text-sm">
 									<span>{deck.name}</span>
-									<span className="text-xs font-normal text-muted-foreground">{deck.totalCards} cards</span>
+									<span className="text-xs font-normal text-muted-foreground">{deck.totalCards} карток</span>
 								</CardTitle>
 							</CardHeader>
 							<CardContent>
 								{deck.description && <p className="text-xs text-muted-foreground mb-1">{deck.description}</p>}
 								<Link href={`/app/decks/${deck.id}`} className="text-xs font-medium text-primary underline underline-offset-4">
-									Open deck
+									Відкрити
 								</Link>
 							</CardContent>
 						</UICard>
@@ -85,7 +85,7 @@ function SearchContent() {
 
 			{!loading && cards.length > 0 && (
 				<section className="space-y-2">
-					<h2 className="text-sm font-medium">Cards</h2>
+					<h2 className="text-sm font-medium">Картки</h2>
 					{cards.map((card) => (
 						<UICard key={card.id}>
 							<CardHeader>
@@ -108,10 +108,10 @@ export default function SearchPage() {
 			fallback={
 				<div className="space-y-4">
 					<section>
-						<h1 className="text-2xl font-semibold mb-2">Search</h1>
-						<p className="text-sm text-muted-foreground">Search across all your cards by question or answer.</p>
+						<h1 className="text-2xl font-semibold mb-2">Пошук</h1>
+						<p className="text-sm text-muted-foreground">Шукай серед усіх карток та колод.</p>
 					</section>
-					<p className="text-muted-foreground">Loading...</p>
+					<p className="text-muted-foreground">Завантаження...</p>
 				</div>
 			}
 		>

@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { cardsApi, Card } from "@/lib/decks-api";
+import { listCards, createCard, updateCard, deleteCard, bulkDeleteCards, type Card } from "@/lib/decks-api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Pencil, Trash2 } from "lucide-react";
@@ -20,14 +20,12 @@ export default function DeckDetailPage() {
 	const [answer, setAnswer] = React.useState("");
 	const [editingCard, setEditingCard] = React.useState<Card | null>(null);
 	const [isEditSheetOpen, setIsEditSheetOpen] = React.useState(false);
-	const [cardsVersion, setCardsVersion] = React.useState(0);
 
 	async function loadCards() {
 		setLoading(true);
 		try {
-			const data = await cardsApi.list({ deckId: deckId as string });
+			const data = await listCards(deckId as string);
 			setCards(data);
-			setCardsVersion((prev) => prev + 1);
 		} finally {
 			setLoading(false);
 		}
@@ -42,9 +40,9 @@ export default function DeckDetailPage() {
 		if (!question.trim() || !answer.trim()) return;
 
 		if (editingCard) {
-			await cardsApi.update(editingCard.id, { question, answer });
+			await updateCard(editingCard.id, { question, answer });
 		} else {
-			await cardsApi.create({ deckId: deckId as string, question, answer });
+			await createCard({ deckId: deckId as string, question, answer });
 		}
 
 		setQuestion("");
@@ -56,7 +54,7 @@ export default function DeckDetailPage() {
 	async function handleDeleteCard(cardId: string) {
 		const ok = window.confirm("Видалити цю картку?");
 		if (!ok) return;
-		await cardsApi.delete(cardId);
+		await deleteCard(cardId);
 		await loadCards();
 	}
 
@@ -64,7 +62,7 @@ export default function DeckDetailPage() {
 		if (!cards.length) return;
 		const ok = window.confirm("Видалити всі картки цієї колоди?");
 		if (!ok) return;
-		await Promise.all(cards.map((card) => cardsApi.delete(card.id)));
+		await bulkDeleteCards(deckId as string);
 		await loadCards();
 	}
 
@@ -74,26 +72,26 @@ export default function DeckDetailPage() {
 		<div className="space-y-6">
 			<section className="flex items-center justify-between gap-2">
 				<div className="space-y-1">
-					<h1 className="text-xl font-semibold">Deck</h1>
+					<h1 className="text-xl font-semibold">Колода</h1>
 					<p className="text-xs text-muted-foreground">
-						{totalCards > 0 ? `${totalCards} cards · ` : null}
-						Add and review cards in this deck.
+						{totalCards > 0 ? `${totalCards} карток · ` : null}
+						Додавай та повторюй картки.
 					</p>
 				</div>
 				<div className="flex items-center gap-2">
 					<Sheet>
 						<SheetTrigger asChild>
 							<Button variant="outline" size="sm" disabled={loading || totalCards === 0}>
-								{loading ? "Loading cards..." : `Cards (${totalCards})`}
+								{loading ? "Завантаження..." : `Картки (${totalCards})`}
 							</Button>
 						</SheetTrigger>
 						<SheetContent side="right" className="flex flex-col">
 							<SheetHeader>
-								<SheetTitle>Cards in this deck</SheetTitle>
-								<SheetDescription>Quick overview of all cards in this deck.</SheetDescription>
+								<SheetTitle>Картки колоди</SheetTitle>
+								<SheetDescription>Швидкий перегляд усіх карток.</SheetDescription>
 								{totalCards > 0 && (
 									<div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
-										<span>{totalCards} cards in this deck</span>
+										<span>{totalCards} карток у колоді</span>
 										<Button
 											type="button"
 											variant="ghost"
@@ -101,14 +99,14 @@ export default function DeckDetailPage() {
 											className="text-destructive hover:text-destructive hover:underline"
 											onClick={handleDeleteAllCards}
 										>
-											Delete all
+											Видалити всі
 										</Button>
 									</div>
 								)}
 							</SheetHeader>
 							<div className="flex-1 space-y-2 overflow-y-auto px-4 pb-4 pt-2">
 								{!loading && totalCards === 0 && (
-									<p className="text-sm text-muted-foreground">No cards yet. Use "Add card" to create your first one.</p>
+									<p className="text-sm text-muted-foreground">Карток ще немає. Натисни «Додати картку».</p>
 								)}
 								{cards.map((card, index) => (
 									<div key={`${card.id}-${card.updatedAt}-${index}`} className="rounded-md border bg-card px-3 py-2 text-sm">
@@ -131,7 +129,7 @@ export default function DeckDetailPage() {
 													}}
 												>
 													<Pencil className="h-3 w-3" />
-													<span className="sr-only">Edit card</span>
+													<span className="sr-only">Редагувати</span>
 												</Button>
 												<Button
 													type="button"
@@ -141,7 +139,7 @@ export default function DeckDetailPage() {
 													onClick={() => handleDeleteCard(card.id)}
 												>
 													<Trash2 className="h-3 w-3" />
-													<span className="sr-only">Delete card</span>
+													<span className="sr-only">Видалити</span>
 												</Button>
 											</div>
 										</div>
@@ -159,19 +157,19 @@ export default function DeckDetailPage() {
 					>
 						<SheetTrigger asChild>
 							<Button variant="default" size="sm">
-								{editingCard ? "Edit card" : "Add card"}
+								{editingCard ? "Редагувати" : "Додати картку"}
 							</Button>
 						</SheetTrigger>
 						<SheetContent side="bottom" className="flex flex-col">
 							<SheetHeader>
-								<SheetTitle>{editingCard ? "Edit card" : "Add a new card"}</SheetTitle>
+								<SheetTitle>{editingCard ? "Редагувати картку" : "Додати нову картку"}</SheetTitle>
 								<SheetDescription>
-									Provide a question and answer to {editingCard ? "update" : "add"} a card in this deck.
+									Введи питання та відповідь, щоб {editingCard ? "оновити" : "додати"} картку.
 								</SheetDescription>
 							</SheetHeader>
 							<form onSubmit={handleSaveCard} className="flex flex-col gap-3 px-4 pb-4 pt-2">
-								<Input placeholder="Question" value={question} onChange={(e) => setQuestion(e.target.value)} />
-								<Input placeholder="Answer" value={answer} onChange={(e) => setAnswer(e.target.value)} />
+								<Input placeholder="Питання" value={question} onChange={(e) => setQuestion(e.target.value)} />
+								<Input placeholder="Відповідь" value={answer} onChange={(e) => setAnswer(e.target.value)} />
 								<div className="flex justify-end gap-2">
 									<SheetClose asChild>
 										<Button
@@ -184,12 +182,12 @@ export default function DeckDetailPage() {
 												setAnswer("");
 											}}
 										>
-											Cancel
+											Скасувати
 										</Button>
 									</SheetClose>
 									<SheetClose asChild>
 										<Button type="submit" size="sm" disabled={!question.trim() || !answer.trim()}>
-											{editingCard ? "Save changes" : "Save card"}
+											{editingCard ? "Зберегти зміни" : "Зберегти картку"}
 										</Button>
 									</SheetClose>
 								</div>
@@ -198,14 +196,14 @@ export default function DeckDetailPage() {
 					</Sheet>
 
 					<Button variant="outline" size="sm" asChild>
-						<Link href="/app">Back to decks</Link>
+						<Link href="/app">Назад</Link>
 					</Button>
 				</div>
 			</section>
 
 			<section className="rounded-md border bg-card p-4">
-				<h2 className="mb-3 text-sm font-medium">Review cards</h2>
-				<Lernground deckId={deckId as string} version={cardsVersion} />
+				<h2 className="mb-3 text-sm font-medium">Повторення</h2>
+				<Lernground deckId={deckId as string} />
 			</section>
 		</div>
 	);

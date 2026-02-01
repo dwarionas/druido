@@ -21,13 +21,13 @@ function SearchFormInner() {
 		<form onSubmit={handleSearchSubmit} className="flex flex-1 items-center gap-2">
 			<Input
 				type="search"
-				placeholder="Search cards or decks..."
+				placeholder="Пошук карток та колод..."
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				className="bg-background"
 			/>
 			<Button type="submit" variant="outline">
-				Search
+				Пошук
 			</Button>
 		</form>
 	);
@@ -54,7 +54,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 	if (loading || !user) {
 		return (
 			<div className="flex min-h-dvh items-center justify-center">
-				<p className="text-muted-foreground">Loading your workspace...</p>
+				<p className="text-muted-foreground">Завантаження...</p>
 			</div>
 		);
 	}
@@ -69,7 +69,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 					<SearchForm />
 					<span className="text-sm text-muted-foreground hidden sm:inline">{user.name}</span>
 					<Button variant="destructive" size="sm" onClick={() => logout().then(() => router.push("/login"))}>
-						Logout
+						Вихід
 					</Button>
 				</div>
 			</header>
