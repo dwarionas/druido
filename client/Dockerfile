@@ -1,15 +1,18 @@
-FROM node:20
-
+# TODO: optimize layer caching
+FROM node:22-alpine AS builder
 WORKDIR /app
-
 COPY package*.json ./
-
-RUN yarn
-
+RUN npm ci
 COPY . .
+RUN npm run build
 
-RUN yarn build
+FROM node:22-alpine
+WORKDIR /app
+COPY --from=builder /app/.next .next
+COPY --from=builder /app/node_modules node_modules
+COPY --from=builder /app/package.json package.json
+COPY --from=builder /app/public public
 
 EXPOSE 8000
-
-CMD ["yarn", "dev"]
+ENV PORT=8000
+CMD ["npm", "start"]
