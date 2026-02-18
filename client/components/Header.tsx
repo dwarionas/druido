@@ -1,13 +1,9 @@
 "use client";
 
 import Link from "next/link";
-
-import { useAuth } from "@/hooks/useAuth";
 import ModeToggle from "./ModeToggle";
 
 export function Header() {
-	const { user } = useAuth();
-
 	return (
 		<header className="flex items-center justify-between">
 			<div className="flex items-center gap-2">
@@ -17,9 +13,8 @@ export function Header() {
 
 			<div className="flex gap-3">
 				<ModeToggle />
-
-				<Link href={user ? "/app" : "/login"} className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground">
-					{user ? "Open app" : "Login"}
+				<Link href="/login" className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+					Login
 				</Link>
 			</div>
 		</header>

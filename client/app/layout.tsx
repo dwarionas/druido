@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/hooks/useAuth";
 import { I18nProvider } from "@/lib/i18n";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
 	title: "Druido",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 					<I18nProvider>
 						<AuthProvider>{children}</AuthProvider>
 					</I18nProvider>
+					<Toaster position="bottom-right" richColors />
 				</ThemeProvider>
 			</body>
 		</html>

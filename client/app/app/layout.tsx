@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ModeToggle from "@/components/ModeToggle";
 
 function SearchFormInner() {
 	const router = useRouter();
@@ -67,7 +68,8 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 						Druido
 					</Link>
 					<SearchForm />
-					<span className="text-sm text-muted-foreground hidden sm:inline">{user.name}</span>
+					<span className="text-sm text-muted-foreground hidden sm:inline">{user.name || user.email}</span>
+					<ModeToggle />
 					<Button variant="destructive" size="sm" onClick={() => logout().then(() => router.push("/login"))}>
 						Вихід
 					</Button>

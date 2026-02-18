@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import { LanguageSwitcher, useI18n } from "@/lib/i18n";
-import { useAuth } from "@/hooks/useAuth";
 
 export function LandingHero() {
 	const { t } = useI18n();
-	const { user } = useAuth();
 
 	return (
 		<section className="grid gap-8 md:grid-cols-2 md:items-center">
@@ -17,10 +15,10 @@ export function LandingHero() {
 					learning and beyond.
 				</p>
 				<div className="flex flex-wrap gap-3 items-center">
-					<Link href={user ? "/app" : "/login"} className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
+					<Link href="/login" className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
 						{t("landing.cta")}
 					</Link>
-					<Link href="#features" className="rounded-md border px-4 py-2 text-sm font-medium">
+					<Link href="#features" className="rounded-md border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors">
 						Learn more
 					</Link>
 				</div>
