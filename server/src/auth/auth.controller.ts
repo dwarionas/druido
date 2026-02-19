@@ -66,8 +66,8 @@ export class AuthController {
     private setAuthCookie(res: Response, token: string) {
         res.cookie(COOKIE_NAME, token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
+            secure: true, // required for cross-site cookies
+            sameSite: 'none', // required for cross-site cookies (Vercel -> Render)
             maxAge: COOKIE_MAX_AGE,
         });
     }
