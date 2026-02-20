@@ -22,6 +22,7 @@ export function useFSRS(deckId: string) {
 				if (!cancelled) {
 					setCards(dueCards);
 					setCurrentIndex(0);
+					setShowAnswer(false);
 					setFinished(dueCards.length === 0);
 					setLoading(false);
 
@@ -67,6 +68,28 @@ export function useFSRS(deckId: string) {
 			console.error("Failed to review card:", err);
 		}
 	}, [currentCard, currentIndex, cards]);
+
+	// keyboard shortcuts: space to flip, 1-4 to rate
+	useEffect(() => {
+		function handleKeyDown(e: KeyboardEvent) {
+			// don't trigger if user is typing in an input
+			if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+			if (finished || loading || !currentCard) return;
+
+			if (e.code === "Space") {
+				e.preventDefault();
+				flipCard();
+			}
+
+			if (showAnswer && ["1", "2", "3", "4"].includes(e.key)) {
+				e.preventDefault();
+				rateCard(parseInt(e.key));
+			}
+		}
+
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [flipCard, rateCard, showAnswer, finished, loading, currentCard]);
 
 	return {
 		cards,

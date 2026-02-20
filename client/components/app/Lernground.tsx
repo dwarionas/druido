@@ -19,20 +19,32 @@ const RATING_BUTTONS = [
 
 const ratingStyles: Record<number, string> = {
 	1: "border-destructive/40 bg-destructive/5 text-destructive hover:bg-destructive/10",
-	2: "border-amber-300/70 bg-amber-50 text-amber-900 hover:bg-amber-100",
-	3: "border-emerald-300/70 bg-emerald-50 text-emerald-900 hover:bg-emerald-100",
-	4: "border-sky-300/70 bg-sky-50 text-sky-900 hover:bg-sky-100",
+	2: "border-amber-300/70 bg-amber-50 text-amber-900 hover:bg-amber-100 dark:bg-amber-950/30 dark:text-amber-200 dark:hover:bg-amber-950/50",
+	3: "border-emerald-300/70 bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-200 dark:hover:bg-emerald-950/50",
+	4: "border-sky-300/70 bg-sky-50 text-sky-900 hover:bg-sky-100 dark:bg-sky-950/30 dark:text-sky-200 dark:hover:bg-sky-950/50",
 };
 
 const baseButtonClasses =
 	"flex flex-col items-center justify-center gap-1 py-2 text-xs border transition-colors disabled:opacity-60 disabled:cursor-not-allowed";
 
-export default function Lernground({ deckId }: Props) {
-	const [revealed, setRevealed] = React.useState(false);
+export default function Lernground({ deckId, version }: Props) {
+	const [flipped, setFlipped] = React.useState(false);
+	const [rating, setRating] = React.useState(false);
 	const { currentCard, rateCard, schedule, loading, finished, totalCards, currentIndex } = useFSRS(deckId);
 
+	// reset flip when card changes
+	React.useEffect(() => {
+		setFlipped(false);
+	}, [currentCard?.id]);
+
 	if (loading) {
-		return <p className="text-muted-foreground">Loading...</p>;
+		return (
+			<div className="space-y-3 animate-pulse">
+				<div className="h-4 w-32 rounded bg-muted" />
+				<div className="h-24 rounded-md bg-muted" />
+				<div className="h-20 rounded-md bg-muted" />
+			</div>
+		);
 	}
 
 	if (finished || !currentCard) {
@@ -45,53 +57,79 @@ export default function Lernground({ deckId }: Props) {
 	}
 
 	const currentNumber = currentIndex + 1;
+	const progress = totalCards > 0 ? (currentNumber / totalCards) * 100 : 0;
+
+	async function handleRate(r: number) {
+		setRating(true);
+		try {
+			await rateCard(r);
+		} finally {
+			setRating(false);
+		}
+	}
 
 	return (
 		<div className="space-y-4">
-			<div className="flex items-center justify-between text-xs text-muted-foreground">
-				<span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 font-medium">
-					Карта {currentNumber} з {totalCards}
-				</span>
-				<span className="hidden sm:inline">Flip card, then rate difficulty.</span>
-			</div>
-
-			<div className="space-y-2 rounded-md border bg-muted/40 p-4">
-				<div className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Питання</div>
-				<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.question}</div>
-			</div>
-
-			<div
-				className={cn("space-y-3 rounded-md border bg-muted/40 p-4", !revealed && "cursor-pointer hover:bg-muted/60")}
-				onClick={() => {
-					if (!revealed) setRevealed(true);
-				}}
-			>
-				<div className="flex items-center justify-between gap-2">
-					<span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Відповідь</span>
+			{/* progress */}
+			<div className="space-y-1">
+				<div className="flex items-center justify-between text-xs text-muted-foreground">
+					<span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 font-medium">
+						Карта {currentNumber} з {totalCards}
+					</span>
+					<span className="hidden sm:inline">Flip card, then rate difficulty.</span>
 				</div>
-				{revealed ? (
-					<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.answer}</div>
-				) : (
-					<p className="text-xs text-muted-foreground">Натисни, щоб побачити відповідь, потім обери складність.</p>
-				)}
+				<div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+					<div
+						className="h-full rounded-full bg-primary transition-all duration-500"
+						style={{ width: `${progress}%` }}
+					/>
+				</div>
 			</div>
 
+			{/* card with flip */}
+			<div
+				className="relative cursor-pointer perspective-1000"
+				style={{ minHeight: 160 }}
+				onClick={() => setFlipped(!flipped)}
+			>
+				<div className={cn(
+					"w-full transition-transform duration-500 transform-style-3d",
+					flipped && "rotate-y-180"
+				)}>
+					{/* front */}
+					<div className={cn(
+						"space-y-2 rounded-md border bg-muted/40 p-4 backface-hidden",
+						flipped && "hidden"
+					)}>
+						<div className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Питання</div>
+						<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.question}</div>
+						<p className="text-xs text-muted-foreground text-center pt-2">Натисни, щоб побачити відповідь</p>
+					</div>
+
+					{/* back */}
+					{flipped && (
+						<div className="space-y-2 rounded-md border bg-muted/40 p-4">
+							<div className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Відповідь</div>
+							<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.answer}</div>
+						</div>
+					)}
+				</div>
+			</div>
+
+			{/* rating buttons */}
 			<div className="grid gap-2 md:grid-cols-4">
-				{RATING_BUTTONS.map(({ label, rating }) => (
+				{RATING_BUTTONS.map(({ label, rating: r }) => (
 					<Button
-						key={rating}
+						key={r}
 						type="button"
 						variant="outline"
 						size="sm"
-						className={cn(baseButtonClasses, ratingStyles[rating])}
-						disabled={!revealed}
-						onClick={() => {
-							void rateCard(rating);
-							setRevealed(false);
-						}}
+						className={cn(baseButtonClasses, ratingStyles[r])}
+						disabled={!flipped || rating}
+						onClick={() => handleRate(r)}
 					>
 						<span className="font-medium">{label}</span>
-						{schedule && schedule[rating] && <span className="text-[10px] text-muted-foreground">через {schedule[rating]}</span>}
+						{schedule && schedule[r] && <span className="text-[10px] text-muted-foreground">через {schedule[r]}</span>}
 					</Button>
 				))}
 			</div>
