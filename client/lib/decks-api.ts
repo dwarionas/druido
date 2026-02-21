@@ -9,6 +9,7 @@ export interface DeckSummary {
 	language: string;
 	tags: string[];
 	totalCards: number;
+	dueCards: number;
 	createdAt: string;
 	updatedAt: string;
 }
