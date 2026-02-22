@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
@@ -30,70 +28,50 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 			} else {
 				await register(email, password, name || undefined);
 			}
-
 			router.push("/app");
-		} catch (err) {
-			setFormError("Authentication failed");
+		} catch {
+			setFormError(mode === "login" ? "Невірний email або пароль" : "Не вдалося створити акаунт");
 		} finally {
 			setSubmitting(false);
 		}
 	}
 
 	return (
-		<div className={cn("flex flex-col gap-6", className)} {...props}>
-			<Card>
-				<CardHeader className="text-center">
-					<CardTitle className="text-xl">{mode === "login" ? "Welcome back" : "Create your Druido account"}</CardTitle>
-					<CardDescription>
-						{mode === "login" ? "Log in to continue your learning" : "Register with email and password to start using Druido"}
-					</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<form onSubmit={handleSubmit} className="grid gap-6">
-						<div className="grid gap-4">
-							{mode === "register" && (
-								<div className="grid gap-3">
-									<Label htmlFor="name">Name</Label>
-									<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" />
-								</div>
-							)}
-							<div className="grid gap-3">
-								<Label htmlFor="email">Email</Label>
-								<Input
-									id="email"
-									type="email"
-									placeholder="m@example.com"
-									required
-									value={email}
-									onChange={(e) => setEmail(e.target.value)}
-								/>
-							</div>
-							<div className="grid gap-3">
-								<div className="flex items-center">
-									<Label htmlFor="password">Password</Label>
-								</div>
-								<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-							</div>
-						</div>
-						{(formError || error) && <p className="text-destructive text-sm">{formError || error}</p>}
-						<Button type="submit" className="w-full" disabled={submitting}>
-							{submitting ? (mode === "login" ? "Logging in..." : "Creating account...") : mode === "login" ? "Login" : "Sign up"}
-						</Button>
-						<div className="text-center text-sm">
-							{mode === "login" ? "Don't have an account? " : "Already have an account? "}
-							<button
-								type="button"
-								className="underline underline-offset-4"
-								onClick={() => setMode(mode === "login" ? "register" : "login")}
-							>
-								{mode === "login" ? "Sign up" : "Log in"}
-							</button>
-						</div>
-					</form>
-				</CardContent>
-			</Card>
-			<div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-				By continuing, you agree to our <Link href="#">Terms of Service</Link> and <Link href="#">Privacy Policy</Link>.
+		<div className={cn("space-y-4", className)} {...props}>
+			<form onSubmit={handleSubmit} className="space-y-4">
+				{mode === "register" && (
+					<div className="space-y-1.5">
+						<Label htmlFor="name" className="text-xs">Ім'я</Label>
+						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Ваше ім'я" className="h-9 text-sm" />
+					</div>
+				)}
+				<div className="space-y-1.5">
+					<Label htmlFor="email" className="text-xs">Email</Label>
+					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-9 text-sm" />
+				</div>
+				<div className="space-y-1.5">
+					<Label htmlFor="password" className="text-xs">Пароль</Label>
+					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-9 text-sm" />
+				</div>
+
+				{(formError || error) && <p className="text-destructive text-xs">{formError || error}</p>}
+
+				<Button type="submit" className="w-full h-9 text-xs" disabled={submitting}>
+					{submitting
+						? (mode === "login" ? "Вхід..." : "Реєстрація...")
+						: (mode === "login" ? "Увійти" : "Зареєструватися")}
+				</Button>
+			</form>
+
+			<div className="text-center text-xs text-muted-foreground">
+				{mode === "login" ? "Немає акаунту? " : "Вже є акаунт? "}
+				<button
+					type="button"
+					className="underline underline-offset-4 hover:text-foreground transition-colors"
+					onClick={() => setMode(mode === "login" ? "register" : "login")}
+				>
+					{mode === "login" ? "Створити" : "Увійти"}
+				</button>
 			</div>
 		</div>
 	);

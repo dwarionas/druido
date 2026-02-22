@@ -1,35 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { GalleryVerticalEnd } from "lucide-react";
-
 import { LoginForm } from "@/components/login-form";
 import { LanguageSwitcher, useI18n } from "@/lib/i18n";
 
-function LoginHeader() {
-	const { t } = useI18n();
-	return (
-		<div className="flex flex-col gap-2">
-			<Link href="#" className="flex items-center gap-2 font-medium">
-				<div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
-					<GalleryVerticalEnd className="size-4" />
-				</div>
-				<span>Druido</span>
-			</Link>
-			<p className="text-xs text-muted-foreground">{t("login.subtitle")}</p>
-		</div>
-	);
-}
-
 export default function LoginPage() {
+	const { t } = useI18n();
+
 	return (
-		<div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-			<div className="flex w-full max-w-sm flex-col gap-6">
+		<div className="flex min-h-svh flex-col items-center justify-center px-6 py-12">
+			<div className="w-full max-w-xs space-y-8">
 				<div className="flex items-center justify-between">
-					<LoginHeader />
+					<Link href="/" className="flex items-center gap-2">
+						<div className="flex h-6 w-6 items-center justify-center border bg-foreground text-background text-[10px] font-bold">D</div>
+						<span className="text-sm font-semibold tracking-tight">Druido</span>
+					</Link>
 					<LanguageSwitcher />
 				</div>
+
+				<div className="space-y-1">
+					<h1 className="text-lg font-semibold">{t("login.title")}</h1>
+					<p className="text-xs text-muted-foreground">{t("login.subtitle")}</p>
+				</div>
+
 				<LoginForm />
+
+				<p className="text-[11px] text-muted-foreground text-center text-balance">
+					By continuing, you agree to our Terms of Service and Privacy Policy.
+				</p>
 			</div>
 		</div>
 	);
