@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
         return [
             { source: "/login/:path*", destination: "/login/:path*" },
             { source: "/app/:path*", destination: "/app/:path*" },
+            { source: "/api/:path*", destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/:path*` },
         ];
     },
     reactStrictMode: false
