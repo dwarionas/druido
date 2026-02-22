@@ -4,7 +4,6 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ModeToggle from "@/components/ModeToggle";
 
@@ -26,7 +25,7 @@ function SearchFormInner() {
 				placeholder="Пошук..."
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
-				className="h-8 bg-background text-xs"
+				className="h-10 border-2 border-neo-black rounded-xl font-bold bg-white text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange"
 			/>
 		</form>
 	);
@@ -53,37 +52,38 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 	if (loading || !user) {
 		return (
 			<div className="flex min-h-dvh items-center justify-center">
-				<p className="text-xs text-muted-foreground">Завантаження...</p>
+				<p className="text-sm font-bold text-neo-black animate-pulse">Завантаження...</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className="min-h-dvh bg-background">
-			<header className="border-b">
-				<div className="mx-auto flex max-w-3xl items-center gap-3 px-6 py-2">
-					<Link href="/app" className="flex items-center gap-2 shrink-0">
-						<div className="flex h-5 w-5 items-center justify-center border bg-foreground text-background text-[8px] font-bold">D</div>
-						<span className="text-xs font-semibold tracking-tight hidden sm:inline">Druido</span>
+		<div className="min-h-dvh bg-neo-yellow">
+			<header className="border-b-4 border-neo-black bg-neo-peach px-6 py-4">
+				<div className="mx-auto flex max-w-4xl items-center gap-4">
+					<Link href="/app" className="flex items-center gap-2 shrink-0 group">
+						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#1a1510] transition-transform group-hover:-translate-y-0.5 group-hover:shadow-[2px_4px_0px_#1a1510]">D</div>
+						<span className="text-lg font-extrabold tracking-tight hidden sm:inline text-neo-black">Druido</span>
 					</Link>
 
-					<SearchForm />
+					<div className="flex-1 max-w-xs mx-auto">
+						<SearchForm />
+					</div>
 
-					<div className="flex items-center gap-2 shrink-0">
-						<span className="text-[11px] text-muted-foreground hidden md:inline">
+					<div className="flex items-center gap-4 shrink-0">
+						<span className="text-sm font-bold text-neo-black hidden md:inline">
 							{user.name || user.email}
 						</span>
-						<ModeToggle />
 						<button
 							onClick={() => logout().then(() => router.push("/login"))}
-							className="text-[11px] text-muted-foreground hover:text-foreground transition-colors"
+							className="rounded-xl border-2 border-neo-black bg-white px-3 py-1.5 text-xs font-bold text-neo-black shadow-[2px_2px_0px_#1a1510] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#1a1510]"
 						>
 							Вихід
 						</button>
 					</div>
 				</div>
 			</header>
-			<main className="mx-auto max-w-3xl px-6 py-8">{children}</main>
+			<main className="mx-auto max-w-4xl px-6 py-8">{children}</main>
 		</div>
 	);
 }

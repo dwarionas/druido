@@ -84,9 +84,8 @@ export function LanguageSwitcher() {
 					key={lng}
 					type="button"
 					onClick={() => setLocale(lng)}
-					className={`rounded-md px-2 py-1 ${
-						locale === lng ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"
-					}`}
+					className={`px-2 py-1 transition-all ${locale === lng ? "btn-gradient font-medium" : "text-muted-foreground hover:bg-muted"
+						}`}
 				>
 					{lng.toUpperCase()}
 				</button>

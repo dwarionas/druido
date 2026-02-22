@@ -18,14 +18,14 @@ const RATING_BUTTONS = [
 ] as const;
 
 const ratingStyles: Record<number, string> = {
-	1: "border-destructive/40 bg-destructive/5 text-destructive hover:bg-destructive/10",
-	2: "border-amber-300/70 bg-amber-50 text-amber-900 hover:bg-amber-100 dark:bg-amber-950/30 dark:text-amber-200 dark:hover:bg-amber-950/50",
-	3: "border-emerald-300/70 bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:bg-emerald-950/30 dark:text-emerald-200 dark:hover:bg-emerald-950/50",
-	4: "border-sky-300/70 bg-sky-50 text-sky-900 hover:bg-sky-100 dark:bg-sky-950/30 dark:text-sky-200 dark:hover:bg-sky-950/50",
+	1: "border-4 border-neo-black bg-[#ff6b6b] text-neo-black shadow-[4px_4px_0px_#1a1510] hover:bg-[#ff5252] hover:-translate-y-1 hover:shadow-[4px_6px_0px_#1a1510]",
+	2: "border-4 border-neo-black bg-neo-orange text-neo-black shadow-[4px_4px_0px_#1a1510] hover:bg-[#ff6a1a] hover:-translate-y-1 hover:shadow-[4px_6px_0px_#1a1510]",
+	3: "border-4 border-neo-black bg-neo-yellow text-neo-black shadow-[4px_4px_0px_#1a1510] hover:bg-[#fbd825] hover:-translate-y-1 hover:shadow-[4px_6px_0px_#1a1510]",
+	4: "border-4 border-neo-black bg-[#4ade80] text-neo-black shadow-[4px_4px_0px_#1a1510] hover:bg-[#34d399] hover:-translate-y-1 hover:shadow-[4px_6px_0px_#1a1510]",
 };
 
 const baseButtonClasses =
-	"flex flex-col items-center justify-center gap-1 py-2 text-xs border transition-colors disabled:opacity-60 disabled:cursor-not-allowed";
+	"flex flex-col items-center justify-center gap-1 py-4 h-auto text-sm font-black rounded-xl transition-all disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 disabled:cursor-not-allowed";
 
 export default function Lernground({ deckId, version }: Props) {
 	const [flipped, setFlipped] = React.useState(false);
@@ -40,18 +40,18 @@ export default function Lernground({ deckId, version }: Props) {
 	if (loading) {
 		return (
 			<div className="space-y-3 animate-pulse">
-				<div className="h-4 w-32 rounded bg-muted" />
-				<div className="h-24 rounded-md bg-muted" />
-				<div className="h-20 rounded-md bg-muted" />
+				<div className="h-4 w-32 bg-muted" />
+				<div className="h-24 bg-muted" />
+				<div className="h-20 bg-muted" />
 			</div>
 		);
 	}
 
 	if (finished || !currentCard) {
 		return (
-			<div className="text-center space-y-2 py-8">
-				<p className="text-lg font-medium text-emerald-600">🎉 Чудова робота!</p>
-				<p className="text-sm text-muted-foreground">Немає більше карток для повторення зараз. Повертайся пізніше!</p>
+			<div className="text-center space-y-4 py-12 bg-white border-4 border-neo-black rounded-3xl shadow-[8px_8px_0px_#1a1510]">
+				<p className="text-3xl font-black text-neo-black">🎉 Чудова робота!</p>
+				<p className="text-lg font-bold text-neo-black/70 px-4">Немає більше карток для повторення зараз. Повертайся пізніше!</p>
 			</div>
 		);
 	}
@@ -69,50 +69,53 @@ export default function Lernground({ deckId, version }: Props) {
 	}
 
 	return (
-		<div className="space-y-4">
+		<div className="space-y-8">
 			{/* progress */}
-			<div className="space-y-1">
-				<div className="flex items-center justify-between text-xs text-muted-foreground">
-					<span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 font-medium">
+			<div className="space-y-4">
+				<div className="flex items-center justify-between text-sm font-bold text-neo-black">
+					<span className="inline-flex items-center gap-2 bg-white border-2 border-neo-black rounded-xl px-3 py-1 shadow-[2px_2px_0px_#1a1510]">
 						Карта {currentNumber} з {totalCards}
 					</span>
 					<span className="hidden sm:inline">Flip card, then rate difficulty.</span>
 				</div>
-				<div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
+				<div className="h-4 w-full bg-white border-2 border-neo-black rounded-full overflow-hidden shadow-[inset_2px_2px_0px_rgba(0,0,0,0.1)]">
 					<div
-						className="h-full rounded-full bg-primary transition-all duration-500"
-						style={{ width: `${progress}%` }}
+						className="h-full bg-neo-orange transition-all duration-500 border-r-2 border-line-black"
+						style={{ width: `${progress}%`, borderRightColor: progress > 0 ? 'black' : 'transparent', borderRightWidth: progress > 0 ? '2px' : '0px' }}
 					/>
 				</div>
 			</div>
 
 			{/* card with flip */}
 			<div
-				className="relative cursor-pointer perspective-1000"
-				style={{ minHeight: 160 }}
+				className="w-full relative cursor-pointer perspective-1000 h-[300px] md:h-[400px]"
 				onClick={() => setFlipped(!flipped)}
 			>
-				<div className={cn(
-					"w-full transition-transform duration-500 transform-style-3d",
-					flipped && "rotate-y-180"
-				)}>
+				<div
+					className={cn(
+						"absolute inset-0 w-full h-full transition-transform duration-500",
+						flipped ? "[transform:rotateY(180deg)]" : ""
+					)}
+					style={{ transformStyle: 'preserve-3d' }}
+				>
 					{/* front */}
-					<div className={cn(
-						"space-y-2 rounded-md border bg-muted/40 p-4 backface-hidden",
-						flipped && "hidden"
-					)}>
-						<div className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Питання</div>
-						<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.question}</div>
-						<p className="text-xs text-muted-foreground text-center pt-2">Натисни, щоб побачити відповідь</p>
+					<div
+						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-4 bg-white border-4 border-neo-black rounded-3xl p-6 md:p-10"
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', boxShadow: '8px 8px 0px #1a1510' }}
+					>
+						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">Питання</div>
+						<div className="text-2xl md:text-4xl font-black text-neo-black leading-tight max-w-2xl">{currentCard.question}</div>
+						<p className="absolute bottom-6 text-sm font-bold text-neo-black/40">Натисни, щоб побачити відповідь</p>
 					</div>
 
 					{/* back */}
-					{flipped && (
-						<div className="space-y-2 rounded-md border bg-muted/40 p-4">
-							<div className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">Відповідь</div>
-							<div className="rounded-sm bg-background/80 px-3 py-2 text-sm leading-relaxed md:text-base">{currentCard.answer}</div>
-						</div>
-					)}
+					<div
+						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-6 bg-neo-yellow border-4 border-neo-black rounded-3xl p-6 md:p-10"
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', boxShadow: '-8px 8px 0px #1a1510' }}
+					>
+						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">Відповідь</div>
+						<div className="text-2xl font-bold text-neo-black leading-relaxed max-w-2xl">{currentCard.answer}</div>
+					</div>
 				</div>
 			</div>
 
@@ -122,14 +125,12 @@ export default function Lernground({ deckId, version }: Props) {
 					<Button
 						key={r}
 						type="button"
-						variant="outline"
-						size="sm"
 						className={cn(baseButtonClasses, ratingStyles[r])}
 						disabled={!flipped || rating}
 						onClick={() => handleRate(r)}
 					>
-						<span className="font-medium">{label}</span>
-						{schedule && schedule[r] && <span className="text-[10px] text-muted-foreground">через {schedule[r]}</span>}
+						<span className="font-black text-lg">{label}</span>
+						{schedule && schedule[r] && <span className="text-xs font-bold opacity-80 mt-1">через {schedule[r]}</span>}
 					</Button>
 				))}
 			</div>

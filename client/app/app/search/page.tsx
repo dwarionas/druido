@@ -37,65 +37,71 @@ function SearchContent() {
 	}
 
 	return (
-		<div className="space-y-4">
+		<div className="space-y-8 animate-pop-in">
 			<section>
-				<h1 className="text-2xl font-semibold mb-2">Пошук</h1>
-				<p className="text-sm text-muted-foreground">Шукай серед усіх карток та колод.</p>
+				<h1 className="text-4xl font-black text-neo-black mb-2">Пошук</h1>
+				<p className="text-sm font-bold text-neo-black/70">Шукай серед усіх карток та колод.</p>
 			</section>
 
-			<form onSubmit={handleSubmit} className="flex gap-2">
+			<form onSubmit={handleSubmit} className="flex gap-4">
 				<input
-					className="flex-1 rounded-md border bg-background px-3 py-2 text-sm"
+					className="flex-1 border-4 border-neo-black bg-white rounded-xl px-4 py-3 text-lg font-bold shadow-[4px_4px_0px_#1a1510] focus:ring-4 focus:ring-neo-orange focus:outline-none transition-all"
 					placeholder="Пошук карток..."
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
-				<button className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground" type="submit">
+				<button className="brutal-btn bg-neo-black text-white px-6 py-3 text-lg rounded-xl h-[60px]" type="submit">
 					Шукати
 				</button>
 			</form>
 
-			{loading && <p className="text-muted-foreground">Шукаю...</p>}
+			{loading && <p className="text-neo-black font-bold text-lg animate-pulse">Шукаю...</p>}
 
 			{!loading && decks.length === 0 && cards.length === 0 && initialQ && (
-				<p className="text-muted-foreground">Нічого не знайдено за «{initialQ}».</p>
+				<div className="bg-white border-4 border-neo-black rounded-2xl shadow-[8px_8px_0px_#1a1510] p-8 text-center mt-8">
+					<p className="text-neo-black font-black text-xl">Нічого не знайдено за «{initialQ}».</p>
+				</div>
 			)}
 
 			{!loading && decks.length > 0 && (
-				<section className="space-y-2">
-					<h2 className="text-sm font-medium">Колоди</h2>
-					{decks.map((deck) => (
-						<UICard key={deck.id}>
-							<CardHeader>
-								<CardTitle className="flex items-center justify-between gap-2 text-sm">
-									<span>{deck.name}</span>
-									<span className="text-xs font-normal text-muted-foreground">{deck.totalCards} карток</span>
-								</CardTitle>
-							</CardHeader>
-							<CardContent>
-								{deck.description && <p className="text-xs text-muted-foreground mb-1">{deck.description}</p>}
-								<Link href={`/app/decks/${deck.id}`} className="text-xs font-medium text-primary underline underline-offset-4">
-									Відкрити
-								</Link>
-							</CardContent>
-						</UICard>
-					))}
+				<section className="space-y-4 pt-4">
+					<h2 className="text-2xl font-black text-neo-black">Колоди</h2>
+					<div className="grid gap-6 md:grid-cols-2">
+						{decks.map((deck) => (
+							<UICard key={deck.id} className="bg-neo-yellow/20 border-4 border-neo-black rounded-2xl shadow-[8px_8px_0px_#1a1510] transition-transform hover:-translate-y-1 hover:shadow-[10px_10px_0px_#1a1510] p-4">
+								<CardHeader className="pb-2">
+									<CardTitle className="flex items-start justify-between gap-2">
+										<span className="text-xl font-black text-neo-black line-clamp-1">{deck.name}</span>
+										<span className="text-sm font-bold text-neo-black/60 shrink-0">{deck.totalCards} карток</span>
+									</CardTitle>
+								</CardHeader>
+								<CardContent>
+									{deck.description && <p className="text-sm font-bold text-neo-black/70 mb-4 line-clamp-2">{deck.description}</p>}
+									<Link href={`/app/decks/${deck.id}`} className="inline-block bg-neo-black text-white font-bold text-sm px-4 py-2 rounded-xl border-2 border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-black/90 active:translate-y-1 active:shadow-none transition-all">
+										Відкрити
+									</Link>
+								</CardContent>
+							</UICard>
+						))}
+					</div>
 				</section>
 			)}
 
 			{!loading && cards.length > 0 && (
-				<section className="space-y-2">
-					<h2 className="text-sm font-medium">Картки</h2>
-					{cards.map((card) => (
-						<UICard key={card.id}>
-							<CardHeader>
-								<CardTitle className="text-sm">{card.question}</CardTitle>
-							</CardHeader>
-							<CardContent>
-								<p className="text-sm text-muted-foreground">{card.answer}</p>
-							</CardContent>
-						</UICard>
-					))}
+				<section className="space-y-4 pt-4">
+					<h2 className="text-2xl font-black text-neo-black">Картки</h2>
+					<div className="grid gap-6 md:grid-cols-2">
+						{cards.map((card) => (
+							<UICard key={card.id} className="bg-white border-4 border-neo-black rounded-2xl shadow-[8px_8px_0px_#1a1510] p-4">
+								<CardHeader className="pb-2">
+									<CardTitle className="text-lg font-black text-neo-black leading-tight">{card.question}</CardTitle>
+								</CardHeader>
+								<CardContent>
+									<p className="text-sm font-bold text-neo-black/70">{card.answer}</p>
+								</CardContent>
+							</UICard>
+						))}
+					</div>
 				</section>
 			)}
 		</div>
@@ -106,12 +112,12 @@ export default function SearchPage() {
 	return (
 		<Suspense
 			fallback={
-				<div className="space-y-4">
+				<div className="space-y-8 animate-pop-in">
 					<section>
-						<h1 className="text-2xl font-semibold mb-2">Пошук</h1>
-						<p className="text-sm text-muted-foreground">Шукай серед усіх карток та колод.</p>
+						<h1 className="text-4xl font-black text-neo-black mb-2">Пошук</h1>
+						<p className="text-sm font-bold text-neo-black/70">Шукай серед усіх карток та колод.</p>
 					</section>
-					<p className="text-muted-foreground">Завантаження...</p>
+					<p className="text-neo-black font-bold text-lg animate-pulse">Завантаження...</p>
 				</div>
 			}
 		>

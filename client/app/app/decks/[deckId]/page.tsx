@@ -190,20 +190,20 @@ export default function DeckDetailPage() {
 	const deckName = deck?.name || "Колода";
 
 	return (
-		<div className="space-y-6">
-			<section className="flex items-center justify-between gap-2 flex-wrap">
-				<div className="space-y-1">
-					<h1 className="text-xl font-semibold">{deckName}</h1>
-					<p className="text-xs text-muted-foreground">
+		<div className="space-y-8 animate-pop-in">
+			<section className="flex items-center justify-between gap-4 flex-wrap bg-white border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510]">
+				<div className="space-y-2">
+					<h1 className="text-3xl font-black text-neo-black">{deckName}</h1>
+					<p className="text-sm font-bold text-neo-black/70">
 						{totalCards > 0 ? `${totalCards} карток · ` : null}
 						Додавай та повторюй картки.
 					</p>
 				</div>
-				<div className="flex items-center gap-2 flex-wrap">
+				<div className="flex items-center gap-3 flex-wrap">
 					{/* cards sheet */}
 					<Sheet>
 						<SheetTrigger asChild>
-							<Button variant="outline" size="sm" disabled={loading || totalCards === 0}>
+							<Button className="brutal-btn bg-white text-neo-black rounded-xl border-2 hover:bg-neo-yellow/30" size="sm" disabled={loading || totalCards === 0}>
 								{loading ? "Завантаження..." : `Картки (${totalCards})`}
 							</Button>
 						</SheetTrigger>
@@ -240,7 +240,7 @@ export default function DeckDetailPage() {
 									<div className="flex flex-wrap gap-1 mt-1">
 										<button
 											onClick={() => setTagFilter(null)}
-											className={`text-[10px] rounded-full px-2 py-0.5 border ${!tagFilter ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+											className={`text-[10px] px-2 py-0.5 border transition-colors ${!tagFilter ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
 										>
 											Усі
 										</button>
@@ -248,7 +248,7 @@ export default function DeckDetailPage() {
 											<button
 												key={tag}
 												onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
-												className={`text-[10px] rounded-full px-2 py-0.5 border ${tagFilter === tag ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+												className={`text-[10px] px-2 py-0.5 border transition-colors ${tagFilter === tag ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
 											>
 												{tag}
 											</button>
@@ -261,7 +261,7 @@ export default function DeckDetailPage() {
 									<p className="text-sm text-muted-foreground">Карток ще немає. Натисни «Додати картку».</p>
 								)}
 								{filteredCards.map((card, index) => (
-									<div key={`${card.id}-${index}`} className="rounded-md border bg-card px-3 py-2 text-sm">
+									<div key={`${card.id}-${index}`} className="border border-border/50 bg-card/50 px-3 py-2 text-sm glass">
 										<div className="flex items-start justify-between gap-2">
 											<div className="min-w-0 flex-1">
 												<div className="truncate font-medium leading-snug">{card.question}</div>
@@ -325,7 +325,7 @@ export default function DeckDetailPage() {
 						}}
 					>
 						<SheetTrigger asChild>
-							<Button variant="default" size="sm">Додати картку</Button>
+							<Button className="brutal-btn bg-neo-black text-white rounded-xl h-[44px]" size="sm">Додати картку</Button>
 						</SheetTrigger>
 						<SheetContent side="bottom" className="flex flex-col">
 							<SheetHeader>
@@ -337,7 +337,7 @@ export default function DeckDetailPage() {
 								<Textarea placeholder="Відповідь" value={answer} onChange={(e) => setAnswer(e.target.value)} rows={3} />
 								<Input placeholder="Теги (через кому)" value={tags} onChange={(e) => setTags(e.target.value)} className="text-xs" />
 								<div className="flex justify-end gap-2">
-									<Button type="button" variant="outline" size="sm" onClick={() => {
+									<Button type="button" variant="outline-glow" size="sm" onClick={() => {
 										setEditingCard(null);
 										setQuestion("");
 										setAnswer("");
@@ -346,7 +346,7 @@ export default function DeckDetailPage() {
 									}}>
 										Скасувати
 									</Button>
-									<Button type="submit" size="sm" disabled={!question.trim() || !answer.trim() || saving}>
+									<Button type="submit" variant="gradient" size="sm" disabled={!question.trim() || !answer.trim() || saving}>
 										{saving ? "Зберігаю..." : editingCard ? "Зберегти зміни" : "Зберегти картку"}
 									</Button>
 								</div>
@@ -355,24 +355,24 @@ export default function DeckDetailPage() {
 					</Sheet>
 
 					{/* import/export */}
-					<Button variant="outline" size="sm" onClick={handleExport} disabled={totalCards === 0} title="Експорт CSV">
-						<Download className="h-3.5 w-3.5 mr-1" />
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={handleExport} disabled={totalCards === 0} title="Експорт CSV">
+						<Download className="h-4 w-4 mr-2" />
 						CSV
 					</Button>
-					<Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()} title="Імпорт CSV">
-						<Upload className="h-3.5 w-3.5 mr-1" />
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={() => fileInputRef.current?.click()} title="Імпорт CSV">
+						<Upload className="h-4 w-4 mr-2" />
 						Імпорт
 					</Button>
 					<input ref={fileInputRef} type="file" accept=".csv" className="hidden" onChange={handleImport} />
 
-					<Button variant="outline" size="sm" asChild>
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" asChild>
 						<Link href="/app">Назад</Link>
 					</Button>
 				</div>
 			</section>
 
-			<section className="rounded-md border bg-card p-4">
-				<h2 className="mb-3 text-sm font-medium">Повторення</h2>
+			<section className="bg-neo-peach border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510]">
+				<h2 className="mb-6 text-2xl font-black text-neo-black">Повторення</h2>
 				<Lernground deckId={deckId as string} version={reviewVersion} />
 			</section>
 		</div>
