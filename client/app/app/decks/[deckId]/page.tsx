@@ -3,7 +3,7 @@
 import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { listCards, createCard, updateCard, deleteCard, bulkDeleteCards, getDeck, type Card, type Deck } from "@/lib/decks-api";
+import { listCards, createCard, updateCard, deleteCard, bulkDeleteCards, getDeck, bulkCreateCards, type Card, type Deck } from "@/lib/decks-api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -149,7 +149,7 @@ export default function DeckDetailPage() {
 		// skip header if it looks like one
 		const start = lines[0]?.toLowerCase().includes("question") ? 1 : 0;
 
-		let imported = 0;
+		const cardsToCreate = [];
 		for (let i = start; i < lines.length; i++) {
 			// simple CSV parse (handles quoted fields)
 			const match = lines[i].match(/(?:"([^"]*(?:""[^"]*)*)"|([^,]+))/g);
@@ -161,16 +161,21 @@ export default function DeckDetailPage() {
 			const t = match[2] ? clean(match[2]).split(",").map((s) => s.trim()).filter(Boolean) : [];
 
 			if (q && a) {
-				try {
-					await createCard({ deckId: deckId as string, question: q, answer: a, tags: t });
-					imported++;
-				} catch {
-					// skip bad rows
-				}
+				cardsToCreate.push({ deckId: deckId as string, question: q, answer: a, tags: t });
 			}
 		}
 
-		toast.success(`Імпортовано ${imported} карток`);
+		if (cardsToCreate.length > 0) {
+			try {
+				const res = await bulkCreateCards(cardsToCreate);
+				toast.success(`Імпортовано ${res.count} карток`);
+			} catch {
+				toast.error("Помилка під час імпорту карток");
+			}
+		} else {
+			toast.info("Не знайдено карток для імпорту");
+		}
+
 		await loadCards();
 		if (fileInputRef.current) fileInputRef.current.value = "";
 	}

@@ -33,14 +33,19 @@ export class DecksService {
             },
         });
 
-        // TODO: this is kinda slow, maybe move to a raw query later
         const now = new Date();
-        const dueCounts = await Promise.all(
-            decks.map((deck) =>
-                this.prisma.card.count({
-                    where: { deckId: deck.id, userId, due: { lte: now } },
-                }),
-            ),
+        const dueCountsRaw = await this.prisma.card.groupBy({
+            by: ['deckId'],
+            where: {
+                userId,
+                deckId: { in: decks.map(d => d.id) },
+                due: { lte: now }
+            },
+            _count: { id: true },
+        });
+
+        const dueCountMap = new Map(
+            dueCountsRaw.map(item => [item.deckId, item._count.id])
         );
 
         return decks.map((deck, i) => ({
@@ -50,7 +55,7 @@ export class DecksService {
             language: deck.language,
             tags: deck.tags,
             totalCards: deck._count.cards,
-            dueCards: dueCounts[i],
+            dueCards: dueCountMap.get(deck.id) || 0,
             createdAt: deck.createdAt,
             updatedAt: deck.updatedAt,
         }));

@@ -17,6 +17,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { CardsService } from './cards.service';
 import { CreateCardDto, UpdateCardDto, ReviewCardDto } from './dto/card.dto';
+import { BulkCreateCardsDto } from './dto/cards-bulk.dto';
 
 @UseGuards(JwtAuthGuard)
 @Controller('cards')
@@ -29,8 +30,10 @@ export class CardsController {
         @Query('deckId') deckId?: string,
         @Query('q') q?: string,
         @Query('tag') tag?: string,
+        @Query('skip') skip?: number,
+        @Query('take') take?: number,
     ) {
-        return this.cardsService.list(userId, deckId, q, tag);
+        return this.cardsService.list(userId, deckId, q, tag, skip, take);
     }
 
     @Get('due')
@@ -54,6 +57,14 @@ export class CardsController {
     @Post()
     create(@CurrentUser() userId: string, @Body() dto: CreateCardDto) {
         return this.cardsService.create(userId, dto);
+    }
+
+    @Post('bulk')
+    bulkCreate(
+        @CurrentUser() userId: string,
+        @Body() dto: BulkCreateCardsDto,
+    ) {
+        return this.cardsService.bulkCreate(userId, dto);
     }
 
     @Patch(':id')

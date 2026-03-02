@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCardDto, UpdateCardDto, ReviewCardDto } from './dto/card.dto';
+import { BulkCreateCardsDto } from './dto/cards-bulk.dto';
 import {
     createEmptyCard,
     fsrs,
@@ -28,7 +29,7 @@ export class CardsService {
     constructor(private readonly prisma: PrismaService) { }
 
     // TODO: add pagination
-    async list(userId: string, deckId?: string, q?: string, tag?: string) {
+    async list(userId: string, deckId?: string, q?: string, tag?: string, skip?: number, take?: number) {
         const where: any = { userId };
 
         if (deckId) {
@@ -50,7 +51,8 @@ export class CardsService {
         return this.prisma.card.findMany({
             where,
             orderBy: { updatedAt: 'desc' },
-            take: 200,
+            skip: skip ? Number(skip) : 0,
+            take: take ? Number(take) : 50,
         });
     }
 
@@ -62,6 +64,7 @@ export class CardsService {
                 due: { lte: new Date() },
             },
             orderBy: { due: 'asc' },
+            take: 100, // limit to 100 cards at once for performance
         });
     }
 

@@ -104,6 +104,10 @@ export function createCard(data: { deckId: string; question: string; answer: str
 	return api.post<Card>('/cards', data);
 }
 
+export function bulkCreateCards(cards: { deckId: string; question: string; answer: string; notes?: string; tags?: string[] }[]) {
+	return api.post<{ count: number }>('/cards/bulk', { cards });
+}
+
 export function updateCard(id: string, data: Partial<{ question: string; answer: string; notes: string; tags: string[] }>) {
 	return api.patch<Card>(`/cards/${id}`, data);
 }
