@@ -61,7 +61,7 @@
 }
 
 :root {
-	--radius: 1rem;
+	--radius: 0.75rem;
 
 	/* Main brand colors */
 	--neo-yellow: #fce762;
@@ -133,25 +133,25 @@
 
 /* ─── Neo-Brutalist Utilities ─── */
 @utility brutal-border {
-	border: 3px solid var(--neo-black);
+	border: 2px solid var(--neo-black);
 	border-radius: var(--radius);
 }
 
 @utility brutal-shadow {
-	box-shadow: 4px 4px 0px 0px var(--neo-black);
+	box-shadow: 2px 2px 0px 0px var(--neo-black);
 	transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 @utility brutal-shadow-hover {
 	&:hover {
 		transform: translate(-2px, -2px);
-		box-shadow: 6px 6px 0px 0px var(--neo-black);
+		box-shadow: 4px 4px 0px 0px var(--neo-black);
 	}
 }
 
 @utility brutal-shadow-active {
 	&:active {
-		transform: translate(4px, 4px);
+		transform: translate(2px, 2px);
 		box-shadow: 0px 0px 0px 0px var(--neo-black);
 	}
 }

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import Lernground from "@/components/app/Lernground";
+import { useI18n } from "@/lib/i18n";
 
 export default function DeckDetailPage() {
 	const params = useParams<{ deckId: string }>();
@@ -33,6 +34,7 @@ export default function DeckDetailPage() {
 	const [reviewVersion, setReviewVersion] = React.useState(0);
 	const [tagFilter, setTagFilter] = React.useState<string | null>(null);
 	const fileInputRef = React.useRef<HTMLInputElement>(null);
+	const { t } = useI18n();
 
 	async function loadCards() {
 		setLoading(true);
@@ -196,12 +198,12 @@ export default function DeckDetailPage() {
 
 	return (
 		<div className="space-y-8 animate-pop-in">
-			<section className="flex items-center justify-between gap-4 flex-wrap bg-white border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510]">
+			<section className="flex items-center justify-between gap-4 flex-wrap bg-white border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510]">
 				<div className="space-y-2">
 					<h1 className="text-3xl font-black text-neo-black">{deckName}</h1>
 					<p className="text-sm font-bold text-neo-black/70">
-						{totalCards > 0 ? `${totalCards} карток · ` : null}
-						Додавай та повторюй картки.
+						{totalCards > 0 ? `${totalCards} ${t("app.deck.total")} · ` : null}
+						{t("deck.detail.due")}
 					</p>
 				</div>
 				<div className="flex items-center gap-3 flex-wrap">
@@ -209,31 +211,31 @@ export default function DeckDetailPage() {
 					<Sheet>
 						<SheetTrigger asChild>
 							<Button className="brutal-btn bg-white text-neo-black rounded-xl border-2 hover:bg-neo-yellow/30" size="sm" disabled={loading || totalCards === 0}>
-								{loading ? "Завантаження..." : `Картки (${totalCards})`}
+								{loading ? "..." : `${t("deck.detail.cards")} (${totalCards})`}
 							</Button>
 						</SheetTrigger>
 						<SheetContent side="right" className="flex flex-col">
 							<SheetHeader>
-								<SheetTitle>Картки колоди</SheetTitle>
-								<SheetDescription>Швидкий перегляд усіх карток.</SheetDescription>
+								<SheetTitle>{t("deck.detail.cards")}</SheetTitle>
+								<SheetDescription></SheetDescription>
 								{totalCards > 0 && (
 									<div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
-										<span>{filteredCards.length} карток{tagFilter ? ` (фільтр: ${tagFilter})` : ""}</span>
+										<span>{filteredCards.length} {t("deck.detail.cards")}{tagFilter ? ` (${tagFilter})` : ""}</span>
 										<AlertDialog>
 											<AlertDialogTrigger asChild>
 												<Button type="button" variant="ghost" size="sm" className="text-destructive hover:text-destructive hover:underline">
-													Видалити всі
+													{t("deck.detail.delete_all")}
 												</Button>
 											</AlertDialogTrigger>
 											<AlertDialogContent>
 												<AlertDialogHeader>
-													<AlertDialogTitle>Видалити всі картки?</AlertDialogTitle>
-													<AlertDialogDescription>Це видалить усі {totalCards} карток у колоді. Цю дію не можна скасувати.</AlertDialogDescription>
+													<AlertDialogTitle>{t("deck.detail.delete_all")}?</AlertDialogTitle>
+													<AlertDialogDescription>{t("deck.detail.delete_all.desc")}</AlertDialogDescription>
 												</AlertDialogHeader>
 												<AlertDialogFooter>
-													<AlertDialogCancel>Скасувати</AlertDialogCancel>
+													<AlertDialogCancel>{t("deck.detail.delete_all.cancel")}</AlertDialogCancel>
 													<AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90" onClick={handleDeleteAllCards}>
-														Видалити
+														{t("deck.detail.delete_all.confirm")}
 													</AlertDialogAction>
 												</AlertDialogFooter>
 											</AlertDialogContent>
@@ -297,11 +299,11 @@ export default function DeckDetailPage() {
 													</AlertDialogTrigger>
 													<AlertDialogContent>
 														<AlertDialogHeader>
-															<AlertDialogTitle>Видалити картку?</AlertDialogTitle>
-															<AlertDialogDescription>Цю дію не можна скасувати.</AlertDialogDescription>
+															<AlertDialogTitle>?</AlertDialogTitle>
+															<AlertDialogDescription></AlertDialogDescription>
 														</AlertDialogHeader>
 														<AlertDialogFooter>
-															<AlertDialogCancel>Скасувати</AlertDialogCancel>
+															<AlertDialogCancel>{t("deck.detail.cancel")}</AlertDialogCancel>
 															<AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90" onClick={() => handleDeleteCard(card.id)}>
 																Видалити
 															</AlertDialogAction>
@@ -330,17 +332,17 @@ export default function DeckDetailPage() {
 						}}
 					>
 						<SheetTrigger asChild>
-							<Button className="brutal-btn bg-neo-black text-white rounded-xl h-[44px]" size="sm">Додати картку</Button>
+							<Button className="brutal-btn bg-neo-black text-white rounded-xl h-[44px]" size="sm">{t("deck.detail.add")}</Button>
 						</SheetTrigger>
 						<SheetContent side="bottom" className="flex flex-col">
 							<SheetHeader>
-								<SheetTitle>{editingCard ? "Редагувати картку" : "Додати нову картку"}</SheetTitle>
-								<SheetDescription>Введи питання та відповідь.</SheetDescription>
+								<SheetTitle>{editingCard ? t("deck.detail.edit") : t("deck.detail.add")}</SheetTitle>
+								<SheetDescription></SheetDescription>
 							</SheetHeader>
 							<form onSubmit={handleSaveCard} className="flex flex-col gap-3 px-4 pb-4 pt-2">
-								<Input placeholder="Питання" value={question} onChange={(e) => setQuestion(e.target.value)} />
-								<Textarea placeholder="Відповідь" value={answer} onChange={(e) => setAnswer(e.target.value)} rows={3} />
-								<Input placeholder="Теги (через кому)" value={tags} onChange={(e) => setTags(e.target.value)} className="text-xs" />
+								<Input placeholder={t("deck.detail.question")} value={question} onChange={(e) => setQuestion(e.target.value)} />
+								<Textarea placeholder={t("deck.detail.answer")} value={answer} onChange={(e) => setAnswer(e.target.value)} rows={3} />
+								<Input placeholder={t("deck.detail.tags")} value={tags} onChange={(e) => setTags(e.target.value)} className="text-xs" />
 								<div className="flex justify-end gap-2">
 									<Button type="button" variant="outline-glow" size="sm" onClick={() => {
 										setEditingCard(null);
@@ -349,10 +351,10 @@ export default function DeckDetailPage() {
 										setTags("");
 										setIsEditSheetOpen(false);
 									}}>
-										Скасувати
+										{t("deck.detail.cancel")}
 									</Button>
 									<Button type="submit" variant="gradient" size="sm" disabled={!question.trim() || !answer.trim() || saving}>
-										{saving ? "Зберігаю..." : editingCard ? "Зберегти зміни" : "Зберегти картку"}
+										{saving ? t("deck.detail.saving") : editingCard ? t("deck.detail.edit.save") : t("deck.detail.save")}
 									</Button>
 								</div>
 							</form>
@@ -360,24 +362,24 @@ export default function DeckDetailPage() {
 					</Sheet>
 
 					{/* import/export */}
-					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={handleExport} disabled={totalCards === 0} title="Експорт CSV">
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={handleExport} disabled={totalCards === 0} title={t("deck.detail.export")}>
 						<Download className="h-4 w-4 mr-2" />
 						CSV
 					</Button>
-					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={() => fileInputRef.current?.click()} title="Імпорт CSV">
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={() => fileInputRef.current?.click()} title={t("deck.detail.import")}>
 						<Upload className="h-4 w-4 mr-2" />
-						Імпорт
+						{t("deck.detail.import")}
 					</Button>
 					<input ref={fileInputRef} type="file" accept=".csv" className="hidden" onChange={handleImport} />
 
 					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" asChild>
-						<Link href="/app">Назад</Link>
+						<Link href="/app">{t("deck.detail.back")}</Link>
 					</Button>
 				</div>
 			</section>
 
-			<section className="bg-neo-peach border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510]">
-				<h2 className="mb-6 text-2xl font-black text-neo-black">Повторення</h2>
+			<section className="bg-neo-peach border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510]">
+				<h2 className="mb-6 text-2xl font-black text-neo-black">{t("deck.review.title")}</h2>
 				<Lernground deckId={deckId as string} version={reviewVersion} />
 			</section>
 		</div>

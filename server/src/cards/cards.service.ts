@@ -111,6 +111,46 @@ export class CardsService {
         });
     }
 
+    async bulkCreate(userId: string, dto: BulkCreateCardsDto) {
+        // Verify all decks exist and belong to user
+        const deckIds = [...new Set(dto.cards.map((c) => c.deckId))];
+        const decksCount = await this.prisma.deck.count({
+            where: {
+                id: { in: deckIds },
+                userId,
+            },
+        });
+
+        if (decksCount !== deckIds.length) {
+            throw new NotFoundException("Один або декілька deckId не знайдені або вам не належать");
+        }
+
+        const emptyCard = createEmptyCard(new Date());
+
+        const data = dto.cards.map((c) => ({
+            userId,
+            deckId: c.deckId,
+            question: c.question,
+            answer: c.answer,
+            notes: c.notes,
+            tags: c.tags || [],
+            stability: emptyCard.stability,
+            difficulty: emptyCard.difficulty,
+            elapsedDays: emptyCard.elapsed_days,
+            scheduledDays: emptyCard.scheduled_days,
+            reps: emptyCard.reps,
+            lapses: emptyCard.lapses,
+            state: emptyCard.state as number,
+            due: emptyCard.due,
+        }));
+
+        const result = await this.prisma.card.createMany({
+            data,
+        });
+
+        return { count: result.count };
+    }
+
     async update(userId: string, id: string, dto: UpdateCardDto) {
         const card = await this.prisma.card.findFirst({
             where: { id, userId },

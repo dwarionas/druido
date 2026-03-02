@@ -15,6 +15,7 @@ import {
 	AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useI18n } from "@/lib/i18n";
 
 export default function AppPage() {
 	const [decks, setDecks] = React.useState<DeckSummary[]>([]);
@@ -22,6 +23,7 @@ export default function AppPage() {
 	const [name, setName] = React.useState("");
 	const [description, setDescription] = React.useState("");
 	const [creating, setCreating] = React.useState(false);
+	const { t } = useI18n();
 
 	async function loadDecks() {
 		setLoading(true);
@@ -78,44 +80,43 @@ export default function AppPage() {
 	return (
 		<div className="space-y-8 animate-pop-in">
 			<section>
-				<h1 className="text-4xl font-black text-neo-black mb-2">Твої колоди</h1>
-				<p className="text-neo-black/70 font-bold text-sm">Створюй колоди та керуй колекціями карток.</p>
+				<h1 className="text-4xl font-black text-neo-black mb-2">{t("app.decks.title")}</h1>
 			</section>
 
-			<section className="bg-white border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510] mb-8">
+			<section className="bg-white border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510] mb-8">
 				<form onSubmit={handleCreate} className="space-y-4">
-					<h2 className="text-xl font-black text-neo-black">Створити нову колоду</h2>
+					<h2 className="text-xl font-black text-neo-black">{t("app.deck.create")}</h2>
 					<div className="grid gap-4 md:grid-cols-2">
-						<Input className="h-12 border-2 border-neo-black rounded-xl font-bold text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange" placeholder="Назва колоди" value={name} onChange={(e) => setName(e.target.value)} />
-						<Input className="h-12 border-2 border-neo-black rounded-xl font-bold text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange" placeholder="Опис (необов'язково)" value={description} onChange={(e) => setDescription(e.target.value)} />
+						<Input className="h-12 border-2 border-neo-black rounded-xl font-bold text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange" placeholder={t("app.deck.create.name")} value={name} onChange={(e) => setName(e.target.value)} />
+						<Input className="h-12 border-2 border-neo-black rounded-xl font-bold text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange" placeholder={t("app.deck.create.desc")} value={description} onChange={(e) => setDescription(e.target.value)} />
 					</div>
 					<Button type="submit" className="w-full md:w-auto brutal-btn bg-neo-black text-white text-lg rounded-xl h-12" disabled={!name.trim() || creating}>
-						{creating ? "Створюю..." : "Створити"}
+						{creating ? "..." : t("app.deck.create.save")}
 					</Button>
 				</form>
 			</section>
 
 			<section className="grid gap-6 md:grid-cols-2">
 				{loading && Array.from({ length: 4 }).map((_, i) => (
-					<div key={i} className="bg-white border-4 border-neo-black rounded-2xl p-6 shadow-[8px_8px_0px_#1a1510] space-y-4">
+					<div key={i} className="bg-white border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510] space-y-4">
 						<Skeleton className="h-6 w-2/3 bg-gray-200" />
 						<Skeleton className="h-4 w-1/2 bg-gray-200" />
 						<Skeleton className="h-10 w-24 bg-gray-200 rounded-xl mt-4" />
 					</div>
 				))}
-				{!loading && decks.length === 0 && <p className="text-neo-black font-bold text-lg col-span-2 text-center py-12">У тебе ще немає колод. Створи першу вище.</p>}
+				{!loading && decks.length === 0 && <p className="text-neo-black font-bold text-lg col-span-2 text-center py-12">{t("app.deck.empty")}</p>}
 				{decks.map((deck) => (
-					<UICard key={deck.id} className="flex flex-col justify-between group bg-neo-orange/20 border-4 border-neo-black rounded-2xl shadow-[8px_8px_0px_#1a1510] transition-transform hover:-translate-y-1 hover:shadow-[10px_10px_0px_#1a1510]">
+					<UICard key={deck.id} className="flex flex-col justify-between group bg-neo-orange/20 border-2 border-neo-black rounded-2xl shadow-[2px_2px_0px_#1a1510] transition-transform hover:-translate-y-1 hover:shadow-[2px_2px_0px_#1a1510]">
 						<CardHeader className="pb-2">
 							<CardTitle className="flex items-start justify-between gap-2">
 								<span className="text-2xl font-black text-neo-black line-clamp-2">{deck.name}</span>
 								<div className="flex flex-col items-end gap-2 shrink-0">
 									{deck.dueCards > 0 && (
 										<Badge variant="default" className="text-xs font-bold px-2 py-1 bg-white text-neo-black border-2 border-neo-black shadow-[2px_2px_0px_#1a1510]">
-											{deck.dueCards} до повтору
+											{deck.dueCards} {t("app.deck.due")}
 										</Badge>
 									)}
-									<span className="text-sm font-bold text-neo-black/70">{deck.totalCards} карток</span>
+									<span className="text-sm font-bold text-neo-black/70">{deck.totalCards} {t("app.deck.total")}</span>
 								</div>
 							</CardTitle>
 						</CardHeader>
@@ -136,20 +137,20 @@ export default function AppPage() {
 										<Trash2 className="h-5 w-5" />
 									</Button>
 								</AlertDialogTrigger>
-								<AlertDialogContent className="bg-white border-4 border-neo-black rounded-2xl shadow-[12px_12px_0px_#1a1510]">
+								<AlertDialogContent className="bg-white border-2 border-neo-black rounded-2xl shadow-[2px_2px_0px_#1a1510]">
 									<AlertDialogHeader>
 										<AlertDialogTitle className="text-2xl font-black text-neo-black">Видалити колоду «{deck.name}»?</AlertDialogTitle>
 										<AlertDialogDescription className="text-base font-bold text-neo-black/70">
-											Усі картки в цій колоді будуть видалені назавжди. Цю дію не можна скасувати.
+											{t("deck.detail.delete_all.desc")}
 										</AlertDialogDescription>
 									</AlertDialogHeader>
 									<AlertDialogFooter className="gap-3 sm:gap-0 mt-6">
-										<AlertDialogCancel className="h-12 rounded-xl border-2 border-neo-black text-sm font-bold text-neo-black shadow-[2px_2px_0px_#1a1510]">Скасувати</AlertDialogCancel>
+										<AlertDialogCancel className="h-12 rounded-xl border-2 border-neo-black text-sm font-bold text-neo-black shadow-[2px_2px_0px_#1a1510]">{t("deck.detail.delete_all.cancel")}</AlertDialogCancel>
 										<AlertDialogAction
 											className="h-12 rounded-xl border-2 border-neo-black bg-red-500 text-white text-sm font-bold shadow-[2px_2px_0px_#1a1510] hover:bg-red-600"
 											onClick={() => handleDeleteDeck(deck.id)}
 										>
-											Видалити
+											{t("deck.detail.delete_all.confirm")}
 										</AlertDialogAction>
 									</AlertDialogFooter>
 								</AlertDialogContent>

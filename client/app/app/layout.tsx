@@ -4,10 +4,11 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
+import { useI18n } from "@/lib/i18n";
 import { Input } from "@/components/ui/input";
-import ModeToggle from "@/components/ModeToggle";
 
 function SearchFormInner() {
+	const { t } = useI18n();
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [query, setQuery] = React.useState(searchParams.get("q") || "");
@@ -22,7 +23,7 @@ function SearchFormInner() {
 		<form onSubmit={handleSearchSubmit} className="flex flex-1 items-center gap-2">
 			<Input
 				type="search"
-				placeholder="Пошук..."
+				placeholder={t("app.search.placeholder")}
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				className="h-10 border-2 border-neo-black rounded-xl font-bold bg-white text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange"
@@ -41,6 +42,7 @@ function SearchForm() {
 
 export default function AppLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	const { user, loading, logout } = useAuth();
+	const { t } = useI18n();
 	const router = useRouter();
 
 	React.useEffect(() => {
@@ -52,7 +54,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 	if (loading || !user) {
 		return (
 			<div className="flex min-h-dvh items-center justify-center">
-				<p className="text-sm font-bold text-neo-black animate-pulse">Завантаження...</p>
+				<p className="text-sm font-bold text-neo-black animate-pulse">{t("app.decks.loading")}</p>
 			</div>
 		);
 	}
@@ -78,7 +80,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 							onClick={() => logout().then(() => router.push("/login"))}
 							className="rounded-xl border-2 border-neo-black bg-white px-3 py-1.5 text-xs font-bold text-neo-black shadow-[2px_2px_0px_#1a1510] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#1a1510]"
 						>
-							Вихід
+							{t("profile.logout")}
 						</button>
 					</div>
 				</div>
