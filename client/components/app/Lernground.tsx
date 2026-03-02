@@ -19,10 +19,10 @@ const RATING_BUTTONS = [
 ] as const;
 
 const ratingStyles: Record<number, string> = {
-	1: "border-2 border-neo-black bg-[#ff6b6b] text-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-[#ff5252] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#1a1510]",
-	2: "border-2 border-neo-black bg-neo-orange text-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-[#ff6a1a] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#1a1510]",
-	3: "border-2 border-neo-black bg-neo-yellow text-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-[#fbd825] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#1a1510]",
-	4: "border-2 border-neo-black bg-[#4ade80] text-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-[#34d399] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#1a1510]",
+	1: "border-2 border-neo-black bg-[#ff6b6b] text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#ff5252] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
+	2: "border-2 border-neo-black bg-neo-orange text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#ff6a1a] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
+	3: "border-2 border-neo-black bg-neo-yellow text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#fbd825] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
+	4: "border-2 border-neo-black bg-[#4ade80] text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#34d399] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
 };
 
 const baseButtonClasses =
@@ -51,7 +51,7 @@ export default function Lernground({ deckId, version }: Props) {
 
 	if (finished || !currentCard) {
 		return (
-			<div className="text-center space-y-4 py-12 bg-white border-2 border-neo-black rounded-3xl shadow-[2px_2px_0px_#1a1510]">
+			<div className="text-center space-y-4 py-12 bg-white border-2 border-neo-black rounded-3xl shadow-[2px_2px_0px_#2a2520]">
 				<p className="text-3xl font-black text-neo-black">🎉 Чудова робота!</p>
 				<p className="text-lg font-bold text-neo-black/70 px-4">{t("deck.review.empty")}</p>
 			</div>
@@ -75,7 +75,7 @@ export default function Lernground({ deckId, version }: Props) {
 			{/* progress */}
 			<div className="space-y-4">
 				<div className="flex items-center justify-between text-sm font-bold text-neo-black">
-					<span className="inline-flex items-center gap-2 bg-white border-2 border-neo-black rounded-xl px-3 py-1 shadow-[2px_2px_0px_#1a1510]">
+					<span className="inline-flex items-center gap-2 bg-white border-2 border-neo-black rounded-xl px-3 py-1 shadow-[2px_2px_0px_#2a2520]">
 						{currentNumber} / {totalCards}
 					</span>
 					<span className="hidden sm:inline">Flip card, then rate difficulty.</span>
@@ -103,7 +103,7 @@ export default function Lernground({ deckId, version }: Props) {
 					{/* front */}
 					<div
 						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-4 bg-white border-2 border-neo-black rounded-3xl p-6 md:p-10"
-						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', boxShadow: '8px 8px 0px #1a1510' }}
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', boxShadow: '8px 8px 0px #2a2520' }}
 					>
 						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">{t("deck.detail.question")}</div>
 						<div className="text-2xl md:text-4xl font-black text-neo-black leading-tight max-w-2xl">{currentCard.question}</div>
@@ -113,7 +113,7 @@ export default function Lernground({ deckId, version }: Props) {
 					{/* back */}
 					<div
 						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-6 bg-neo-yellow border-2 border-neo-black rounded-3xl p-6 md:p-10"
-						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', boxShadow: '-8px 8px 0px #1a1510' }}
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', boxShadow: '-8px 8px 0px #2a2520' }}
 					>
 						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">{t("deck.detail.answer")}</div>
 						<div className="text-2xl font-bold text-neo-black leading-relaxed max-w-2xl">{currentCard.answer}</div>

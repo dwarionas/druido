@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Pencil, Trash2, Download, Upload } from "lucide-react";
+import { Pencil, Trash2, Download, Upload, FileArchive } from "lucide-react";
 import { toast } from "sonner";
 import {
 	AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
@@ -18,6 +18,7 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import Lernground from "@/components/app/Lernground";
 import { useI18n } from "@/lib/i18n";
+import { parseApkg } from "@/lib/apkg-parser";
 
 export default function DeckDetailPage() {
 	const params = useParams<{ deckId: string }>();
@@ -34,6 +35,7 @@ export default function DeckDetailPage() {
 	const [reviewVersion, setReviewVersion] = React.useState(0);
 	const [tagFilter, setTagFilter] = React.useState<string | null>(null);
 	const fileInputRef = React.useRef<HTMLInputElement>(null);
+	const apkgInputRef = React.useRef<HTMLInputElement>(null);
 	const { t } = useI18n();
 
 	async function loadCards() {
@@ -182,6 +184,36 @@ export default function DeckDetailPage() {
 		if (fileInputRef.current) fileInputRef.current.value = "";
 	}
 
+	// APKG import
+	async function handleApkgImport(e: React.ChangeEvent<HTMLInputElement>) {
+		const file = e.target.files?.[0];
+		if (!file) return;
+
+		try {
+			const parsed = await parseApkg(file);
+			if (parsed.length === 0) {
+				toast.info("Не знайдено карток у .apkg файлі");
+				return;
+			}
+
+			const cardsToCreate = parsed.map((c) => ({
+				deckId: deckId as string,
+				question: c.question,
+				answer: c.answer,
+				tags: [],
+			}));
+
+			const res = await bulkCreateCards(cardsToCreate);
+			toast.success(`Імпортовано ${res.count} карток з Anki`);
+			await loadCards();
+		} catch (err) {
+			console.error(err);
+			toast.error("Помилка при імпорті .apkg файлу");
+		} finally {
+			if (apkgInputRef.current) apkgInputRef.current.value = "";
+		}
+	}
+
 	// collect all unique tags
 	const allTags = React.useMemo(() => {
 		const set = new Set<string>();
@@ -198,7 +230,7 @@ export default function DeckDetailPage() {
 
 	return (
 		<div className="space-y-8 animate-pop-in">
-			<section className="flex items-center justify-between gap-4 flex-wrap bg-white border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510]">
+			<section className="flex items-center justify-between gap-4 flex-wrap bg-white border-2 border-neo-black rounded-2xl p-4 sm:p-5 md:p-6 shadow-[2px_2px_0px_#2a2520]">
 				<div className="space-y-2">
 					<h1 className="text-3xl font-black text-neo-black">{deckName}</h1>
 					<p className="text-sm font-bold text-neo-black/70">
@@ -372,13 +404,19 @@ export default function DeckDetailPage() {
 					</Button>
 					<input ref={fileInputRef} type="file" accept=".csv" className="hidden" onChange={handleImport} />
 
+					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" onClick={() => apkgInputRef.current?.click()} title={t("deck.detail.import_apkg")}>
+						<FileArchive className="h-4 w-4 mr-2" />
+						APKG
+					</Button>
+					<input ref={apkgInputRef} type="file" accept=".apkg" className="hidden" onChange={handleApkgImport} />
+
 					<Button className="brutal-btn bg-white text-neo-black border-2 rounded-xl" size="sm" asChild>
 						<Link href="/app">{t("deck.detail.back")}</Link>
 					</Button>
 				</div>
 			</section>
 
-			<section className="bg-neo-peach border-2 border-neo-black rounded-2xl p-6 shadow-[2px_2px_0px_#1a1510]">
+			<section className="bg-neo-peach border-2 border-neo-black rounded-2xl p-4 sm:p-5 md:p-6 shadow-[2px_2px_0px_#2a2520]">
 				<h2 className="mb-6 text-2xl font-black text-neo-black">{t("deck.review.title")}</h2>
 				<Lernground deckId={deckId as string} version={reviewVersion} />
 			</section>

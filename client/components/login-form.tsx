@@ -44,16 +44,16 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 				{mode === "register" && (
 					<div className="space-y-2">
 						<Label htmlFor="name" className="text-sm font-bold text-neo-black">{t("login.name")}</Label>
-						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
 					</div>
 				)}
 				<div className="space-y-2">
 					<Label htmlFor="email" className="text-sm font-bold text-neo-black">{t("login.email")}</Label>
-					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="password" className="text-sm font-bold text-neo-black">{t("login.password")}</Label>
-					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
 				</div>
 
 				{(formError || error) && <p className="text-red-500 font-bold text-sm bg-red-100 border-2 border-red-500 rounded-xl p-2">{formError || error}</p>}

@@ -5,17 +5,17 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-xl border-2 border-neo-black px-2.5 py-0.5 text-xs font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:ring-4 focus-visible:ring-neo-orange transition-all overflow-hidden shadow-[2px_2px_0px_#1a1510]",
+  "inline-flex items-center justify-center rounded-xl border-2 border-neo-black px-2.5 py-0.5 text-xs font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:ring-4 focus-visible:ring-neo-orange transition-all overflow-hidden shadow-[2px_2px_0px_#2a2520]",
   {
     variants: {
       variant: {
-        default: "bg-neo-black text-white [a&]:hover:bg-neo-black/80 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#1a1510]",
+        default: "bg-neo-black text-white [a&]:hover:bg-neo-black/80 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#2a2520]",
         secondary:
-          "bg-neo-peach text-neo-black [a&]:hover:bg-neo-peach/80 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#1a1510]",
+          "bg-neo-peach text-neo-black [a&]:hover:bg-neo-peach/80 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#2a2520]",
         destructive:
-          "bg-red-500 text-white [a&]:hover:bg-red-600 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#1a1510]",
+          "bg-red-500 text-white [a&]:hover:bg-red-600 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#2a2520]",
         outline:
-          "bg-white text-neo-black [a&]:hover:bg-neo-yellow/30 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#1a1510]",
+          "bg-white text-neo-black [a&]:hover:bg-neo-yellow/30 [a&]:hover:-translate-y-0.5 [a&]:hover:shadow-[2px_4px_0px_#2a2520]",
         ghost: "border-transparent shadow-none [a&]:hover:bg-neo-yellow/30",
         link: "border-transparent shadow-none underline-offset-4 [a&]:hover:underline",
       },

@@ -20,10 +20,10 @@ export default function LoginPage() {
 
 	return (
 		<div className="flex min-h-svh flex-col items-center justify-center px-6 py-12 bg-neo-peach selection:bg-black selection:text-white">
-			<div className="w-full max-w-sm space-y-8 bg-white border-2 border-neo-black p-8 rounded-3xl shadow-[2px_2px_0px_#1a1510] animate-pop-in">
+			<div className="w-full max-w-sm space-y-8 bg-white border-2 border-neo-black p-4 sm:p-4 sm:p-5 md:p-6 md:p-8 rounded-3xl shadow-[2px_2px_0px_#2a2520] animate-pop-in">
 				<div className="flex items-center justify-between">
 					<Link href="/" className="flex items-center gap-2 group">
-						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#1a1510] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#1a1510]">D</div>
+						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#2a2520] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#2a2520]">D</div>
 						<span className="text-xl font-extrabold tracking-tight text-neo-black">Druido</span>
 					</Link>
 					<LanguageSwitcher />

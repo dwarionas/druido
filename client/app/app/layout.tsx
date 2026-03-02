@@ -26,7 +26,7 @@ function SearchFormInner() {
 				placeholder={t("app.search.placeholder")}
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
-				className="h-10 border-2 border-neo-black rounded-xl font-bold bg-white text-sm shadow-[2px_2px_0px_#1a1510] focus-visible:ring-neo-orange"
+				className="h-10 border-2 border-neo-black rounded-xl font-bold bg-white text-sm shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange"
 			/>
 		</form>
 	);
@@ -64,7 +64,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 			<header className="border-b-4 border-neo-black bg-neo-peach px-6 py-4">
 				<div className="mx-auto flex max-w-4xl items-center gap-4">
 					<Link href="/app" className="flex items-center gap-2 shrink-0 group">
-						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#1a1510] transition-transform group-hover:-translate-y-0.5 group-hover:shadow-[2px_4px_0px_#1a1510]">D</div>
+						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#2a2520] transition-transform group-hover:-translate-y-0.5 group-hover:shadow-[2px_4px_0px_#2a2520]">D</div>
 						<span className="text-lg font-extrabold tracking-tight hidden sm:inline text-neo-black">Druido</span>
 					</Link>
 
@@ -78,7 +78,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 						</span>
 						<button
 							onClick={() => logout().then(() => router.push("/login"))}
-							className="rounded-xl border-2 border-neo-black bg-white px-3 py-1.5 text-xs font-bold text-neo-black shadow-[2px_2px_0px_#1a1510] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#1a1510]"
+							className="rounded-xl border-2 border-neo-black bg-white px-3 py-1.5 text-xs font-bold text-neo-black shadow-[2px_2px_0px_#2a2520] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#2a2520]"
 						>
 							{t("profile.logout")}
 						</button>

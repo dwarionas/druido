@@ -15,14 +15,14 @@ export function LandingHero() {
 					className="text-5xl font-black tracking-tighter sm:text-7xl lg:text-8xl text-neo-black max-w-3xl leading-[1.1]"
 					dangerouslySetInnerHTML={{ __html: t("landing.hero").replace("FSRS-", "FSRS-<br />") }}
 				/>
-				<div className="flex items-center gap-3 bg-white border-2 border-neo-black rounded-full px-4 py-2 shadow-[2px_2px_0px_#1a1510]">
+				<div className="flex items-center gap-3 bg-white border-2 border-neo-black rounded-full px-4 py-2 shadow-[2px_2px_0px_#2a2520]">
 					<span className="font-bold text-sm">ON</span>
 					<div className="w-8 h-8 rounded-full bg-neo-orange border-2 border-neo-black"></div>
 				</div>
 			</div>
 
 			{/* Illustration Placeholder */}
-			<div className="relative w-full max-w-sm mx-auto aspect-square bg-neo-peach rounded-full border-2 border-neo-black shadow-[2px_2px_0px_#1a1510] flex flex-col justify-end items-center overflow-hidden">
+			<div className="relative w-full max-w-sm mx-auto aspect-square bg-neo-peach rounded-full border-2 border-neo-black shadow-[2px_2px_0px_#2a2520] flex flex-col justify-end items-center overflow-hidden">
 				{/* Dog placeholder */}
 				<div className="w-1/2 h-1/2 bg-white rounded-t-full border-2 border-b-0 border-neo-black flex flex-col justify-between items-center z-10">
 					<div className="w-4 h-4 rounded-full bg-neo-black mt-8"></div>

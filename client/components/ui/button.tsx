@@ -10,18 +10,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-neo-black text-white border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-black/90",
+          "bg-neo-black text-white border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-black/90",
         destructive:
-          "bg-red-500 text-white border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-red-600 focus-visible:ring-red-500",
+          "bg-red-500 text-white border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-red-600 focus-visible:ring-red-500",
         outline:
-          "border-neo-black bg-white text-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-yellow/30",
+          "border-neo-black bg-white text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-yellow/30",
         secondary:
-          "bg-neo-peach text-neo-black border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-peach/80",
+          "bg-neo-peach text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-peach/80",
         ghost:
           "hover:bg-neo-yellow/30 hover:text-neo-black border-transparent hover:-translate-y-0",
         link: "text-neo-black underline-offset-4 hover:underline hover:-translate-y-0",
-        gradient: "bg-neo-orange text-neo-black border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-orange/80",
-        "outline-glow": "bg-white text-neo-black border-neo-black shadow-[2px_2px_0px_#1a1510] hover:bg-neo-yellow/30 hover:shadow-[2px_4px_0px_#1a1510]",
+        gradient: "bg-neo-orange text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-orange/80",
+        "outline-glow": "bg-white text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-yellow/30 hover:shadow-[2px_4px_0px_#2a2520]",
       },
       size: {
         default: "h-11 px-6 py-2 has-[>svg]:px-4",
