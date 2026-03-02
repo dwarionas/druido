@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body, Res, UseGuards, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Get, Body, Res, UseGuards, HttpCode, HttpStatus, UnauthorizedException } from '@nestjs/common';
 import { Response } from 'express';
 import { Throttle } from '@nestjs/throttler';
 
@@ -49,6 +49,7 @@ export class AuthController {
     @HttpCode(HttpStatus.NO_CONTENT)
     logout(@Res({ passthrough: true }) res: Response) {
         res.clearCookie(COOKIE_NAME);
+        return;
     }
 
     @UseGuards(JwtAuthGuard)
@@ -56,7 +57,7 @@ export class AuthController {
     async me(@CurrentUser() userId: string) {
         const user = await this.authService.getProfile(userId);
         if (!user) {
-            return null;
+            throw new UnauthorizedException('User not found');
         }
 
         return {

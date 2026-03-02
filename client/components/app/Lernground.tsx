@@ -30,7 +30,7 @@ const baseButtonClasses =
 export default function Lernground({ deckId, version }: Props) {
 	const [flipped, setFlipped] = React.useState(false);
 	const [rating, setRating] = React.useState(false);
-	const { currentCard, rateCard, schedule, loading, finished, totalCards, currentIndex } = useFSRS(deckId);
+	const { currentCard, rateCard, schedule, loading, finished, totalCards, currentIndex } = useFSRS(deckId, version);
 
 	// reset flip when card changes
 	React.useEffect(() => {

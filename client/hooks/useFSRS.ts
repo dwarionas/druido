@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { getDueCards, reviewCard, getSchedulePreview, type Card } from "@/lib/decks-api";
 
-export function useFSRS(deckId: string) {
+export function useFSRS(deckId: string, version?: number) {
 	const [cards, setCards] = useState<Card[]>([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [showAnswer, setShowAnswer] = useState(false);
@@ -38,7 +38,7 @@ export function useFSRS(deckId: string) {
 
 		load();
 		return () => { cancelled = true; };
-	}, [deckId]);
+	}, [deckId, version]);
 
 	const currentCard = cards[currentIndex] ?? null;
 

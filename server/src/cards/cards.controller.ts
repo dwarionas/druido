@@ -10,6 +10,7 @@ import {
     HttpCode,
     HttpStatus,
     UseGuards,
+    ParseUUIDPipe,
 } from '@nestjs/common';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -35,7 +36,7 @@ export class CardsController {
     @Get('due')
     getDueCards(
         @CurrentUser() userId: string,
-        @Query('deckId') deckId: string,
+        @Query('deckId', ParseUUIDPipe) deckId: string,
     ) {
         return this.cardsService.getDueCards(userId, deckId);
     }

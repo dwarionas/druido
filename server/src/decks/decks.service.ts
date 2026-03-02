@@ -83,7 +83,9 @@ export class DecksService {
         return this.prisma.deck.update({
             where: { id },
             data: {
-                ...dto,
+                name: dto.name,
+                description: dto.description,
+                tags: dto.tags,
                 language: dto.language ? (dto.language as Language) : undefined,
             },
         });

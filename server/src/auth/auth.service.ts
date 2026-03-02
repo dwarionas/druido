@@ -19,9 +19,9 @@ export class AuthService {
             where: { email: dto.email.toLowerCase().trim() },
         });
 
-        // FIXME: maybe return 409 with a more generic message for security?
         if (existing) {
-            throw new ConflictException('User already exists');
+            // generic message to prevent user enumeration
+            throw new ConflictException('Registration failed');
         }
 
         const passwordHash = await bcrypt.hash(dto.password, BCRYPT_ROUNDS);
