@@ -18,6 +18,10 @@ export class CreateDeckDto {
     @IsOptional()
     @IsArray()
     tags?: string[];
+
+    @IsOptional()
+    @IsString()
+    color?: string;
 }
 
 export class UpdateDeckDto {
@@ -37,4 +41,8 @@ export class UpdateDeckDto {
     @IsOptional()
     @IsArray()
     tags?: string[];
+
+    @IsOptional()
+    @IsString()
+    color?: string;
 }

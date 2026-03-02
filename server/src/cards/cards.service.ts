@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { StatsService } from '../stats/stats.service';
 import { CreateCardDto, UpdateCardDto, ReviewCardDto } from './dto/card.dto';
 import { BulkCreateCardsDto } from './dto/cards-bulk.dto';
 import {
@@ -26,7 +27,10 @@ const f = fsrs(FSRS_PARAMS);
 
 @Injectable()
 export class CardsService {
-    constructor(private readonly prisma: PrismaService) { }
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly statsService: StatsService,
+    ) { }
 
     // TODO: add pagination
     async list(userId: string, deckId?: string, q?: string, tag?: string, skip?: number, take?: number) {
@@ -197,6 +201,11 @@ export class CardsService {
         });
 
         const preview = this.buildSchedulePreview(scheduling, now);
+
+        // Record review in stats (XP based on rating: Again=5, Hard=8, Good=10, Easy=15)
+        const xpMap: Record<number, number> = { 1: 5, 2: 8, 3: 10, 4: 15 };
+        const xpEarned = xpMap[dto.rating] ?? 10;
+        await this.statsService.recordReview(userId, xpEarned);
 
         return {
             card: updatedCard,

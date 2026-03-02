@@ -1,9 +1,10 @@
-import { Controller, Post, Get, Body, Res, UseGuards, HttpCode, HttpStatus, UnauthorizedException } from '@nestjs/common';
+import { Controller, Post, Get, Patch, Body, Res, UseGuards, HttpCode, HttpStatus, UnauthorizedException } from '@nestjs/common';
 import { Response } from 'express';
 import { Throttle } from '@nestjs/throttler';
 
 import { AuthService } from './auth.service';
 import { RegisterDto, LoginDto } from './dto/auth.dto';
+import { UpdateProfileDto, ChangePasswordDto } from './dto/profile.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { CurrentUser } from './current-user.decorator';
 import { Public } from '../common/public.decorator';
@@ -59,12 +60,20 @@ export class AuthController {
         if (!user) {
             throw new UnauthorizedException('User not found');
         }
+        return user;
+    }
 
-        return {
-            id: user.id,
-            email: user.email,
-            name: user.name,
-        };
+    @UseGuards(JwtAuthGuard)
+    @Patch('profile')
+    async updateProfile(@CurrentUser() userId: string, @Body() dto: UpdateProfileDto) {
+        return this.authService.updateProfile(userId, dto);
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Post('change-password')
+    @HttpCode(HttpStatus.OK)
+    async changePassword(@CurrentUser() userId: string, @Body() dto: ChangePasswordDto) {
+        return this.authService.changePassword(userId, dto);
     }
 
     private setAuthCookie(res: Response, token: string) {

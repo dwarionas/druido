@@ -14,15 +14,20 @@ enum Language {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
-  name         String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String?
+  xp            Int       @default(0)
+  streak        Int       @default(0)
+  dailyGoal     Int       @default(20)
+  lastStudiedAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
-  decks Deck[]
-  cards Card[]
+  decks         Deck[]
+  cards         Card[]
+  studySessions StudySession[]
 }
 
 model Deck {
@@ -31,6 +36,7 @@ model Deck {
   description String?
   language    Language @default(UK)
   tags        String[] @default([])
+  color       String   @default("yellow")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -63,7 +69,6 @@ model Card {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // TODO: should we cascade delete user cards when user is deleted?
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 
@@ -72,4 +77,19 @@ model Card {
 
   @@index([userId])
   @@index([deckId])
+}
+
+model StudySession {
+  id            String   @id @default(cuid())
+  date          DateTime @db.Date
+  cardsReviewed Int      @default(0)
+  xpEarned      Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@unique([userId, date])
+  @@index([userId])
 }

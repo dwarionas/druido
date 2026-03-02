@@ -6,6 +6,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { DecksModule } from './decks/decks.module';
 import { CardsModule } from './cards/cards.module';
+import { StatsModule } from './stats/stats.module';
 
 @Module({
     imports: [
@@ -14,6 +15,7 @@ import { CardsModule } from './cards/cards.module';
         AuthModule,
         DecksModule,
         CardsModule,
+        StatsModule,
     ],
     providers: [
         {

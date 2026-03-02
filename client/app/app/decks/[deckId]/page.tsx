@@ -22,6 +22,14 @@ import { parseApkg } from "@/lib/apkg-parser";
 
 type Tab = "study" | "cards" | "stats";
 
+function chunkArray<T>(arr: T[], size: number): T[][] {
+	const result = [];
+	for (let i = 0; i < arr.length; i += size) {
+		result.push(arr.slice(i, i + size));
+	}
+	return result;
+}
+
 export default function DeckDetailPage() {
 	const params = useParams<{ deckId: string }>();
 	const deckId = params.deckId;
@@ -133,8 +141,15 @@ export default function DeckDetailPage() {
 			if (q && a) cardsToCreate.push({ deckId: deckId as string, question: q, answer: a, tags: t });
 		}
 		if (cardsToCreate.length > 0) {
-			try { const res = await bulkCreateCards(cardsToCreate); toast.success(`Імпортовано ${res.count} карток`); }
-			catch { toast.error("Помилка під час імпорту карток"); }
+			try {
+				const chunks = chunkArray(cardsToCreate, 500);
+				let totalCount = 0;
+				for (const chunk of chunks) {
+					const res = await bulkCreateCards(chunk);
+					totalCount += res.count;
+				}
+				toast.success(`Імпортовано ${totalCount} карток`);
+			} catch { toast.error("Помилка під час імпорту карток"); }
 		} else { toast.info("Не знайдено карток для імпорту"); }
 		await loadCards();
 		if (fileInputRef.current) fileInputRef.current.value = "";
@@ -147,8 +162,14 @@ export default function DeckDetailPage() {
 			const parsed = await parseApkg(file);
 			if (parsed.length === 0) { toast.info("Не знайдено карток у .apkg файлі"); return; }
 			const cardsToCreate = parsed.map((c) => ({ deckId: deckId as string, question: c.question, answer: c.answer, tags: [] }));
-			const res = await bulkCreateCards(cardsToCreate);
-			toast.success(`Імпортовано ${res.count} карток з Anki`);
+			const chunks = chunkArray(cardsToCreate, 500);
+			let totalCount = 0;
+			for (const chunk of chunks) {
+				const res = await bulkCreateCards(chunk);
+				totalCount += res.count;
+			}
+
+			toast.success(`Імпортовано ${totalCount} карток з Anki`);
 			await loadCards();
 		} catch (err) { console.error(err); toast.error("Помилка при імпорті .apkg файлу"); }
 		finally { if (apkgInputRef.current) apkgInputRef.current.value = ""; }
