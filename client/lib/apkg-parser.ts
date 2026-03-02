@@ -46,8 +46,7 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
 
     // load sql.js with the CDN-hosted wasm file
     const SQL = await initSqlJs({
-        locateFile: (file: string) =>
-            `https://sql.js.org/dist/${file}`,
+        locateFile: () => "/sql-wasm.wasm",
     });
 
     const db: Database = new SQL.Database(new Uint8Array(dbBuf));
