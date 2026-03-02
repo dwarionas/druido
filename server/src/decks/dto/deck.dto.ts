@@ -1,4 +1,5 @@
-import { IsString, IsOptional, IsArray, MinLength, MaxLength } from 'class-validator';
+import { IsString, IsOptional, IsArray, MinLength, MaxLength, IsEnum } from 'class-validator';
+import { Language } from '@prisma/client';
 
 export class CreateDeckDto {
     @IsString()
@@ -10,7 +11,7 @@ export class CreateDeckDto {
     description?: string;
 
     @IsOptional()
-    @IsString()
+    @IsEnum(Language)
     language?: string;
 
     // TODO: add max length validation
@@ -30,7 +31,7 @@ export class UpdateDeckDto {
     description?: string;
 
     @IsOptional()
-    @IsString()
+    @IsEnum(Language)
     language?: string;
 
     @IsOptional()

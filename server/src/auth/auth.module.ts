@@ -11,9 +11,17 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 @Module({
     imports: [
         PassportModule,
-        JwtModule.register({
-            secret: process.env.JWT_SECRET,
-            signOptions: { expiresIn: '30d' },
+        JwtModule.registerAsync({
+            useFactory: () => {
+                const secret = process.env.JWT_SECRET;
+                if (!secret) {
+                    throw new Error('JWT_SECRET environment variable is missing');
+                }
+                return {
+                    secret,
+                    signOptions: { expiresIn: '30d' },
+                };
+            },
         }),
     ],
     providers: [

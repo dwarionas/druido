@@ -6,6 +6,7 @@ export class RegisterDto {
 
     @IsString()
     @MinLength(6)
+    @MaxLength(72)
     password!: string;
 
     @IsOptional()
@@ -21,5 +22,6 @@ export class LoginDto {
 
     @IsString()
     @MinLength(1)
+    @MaxLength(72)
     password!: string;
 }

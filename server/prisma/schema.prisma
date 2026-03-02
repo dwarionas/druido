@@ -64,7 +64,7 @@ model Card {
   updatedAt DateTime @updatedAt
 
   // TODO: should we cascade delete user cards when user is deleted?
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 
   deck   Deck   @relation(fields: [deckId], references: [id], onDelete: Cascade)
