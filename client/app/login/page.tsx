@@ -19,24 +19,24 @@ export default function LoginPage() {
 	}, [user, loading, router]);
 
 	return (
-		<div className="flex min-h-svh flex-col items-center justify-center px-6 py-12 bg-neo-peach selection:bg-black selection:text-white">
-			<div className="w-full max-w-sm space-y-8 bg-white border-2 border-neo-black p-4 sm:p-4 sm:p-5 md:p-6 md:p-8 rounded-3xl shadow-[2px_2px_0px_#2a2520] animate-pop-in">
+		<div className="flex min-h-svh flex-col items-center justify-center p-6 bg-background selection:bg-primary selection:text-primary-foreground">
+			<div className="w-full max-w-sm space-y-8 bg-card border rounded-2xl p-6 md:p-8 shadow-sm animate-in zoom-in-95 fade-in duration-500">
 				<div className="flex items-center justify-between">
 					<Link href="/" className="flex items-center gap-2 group">
-						<div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-neo-black bg-neo-yellow text-sm font-black shadow-[2px_2px_0px_#2a2520] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_4px_0px_#2a2520]">D</div>
-						<span className="text-xl font-extrabold tracking-tight text-neo-black">Druido</span>
+						<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-sm font-bold shadow-sm transition-transform group-hover:scale-105">D</div>
+						<span className="text-xl font-bold tracking-tight text-foreground">Druido</span>
 					</Link>
 					<LanguageSwitcher />
 				</div>
 
 				<div className="space-y-2 text-center">
-					<h1 className="text-3xl font-black text-neo-black">{t("login.title")}</h1>
-					<p className="text-sm font-bold text-neo-black/70">{t("login.subtitle")}</p>
+					<h1 className="text-2xl font-bold tracking-tight text-foreground">{t("login.title")}</h1>
+					<p className="text-sm font-medium text-muted-foreground">{t("login.subtitle")}</p>
 				</div>
 
 				<LoginForm />
 
-				<p className="text-xs font-bold text-neo-black/60 text-center text-balance">
+				<p className="text-xs font-medium text-muted-foreground text-center text-balance leading-relaxed">
 					By continuing, you agree to our Terms of Service and Privacy Policy.
 				</p>
 			</div>

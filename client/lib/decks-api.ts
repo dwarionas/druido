@@ -65,7 +65,7 @@ export function getDeck(id: string) {
 	return api.get<Deck>(`/decks/${id}`);
 }
 
-export function createDeck(data: { name: string; description?: string; language?: string; tags?: string[] }) {
+export function createDeck(data: { name: string; description?: string; language?: string; tags?: string[]; color?: string }) {
 	return api.post<Deck>('/decks', data);
 }
 
@@ -122,4 +122,59 @@ export function deleteCard(id: string) {
 
 export function bulkDeleteCards(deckId: string) {
 	return api.del<void>(`/cards/bulk?deckId=${deckId}`);
+}
+
+// ----- Stats API -----
+
+export interface StatsOverview {
+	xp: number;
+	streak: number;
+	dailyGoal: number;
+	lastStudiedAt: string | null;
+	memberSince: string;
+	totalDecks: number;
+	totalCards: number;
+	reviewedToday: number;
+}
+
+export interface DailyStats {
+	date: string;
+	cardsReviewed: number;
+	xpEarned: number;
+}
+
+export interface DeckStats {
+	deckId: string;
+	deckName: string;
+	total: number;
+	mature: number;
+	learning: number;
+	new: number;
+	masteryPercent: number;
+}
+
+export function getStatsOverview() {
+	return api.get<StatsOverview>('/stats/overview');
+}
+
+export function getStatsHeatmap() {
+	return api.get<Record<string, number>>('/stats/heatmap');
+}
+
+export function getStatsDaily(days: number = 30) {
+	return api.get<DailyStats[]>(`/stats/daily?days=${days}`);
+}
+
+export function getStatsByDeck() {
+	return api.get<DeckStats[]>('/stats/decks');
+}
+
+// ----- Profile API -----
+
+export function updateProfile(data: { name?: string; dailyGoal?: number }) {
+	return api.patch<any>('/auth/profile', data);
+}
+
+export function changePassword(data: { currentPassword: string; newPassword: string }) {
+	return api.post<{ success: boolean }>('/auth/change-password', data);
 }

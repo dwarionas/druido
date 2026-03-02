@@ -43,32 +43,32 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 			<form onSubmit={handleSubmit} className="space-y-5">
 				{mode === "register" && (
 					<div className="space-y-2">
-						<Label htmlFor="name" className="text-sm font-bold text-neo-black">{t("login.name")}</Label>
-						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+						<Label htmlFor="name" className="text-sm font-medium text-foreground">{t("login.name")}</Label>
+						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} className="h-12 text-base" />
 					</div>
 				)}
 				<div className="space-y-2">
-					<Label htmlFor="email" className="text-sm font-bold text-neo-black">{t("login.email")}</Label>
-					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+					<Label htmlFor="email" className="text-sm font-medium text-foreground">{t("login.email")}</Label>
+					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-12 text-base" />
 				</div>
 				<div className="space-y-2">
-					<Label htmlFor="password" className="text-sm font-bold text-neo-black">{t("login.password")}</Label>
-					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 text-base font-bold text-neo-black border-2 border-neo-black rounded-xl shadow-[2px_2px_0px_#2a2520] focus-visible:ring-neo-orange focus-visible:ring-offset-2" />
+					<Label htmlFor="password" className="text-sm font-medium text-foreground">{t("login.password")}</Label>
+					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 text-base" />
 				</div>
 
-				{(formError || error) && <p className="text-red-500 font-bold text-sm bg-red-100 border-2 border-red-500 rounded-xl p-2">{formError || error}</p>}
+				{(formError || error) && <p className="text-destructive font-medium text-sm bg-destructive/10 border border-destructive/20 rounded-md p-3 mb-4">{formError || error}</p>}
 
-				<Button type="submit" className="w-full h-12 text-lg rounded-xl brutal-btn bg-neo-black text-white hover:bg-neo-black/90 mt-2" disabled={submitting}>
+				<Button type="submit" className="w-full h-12 text-lg mt-2 font-semibold" disabled={submitting}>
 					{submitting
 						? "..."
 						: (mode === "login" ? t("login.action.login") : t("login.action.register"))}
 				</Button>
 			</form>
 
-			<div className="text-center font-bold text-sm text-neo-black/70 mt-4">
+			<div className="text-center font-medium text-sm text-muted-foreground mt-4">
 				<button
 					type="button"
-					className="underline underline-offset-4 text-neo-black hover:text-neo-orange transition-colors"
+					className="underline underline-offset-4 text-primary hover:text-primary/80 transition-colors"
 					onClick={() => setMode(mode === "login" ? "register" : "login")}
 				>
 					{mode === "login" ? t("login.switch.register") : t("login.switch.login")}

@@ -5,29 +5,29 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-black transition-all disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-4 focus-visible:ring-neo-orange border-2 border-transparent hover:-translate-y-1 active:translate-y-0.5 active:shadow-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-neo-black text-white border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-black/90",
+          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:
-          "bg-red-500 text-white border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-red-600 focus-visible:ring-red-500",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border-neo-black bg-white text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-yellow/30",
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-neo-peach text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-peach/80",
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost:
-          "hover:bg-neo-yellow/30 hover:text-neo-black border-transparent hover:-translate-y-0",
-        link: "text-neo-black underline-offset-4 hover:underline hover:-translate-y-0",
-        gradient: "bg-neo-orange text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-orange/80",
-        "outline-glow": "bg-white text-neo-black border-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-neo-yellow/30 hover:shadow-[2px_4px_0px_#2a2520]",
+          "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+        gradient: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        "outline-glow": "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
       },
       size: {
-        default: "h-11 px-6 py-2 has-[>svg]:px-4",
-        sm: "h-9 rounded-xl gap-1.5 px-4 has-[>svg]:px-3",
-        lg: "h-14 rounded-2xl px-8 text-lg has-[>svg]:px-6",
-        icon: "size-11",
+        default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+        lg: "h-10 rounded-md px-8 has-[>svg]:px-4",
+        icon: "size-9",
       },
     },
     defaultVariants: {

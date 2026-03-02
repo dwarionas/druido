@@ -19,14 +19,14 @@ const RATING_BUTTONS = [
 ] as const;
 
 const ratingStyles: Record<number, string> = {
-	1: "border-2 border-neo-black bg-[#ff6b6b] text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#ff5252] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
-	2: "border-2 border-neo-black bg-neo-orange text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#ff6a1a] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
-	3: "border-2 border-neo-black bg-neo-yellow text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#fbd825] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
-	4: "border-2 border-neo-black bg-[#4ade80] text-neo-black shadow-[2px_2px_0px_#2a2520] hover:bg-[#34d399] hover:-translate-y-1 hover:shadow-[2px_4px_0px_#2a2520]",
+	1: "bg-red-500 text-white hover:bg-red-600 shadow-sm hover:shadow",
+	2: "bg-orange-500 text-white hover:bg-orange-600 shadow-sm hover:shadow",
+	3: "bg-blue-500 text-white hover:bg-blue-600 shadow-sm hover:shadow",
+	4: "bg-green-500 text-white hover:bg-green-600 shadow-sm hover:shadow",
 };
 
 const baseButtonClasses =
-	"flex flex-col items-center justify-center gap-1 py-4 h-auto text-sm font-black rounded-xl transition-all disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 disabled:cursor-not-allowed";
+	"flex flex-col items-center justify-center gap-1 py-4 h-auto text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:shadow-none disabled:translate-y-0 disabled:cursor-not-allowed";
 
 export default function Lernground({ deckId, version }: Props) {
 	const [flipped, setFlipped] = React.useState(false);
@@ -51,9 +51,9 @@ export default function Lernground({ deckId, version }: Props) {
 
 	if (finished || !currentCard) {
 		return (
-			<div className="text-center space-y-4 py-12 bg-white border-2 border-neo-black rounded-3xl shadow-[2px_2px_0px_#2a2520]">
-				<p className="text-3xl font-black text-neo-black">🎉 Чудова робота!</p>
-				<p className="text-lg font-bold text-neo-black/70 px-4">{t("deck.review.empty")}</p>
+			<div className="text-center space-y-4 py-16 bg-card border rounded-2xl shadow-sm">
+				<p className="text-3xl font-bold tracking-tight text-foreground">🎉 Чудова робота!</p>
+				<p className="text-lg font-medium text-muted-foreground px-4">{t("deck.review.empty")}</p>
 			</div>
 		);
 	}
@@ -74,16 +74,16 @@ export default function Lernground({ deckId, version }: Props) {
 		<div className="space-y-8">
 			{/* progress */}
 			<div className="space-y-4">
-				<div className="flex items-center justify-between text-sm font-bold text-neo-black">
-					<span className="inline-flex items-center gap-2 bg-white border-2 border-neo-black rounded-xl px-3 py-1 shadow-[2px_2px_0px_#2a2520]">
+				<div className="flex items-center justify-between text-sm font-medium text-muted-foreground">
+					<span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground rounded-full px-4 py-1 shadow-sm">
 						{currentNumber} / {totalCards}
 					</span>
 					<span className="hidden sm:inline">Flip card, then rate difficulty.</span>
 				</div>
-				<div className="h-4 w-full bg-white border-2 border-neo-black rounded-full overflow-hidden shadow-[inset_2px_2px_0px_rgba(0,0,0,0.1)]">
+				<div className="h-2.5 w-full bg-secondary rounded-full overflow-hidden shadow-inner">
 					<div
-						className="h-full bg-neo-orange transition-all duration-500 border-r-2 border-line-black"
-						style={{ width: `${progress}%`, borderRightColor: progress > 0 ? 'black' : 'transparent', borderRightWidth: progress > 0 ? '2px' : '0px' }}
+						className="h-full bg-primary transition-all duration-500"
+						style={{ width: `${progress}%` }}
 					/>
 				</div>
 			</div>
@@ -102,21 +102,21 @@ export default function Lernground({ deckId, version }: Props) {
 				>
 					{/* front */}
 					<div
-						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-4 bg-white border-2 border-neo-black rounded-3xl p-6 md:p-10"
-						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', boxShadow: '8px 8px 0px #2a2520' }}
+						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-4 bg-card border rounded-2xl p-6 md:p-10 shadow-md"
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
 					>
-						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">{t("deck.detail.question")}</div>
-						<div className="text-2xl md:text-4xl font-black text-neo-black leading-tight max-w-2xl">{currentCard.question}</div>
-						<p className="absolute bottom-6 text-sm font-bold text-neo-black/40">{t("deck.review.flip")}</p>
+						<div className="absolute top-6 left-8 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("deck.detail.question")}</div>
+						<div className="text-3xl md:text-5xl font-bold text-foreground leading-tight max-w-2xl">{currentCard.question}</div>
+						<p className="absolute bottom-6 text-sm font-medium text-muted-foreground">{t("deck.review.flip")}</p>
 					</div>
 
 					{/* back */}
 					<div
-						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-6 bg-neo-yellow border-2 border-neo-black rounded-3xl p-6 md:p-10"
-						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', boxShadow: '-8px 8px 0px #2a2520' }}
+						className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center space-y-6 bg-accent border rounded-2xl p-6 md:p-10 shadow-md"
+						style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
 					>
-						<div className="absolute top-6 left-8 text-sm font-black uppercase tracking-widest text-neo-black/40">{t("deck.detail.answer")}</div>
-						<div className="text-2xl font-bold text-neo-black leading-relaxed max-w-2xl">{currentCard.answer}</div>
+						<div className="absolute top-6 left-8 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{t("deck.detail.answer")}</div>
+						<div className="text-2xl md:text-4xl font-semibold text-foreground leading-relaxed max-w-2xl">{currentCard.answer}</div>
 					</div>
 				</div>
 			</div>

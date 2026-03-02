@@ -52,64 +52,51 @@
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
-
-	/* Neo-Brutalist Colors */
-	--color-neo-yellow: var(--neo-yellow);
-	--color-neo-peach: var(--neo-peach);
-	--color-neo-orange: var(--neo-orange);
-	--color-neo-black: var(--neo-black);
 }
 
 :root {
-	--radius: 0.75rem;
-
-	/* Main brand colors */
-	--neo-yellow: #fce762;
-	--neo-peach: #ffb17a;
-	--neo-orange: #ff7e36;
-	--neo-black: #1a1510;
-
-	/* Core variables (Light theme forced) */
-	--background: var(--neo-yellow);
-	--foreground: var(--neo-black);
+	--background: #ffffff;
+	--foreground: #09090b;
 	--card: #ffffff;
-	--card-foreground: var(--neo-black);
+	--card-foreground: #09090b;
 	--popover: #ffffff;
-	--popover-foreground: var(--neo-black);
-	--primary: var(--neo-black);
-	--primary-foreground: #ffffff;
-	--secondary: #ffffff;
-	--secondary-foreground: var(--neo-black);
+	--popover-foreground: #09090b;
+	--primary: #18181b;
+	--primary-foreground: #fafafa;
+	--secondary: #f4f4f5;
+	--secondary-foreground: #18181b;
 	--muted: #f4f4f5;
 	--muted-foreground: #71717a;
-	--accent: var(--neo-peach);
-	--accent-foreground: var(--neo-black);
+	--accent: #f4f4f5;
+	--accent-foreground: #18181b;
 	--destructive: #ef4444;
-	--destructive-foreground: #ffffff;
-	--border: var(--neo-black);
-	--input: var(--neo-black);
-	--ring: var(--neo-black);
+	--destructive-foreground: #fafafa;
+	--border: #e4e4e7;
+	--input: #e4e4e7;
+	--ring: #18181b;
+	--radius: 0.5rem;
 }
 
 .dark {
-	/* Force light variables even in dark mode initially to ensure consistency for this specific design */
-	--background: var(--neo-yellow);
-	--foreground: var(--neo-black);
-	--card: #ffffff;
-	--card-foreground: var(--neo-black);
-	--popover: #ffffff;
-	--popover-foreground: var(--neo-black);
-	--primary: var(--neo-black);
-	--primary-foreground: #ffffff;
-	--secondary: #ffffff;
-	--secondary-foreground: var(--neo-black);
-	--muted: #f4f4f5;
-	--muted-foreground: #71717a;
-	--accent: var(--neo-peach);
-	--accent-foreground: var(--neo-black);
-	--border: var(--neo-black);
-	--input: var(--neo-black);
-	--ring: var(--neo-black);
+	--background: #09090b;
+	--foreground: #fafafa;
+	--card: #09090b;
+	--card-foreground: #fafafa;
+	--popover: #09090b;
+	--popover-foreground: #fafafa;
+	--primary: #fafafa;
+	--primary-foreground: #18181b;
+	--secondary: #27272a;
+	--secondary-foreground: #fafafa;
+	--muted: #27272a;
+	--muted-foreground: #a1a1aa;
+	--accent: #27272a;
+	--accent-foreground: #fafafa;
+	--destructive: #7f1d1d;
+	--destructive-foreground: #fafafa;
+	--border: #27272a;
+	--input: #27272a;
+	--ring: #d4d4d8;
 }
 
 @layer base {
@@ -118,7 +105,7 @@
 	}
 
 	body {
-		@apply bg-background text-foreground font-sans tracking-tight;
+		@apply bg-background text-foreground font-sans tracking-normal;
 	}
 
 	h1,
@@ -127,64 +114,31 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-neo-black font-bold;
+		@apply font-semibold tracking-tight;
 	}
 }
 
-/* ─── Neo-Brutalist Utilities ─── */
-@utility brutal-border {
-	border: 2px solid var(--neo-black);
-	border-radius: var(--radius);
-}
-
-@utility brutal-shadow {
-	box-shadow: 2px 2px 0px 0px var(--neo-black);
-	transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-@utility brutal-shadow-hover {
-	&:hover {
-		transform: translate(-2px, -2px);
-		box-shadow: 4px 4px 0px 0px var(--neo-black);
-	}
-}
-
-@utility brutal-shadow-active {
-	&:active {
-		transform: translate(2px, 2px);
-		box-shadow: 0px 0px 0px 0px var(--neo-black);
-	}
-}
-
-@utility brutal-btn {
-	@apply brutal-border brutal-shadow brutal-shadow-hover brutal-shadow-active px-6 py-3 font-bold text-center inline-flex items-center justify-center;
-}
-
-@utility brutal-btn-primary {
-	@apply bg-neo-black text-white;
-}
-
-/* Soft animations */
-@keyframes pop-in {
+/* Premium Animations */
+@keyframes slide-up-fade {
 	0% {
 		opacity: 0;
-		transform: scale(0.95) translateY(10px);
+		transform: translateY(12px);
 	}
 
 	100% {
 		opacity: 1;
-		transform: scale(1) translateY(0);
+		transform: translateY(0);
 	}
 }
 
-.animate-pop-in {
-	animation: pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+.animate-slide-up-fade {
+	animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.animate-pop-in-delay-1 {
-	animation: pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+.animate-slide-up-fade-delay-1 {
+	animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
-.animate-pop-in-delay-2 {
-	animation: pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+.animate-slide-up-fade-delay-2 {
+	animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }

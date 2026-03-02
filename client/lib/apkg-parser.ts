@@ -1,5 +1,6 @@
 import JSZip from "jszip";
 import initSqlJs, { type Database } from "sql.js";
+import { decompress } from "fzstd";
 
 export interface ParsedCard {
     question: string;
@@ -20,6 +21,21 @@ function stripHtml(html: string): string {
         .replace(/&#39;/g, "'")
         .replace(/&nbsp;/g, " ");
     return text.replace(/\n{3,}/g, "\n\n").trim();
+}
+
+/**
+ * Creates a SQLite database from a buffer, decompressing zstd if necessary.
+ */
+function getSqliteDb(buf: ArrayBuffer, SQL: any): Database {
+    let uint8: Uint8Array = new Uint8Array(buf);
+    if (uint8.length >= 4) {
+        const magic = new DataView(buf).getUint32(0, true);
+        if (magic === 0xFD2FB528) {
+            console.log("[apkg] decompressing zstd database");
+            uint8 = decompress(uint8);
+        }
+    }
+    return new SQL.Database(uint8);
 }
 
 /**
@@ -77,7 +93,7 @@ function extractCardsFromDb(db: Database): ParsedCard[] {
  *
  * Supports multiple Anki export formats:
  * - Legacy: collection.anki2 (SQLite)
- * - Newer: collection.anki21 (SQLite)
+ * - Newer: collection.anki21 / collection.anki21b (SQLite, optionally zstd)
  * - Modern (2.1.50+): may contain multiple .sqlite files or data directory
  */
 export async function parseApkg(file: File): Promise<ParsedCard[]> {
@@ -94,15 +110,16 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
 
     // strategy 1: classic database files
     const dbCandidates = [
-        "collection.anki2",
+        "collection.anki21b",
         "collection.anki21",
+        "collection.anki2",
     ];
 
     for (const name of dbCandidates) {
         const entry = zip.file(name);
         if (entry) {
             const dbBuf = await entry.async("arraybuffer");
-            const db = new SQL.Database(new Uint8Array(dbBuf));
+            const db = getSqliteDb(dbBuf, SQL);
             try {
                 const cards = extractCardsFromDb(db);
                 if (cards.length > 0) return cards;
@@ -120,7 +137,7 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
         const entry = zip.file(name);
         if (entry) {
             const dbBuf = await entry.async("arraybuffer");
-            const db = new SQL.Database(new Uint8Array(dbBuf));
+            const db = getSqliteDb(dbBuf, SQL);
             try {
                 const cards = extractCardsFromDb(db);
                 if (cards.length > 0) return cards;
@@ -140,17 +157,12 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
 
         try {
             const dbBuf = await entry.async("arraybuffer");
-            // quick check: SQLite files start with "SQLite format 3"
-            const header = new Uint8Array(dbBuf.slice(0, 16));
-            const headerStr = new TextDecoder().decode(header);
-            if (!headerStr.startsWith("SQLite format 3")) continue;
-
-            const db = new SQL.Database(new Uint8Array(dbBuf));
+            const db = getSqliteDb(dbBuf, SQL);
             try {
                 const cards = extractCardsFromDb(db);
                 if (cards.length > 0) return cards;
             } finally {
-                db.close();
+                if (db && typeof db.close === "function") db.close();
             }
         } catch {
             // not a valid sqlite file, skip

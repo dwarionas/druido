@@ -7,6 +7,11 @@ interface User {
 	id: string;
 	email: string;
 	name: string | null;
+	xp: number;
+	streak: number;
+	dailyGoal: number;
+	lastStudiedAt: string | null;
+	createdAt: string;
 }
 
 interface AuthContextType {
@@ -16,6 +21,8 @@ interface AuthContextType {
 	login: (email: string, password: string) => Promise<void>;
 	register: (email: string, password: string, name?: string) => Promise<void>;
 	logout: () => Promise<void>;
+	refreshUser: () => Promise<void>;
+	updateUser: (data: Partial<User>) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -71,8 +78,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		setUser(null);
 	}, []);
 
+	const refreshUser = useCallback(async () => {
+		try {
+			const data = await api.get<User | null>("/auth/me");
+			setUser(data);
+		} catch {
+			// ignore
+		}
+	}, []);
+
+	const updateUser = useCallback((data: Partial<User>) => {
+		setUser((prev) => prev ? { ...prev, ...data } : prev);
+	}, []);
+
 	return (
-		<AuthContext.Provider value={{ user, loading, error, login, register, logout }}>
+		<AuthContext.Provider value={{ user, loading, error, login, register, logout, refreshUser, updateUser }}>
 			{children}
 		</AuthContext.Provider>
 	);
