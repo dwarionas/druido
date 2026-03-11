@@ -4,13 +4,13 @@ import "./globals.css";
 import { AuthProvider } from "@/hooks/useAuth";
 import { I18nProvider } from "@/lib/i18n";
 import { Toaster } from "@/components/ui/sonner";
-import { DM_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const dmSans = DM_Sans({
+const inter = Inter({
 	subsets: ["latin", "latin-ext"],
-	variable: "--font-dm-sans",
+	variable: "--font-inter",
 	display: "swap",
-	weight: ["400", "500", "700", "800"], // Added weights for bolder typography
+	weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" suppressHydrationWarning className={dmSans.variable}>
-			<body className="font-sans antialiased bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
-				<ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false} disableTransitionOnChange>
+		<html lang="en" suppressHydrationWarning className={`${inter.variable} dark`}>
+			<body className="font-sans antialiased bg-background noise-overlay">
+				<ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false} disableTransitionOnChange>
 					<I18nProvider>
 						<AuthProvider>{children}</AuthProvider>
 					</I18nProvider>

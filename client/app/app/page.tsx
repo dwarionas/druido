@@ -19,21 +19,21 @@ import { useI18n } from "@/lib/i18n";
 import WelcomeModal from "@/components/app/WelcomeModal";
 
 const DECK_COLORS: Record<string, string> = {
-	yellow: "bg-amber-500",
+	yellow: "bg-yellow-500",
 	peach: "bg-orange-400",
 	orange: "bg-orange-500",
-	green: "bg-emerald-500",
+	green: "bg-green-500",
 	blue: "bg-blue-500",
-	purple: "bg-violet-500",
+	purple: "bg-purple-500",
 };
 
 const DECK_BG_COLORS: Record<string, string> = {
-	yellow: "bg-amber-500/10",
-	peach: "bg-orange-400/10",
-	orange: "bg-orange-500/10",
-	green: "bg-emerald-500/10",
-	blue: "bg-blue-500/10",
-	purple: "bg-violet-500/10",
+	yellow: "bg-yellow-500/5 hover:bg-yellow-500/10 border-yellow-500/15",
+	peach: "bg-orange-400/5 hover:bg-orange-400/10 border-orange-400/15",
+	orange: "bg-orange-500/5 hover:bg-orange-500/10 border-orange-500/15",
+	green: "bg-green-500/5 hover:bg-green-500/10 border-green-500/15",
+	blue: "bg-blue-500/5 hover:bg-blue-500/10 border-blue-500/15",
+	purple: "bg-purple-500/5 hover:bg-purple-500/10 border-purple-500/15",
 };
 
 type SortBy = "name" | "date" | "due" | "total";
@@ -67,7 +67,6 @@ export default function AppPage() {
 			if (!cancelled) {
 				setDecks(data);
 				setLoading(false);
-				// Show welcome if first visit + no decks
 				if (data.length === 0 && !localStorage.getItem("druido_onboarded")) {
 					setShowWelcome(true);
 				}
@@ -131,49 +130,47 @@ export default function AppPage() {
 	];
 
 	return (
-		<div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500 pb-10">
+		<div className="space-y-8 animate-fade-in-up">
 			{showWelcome && <WelcomeModal onDismiss={handleDismissWelcome} />}
 
-			<section className="flex items-end justify-between">
-				<h1 className="text-3xl font-bold tracking-tight text-foreground">{t("app.decks.title")}</h1>
+			<section>
+				<h1 className="text-3xl font-bold tracking-tight mb-2">{t("app.decks.title")}</h1>
 			</section>
 
-			<section className="bg-card border rounded-2xl p-6 shadow-sm mb-8">
-				<form onSubmit={handleCreate} className="space-y-5">
-					<h2 className="text-lg font-semibold text-foreground">{t("app.deck.create")}</h2>
+			<section className="bg-card border border-border rounded-2xl p-5 mb-8">
+				<form onSubmit={handleCreate} className="space-y-4">
+					<h2 className="text-lg font-semibold">{t("app.deck.create")}</h2>
 					<div className="grid gap-4 md:grid-cols-2">
-						<Input className="h-10" placeholder={t("app.deck.create.name")} value={name} onChange={(e) => setName(e.target.value)} />
-						<Input className="h-10" placeholder={t("app.deck.create.desc")} value={description} onChange={(e) => setDescription(e.target.value)} />
+						<Input placeholder={t("app.deck.create.name")} value={name} onChange={(e) => setName(e.target.value)} />
+						<Input placeholder={t("app.deck.create.desc")} value={description} onChange={(e) => setDescription(e.target.value)} />
 					</div>
 					{/* Color picker */}
-					<div className="flex items-center gap-3">
-						<span className="text-sm font-medium text-muted-foreground mr-1">{t("app.deck.create.color")}</span>
+					<div className="flex items-center gap-2">
+						<span className="text-xs font-medium text-muted-foreground mr-2">{t("app.deck.create.color")}</span>
 						{Object.keys(DECK_COLORS).map((c) => (
 							<button
 								key={c}
 								type="button"
 								onClick={() => setSelectedColor(c)}
-								className={`w-7 h-7 rounded-full border-2 transition-all ${DECK_COLORS[c]} ${selectedColor === c ? "border-primary scale-110 ring-2 ring-primary ring-offset-2 ring-offset-background" : "border-transparent opacity-70 hover:opacity-100 hover:scale-105"}`}
+								className={`w-6 h-6 rounded-full transition-all ring-offset-background ${DECK_COLORS[c]} ${selectedColor === c ? "ring-2 ring-ring ring-offset-2 ring-offset-background" : "opacity-60 hover:opacity-100"}`}
 							/>
 						))}
 					</div>
-					<div className="flex justify-end">
-						<Button type="submit" disabled={!name.trim() || creating}>
-							{creating ? "..." : t("app.deck.create.save")}
-						</Button>
-					</div>
+					<Button type="submit" className="w-full md:w-auto" disabled={!name.trim() || creating}>
+						{creating ? "..." : t("app.deck.create.save")}
+					</Button>
 				</form>
 			</section>
 
 			{/* Sort controls */}
 			{decks.length > 1 && (
-				<div className="flex items-center gap-2 flex-wrap bg-card border rounded-xl p-2 shadow-sm w-fit">
-					<ArrowUpDown className="h-4 w-4 text-muted-foreground ml-2 mr-1" />
+				<div className="flex items-center gap-2 flex-wrap">
+					<ArrowUpDown className="h-4 w-4 text-muted-foreground" />
 					{sortOptions.map((opt) => (
 						<button
 							key={opt.key}
 							onClick={() => setSortBy(opt.key)}
-							className={`text-sm px-3 py-1.5 rounded-lg font-medium transition-colors ${sortBy === opt.key ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}
+							className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${sortBy === opt.key ? "bg-primary text-primary-foreground" : "bg-white/5 text-muted-foreground hover:bg-white/10 hover:text-foreground"}`}
 						>
 							{opt.label}
 						</button>
@@ -181,20 +178,20 @@ export default function AppPage() {
 				</div>
 			)}
 
-			<section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+			<section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{loading && Array.from({ length: 4 }).map((_, i) => (
-					<div key={i} className="bg-card border rounded-2xl p-6 shadow-sm space-y-4">
+					<div key={i} className="bg-card border border-border rounded-2xl p-5 space-y-4">
 						<Skeleton className="h-6 w-2/3" />
 						<Skeleton className="h-4 w-1/2" />
-						<Skeleton className="h-10 w-24 rounded-md mt-4" />
+						<Skeleton className="h-9 w-24 rounded-md mt-4" />
 					</div>
 				))}
 				{!loading && decks.length === 0 && (
-					<div className="col-span-full flex flex-col items-center justify-center py-16 px-4 text-center bg-card/50 border border-dashed rounded-3xl">
-						<div className="w-20 h-20 mb-6 bg-muted rounded-full flex items-center justify-center">
-							<span className="text-3xl grayscale opacity-50">🗂️</span>
+					<div className="col-span-full flex flex-col items-center justify-center p-12 text-center bg-card border border-border rounded-2xl">
+						<div className="w-16 h-16 mb-4 bg-white/5 rounded-full flex items-center justify-center">
+							<span className="text-2xl">🗂️</span>
 						</div>
-						<h3 className="text-xl font-bold text-foreground mb-2">{t("app.deck.empty")}</h3>
+						<h3 className="text-xl font-semibold mb-2 text-foreground">{t("app.deck.empty")}</h3>
 						<p className="text-muted-foreground text-sm max-w-sm">{t("onboarding.empty_hint")}</p>
 					</div>
 				)}
@@ -202,16 +199,16 @@ export default function AppPage() {
 					const bgColor = DECK_BG_COLORS[(deck as any).color] || DECK_BG_COLORS.yellow;
 					const dotColor = DECK_COLORS[(deck as any).color] || DECK_COLORS.yellow;
 					return (
-						<UICard key={deck.id} className={`flex flex-col justify-between group overflow-hidden border transition-all hover:-translate-y-1 hover:shadow-md cursor-pointer ${bgColor}`}>
-							<CardHeader className="pb-3 border-b bg-background/50 backdrop-blur-sm">
-								<CardTitle className="flex items-start justify-between gap-3">
-									<div className="flex items-center gap-2 min-w-0 flex-1">
-										<div className={`w-3 h-3 rounded-full shrink-0 shadow-sm ${dotColor}`} />
-										<span className="text-lg font-semibold text-foreground line-clamp-1">{deck.name}</span>
+						<UICard key={deck.id} className={`flex flex-col justify-between group rounded-2xl transition-all cursor-pointer ${bgColor}`}>
+							<CardHeader className="pb-2">
+								<CardTitle className="flex items-start justify-between gap-2">
+									<div className="flex items-center gap-2 min-w-0">
+										<div className={`w-3 h-3 rounded-full shrink-0 ${dotColor}`} />
+										<span className="text-xl font-semibold line-clamp-1">{deck.name}</span>
 									</div>
-									<div className="flex flex-col items-end gap-1.5 shrink-0">
+									<div className="flex flex-col items-end gap-1 shrink-0">
 										{deck.dueCards > 0 && (
-											<Badge variant="destructive" className="h-5 px-1.5 text-[10px]">
+											<Badge variant="destructive" className="text-[10px] px-1.5 py-0 h-5">
 												{deck.dueCards} {t("app.deck.due")}
 											</Badge>
 										)}
@@ -219,18 +216,17 @@ export default function AppPage() {
 									</div>
 								</CardTitle>
 							</CardHeader>
-							<CardContent className="flex flex-col justify-between gap-4 p-5 h-full">
-								{deck.description ?
-									<p className="text-sm text-foreground/80 line-clamp-2 h-10">{deck.description}</p>
-									: <div className="h-10"></div>
-								}
-								<div className="flex items-end justify-between mt-auto space-x-2">
-									<Link href={`/app/decks/${deck.id}`} className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
-										{t("app.deck.open")}
+							<CardContent className="flex items-end justify-between gap-4 mt-auto pt-4 relative">
+								<div className="flex-1">
+									{deck.description && <p className="text-sm text-foreground/70 mb-4 line-clamp-2">{deck.description}</p>}
+									<Link href={`/app/decks/${deck.id}`}>
+										<Button size="sm" variant="default">{t("app.deck.open")}</Button>
 									</Link>
+								</div>
+								<div className="absolute bottom-4 right-4">
 									<AlertDialog>
 										<AlertDialogTrigger asChild>
-											<Button variant="outline" size="icon" className="h-9 w-9 text-muted-foreground hover:bg-destructive hover:text-destructive-foreground hover:border-destructive transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0">
+											<Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:bg-destructive/10 hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity">
 												<Trash2 className="h-4 w-4" />
 											</Button>
 										</AlertDialogTrigger>

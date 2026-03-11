@@ -15,9 +15,9 @@ export default function AchievementsBadges({ achievements }: Props) {
 
     return (
         <div>
-            <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-lg font-bold text-foreground">{t("achievements.title")}</h2>
-                <span className="text-xs font-medium text-muted-foreground bg-secondary px-2 py-0.5 rounded-full">
+            <div className="flex items-center gap-2 mb-6">
+                <h2 className="text-lg font-semibold">{t("achievements.title")}</h2>
+                <span className="text-xs font-medium text-muted-foreground bg-muted px-2.5 py-0.5 rounded-full">
                     {earned.length}/{achievements.length}
                 </span>
             </div>
@@ -26,14 +26,14 @@ export default function AchievementsBadges({ achievements }: Props) {
                 {achievements.map((a) => (
                     <div
                         key={a.id}
-                        className={`flex flex-col items-center text-center p-4 rounded-2xl border transition-all ${a.earned
-                            ? "bg-card shadow-sm hover:-translate-y-0.5 hover:shadow-md"
-                            : "bg-muted/30 border-transparent opacity-60 grayscale"
+                        className={`flex flex-col items-center justify-center text-center p-4 rounded-xl border transition-all ${a.earned
+                            ? "bg-card border-border shadow-sm hover:shadow-md hover:border-primary/50"
+                            : "bg-muted/30 border-dashed border-border opacity-60 grayscale"
                             }`}
                     >
                         <span className="text-3xl mb-2">{a.earned ? a.emoji : "🔒"}</span>
-                        <span className="text-xs font-semibold text-foreground leading-tight">{t(a.titleKey)}</span>
-                        <span className="text-[10px] font-medium text-muted-foreground mt-1 leading-tight">{t(a.descKey)}</span>
+                        <span className="text-xs font-semibold leading-tight mb-1">{t(a.titleKey)}</span>
+                        <span className="text-[10px] text-muted-foreground leading-tight">{t(a.descKey)}</span>
                     </div>
                 ))}
             </div>

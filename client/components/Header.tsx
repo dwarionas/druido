@@ -9,22 +9,24 @@ export function Header() {
 	const { t } = useI18n();
 
 	return (
-		<header className="sticky top-0 z-50 flex w-full items-center justify-between border-b bg-background/95 backdrop-blur px-6 py-4 shadow-sm animate-in slide-in-from-top-4 duration-500">
-			<Link href="/" className="flex items-center gap-3 group">
-				<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-xl font-bold tracking-tight shadow-sm transition-transform group-hover:scale-105">
-					D
-				</div>
-				<span className="text-xl font-bold tracking-tight text-foreground">Druido</span>
-			</Link>
+		<header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto">
+			<nav className="flex items-center gap-1 glass-strong rounded-full px-2 py-1.5 shadow-lg">
+				<Link href="/" className="flex items-center gap-2 px-3 py-1.5 font-semibold text-foreground">
+					<div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+						D
+					</div>
+					<span className="text-base tracking-tight hidden sm:inline">Druido</span>
+				</Link>
 
-			<div className="flex items-center gap-4">
+				<div className="w-px h-5 bg-white/10 mx-1" />
+
 				<Link
 					href={!loading && user ? "/app" : "/login"}
-					className="rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+					className="rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-sm font-medium transition-all hover:bg-teal-hover hover:shadow-[0_0_20px_rgba(30,193,167,0.3)]"
 				>
 					{!loading && user ? t("header.app") : t("header.login")}
 				</Link>
-			</div>
+			</nav>
 		</header>
 	);
 }

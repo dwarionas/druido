@@ -44,31 +44,33 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 				{mode === "register" && (
 					<div className="space-y-2">
 						<Label htmlFor="name" className="text-sm font-medium text-foreground">{t("login.name")}</Label>
-						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} className="h-12 text-base" />
+						<Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("login.name")} />
 					</div>
 				)}
 				<div className="space-y-2">
 					<Label htmlFor="email" className="text-sm font-medium text-foreground">{t("login.email")}</Label>
-					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="h-12 text-base" />
+					<Input id="email" type="email" placeholder="you@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="password" className="text-sm font-medium text-foreground">{t("login.password")}</Label>
-					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-12 text-base" />
+					<Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
 				</div>
 
-				{(formError || error) && <p className="text-destructive font-medium text-sm bg-destructive/10 border border-destructive/20 rounded-md p-3 mb-4">{formError || error}</p>}
+				{(formError || error) && (
+					<p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl p-3 font-medium">{formError || error}</p>
+				)}
 
-				<Button type="submit" className="w-full h-12 text-lg mt-2 font-semibold" disabled={submitting}>
+				<Button type="submit" className="w-full h-11 text-base mt-4" disabled={submitting}>
 					{submitting
 						? "..."
 						: (mode === "login" ? t("login.action.login") : t("login.action.register"))}
 				</Button>
 			</form>
 
-			<div className="text-center font-medium text-sm text-muted-foreground mt-4">
+			<div className="text-center text-sm text-muted-foreground mt-4">
 				<button
 					type="button"
-					className="underline underline-offset-4 text-primary hover:text-primary/80 transition-colors"
+					className="underline underline-offset-4 text-foreground hover:text-primary transition-colors font-medium"
 					onClick={() => setMode(mode === "login" ? "register" : "login")}
 				>
 					{mode === "login" ? t("login.switch.register") : t("login.switch.login")}

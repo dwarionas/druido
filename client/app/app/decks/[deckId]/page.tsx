@@ -22,14 +22,6 @@ import { parseApkg } from "@/lib/apkg-parser";
 
 type Tab = "study" | "cards" | "stats";
 
-function chunkArray<T>(arr: T[], size: number): T[][] {
-	const result = [];
-	for (let i = 0; i < arr.length; i += size) {
-		result.push(arr.slice(i, i + size));
-	}
-	return result;
-}
-
 export default function DeckDetailPage() {
 	const params = useParams<{ deckId: string }>();
 	const deckId = params.deckId;
@@ -141,15 +133,8 @@ export default function DeckDetailPage() {
 			if (q && a) cardsToCreate.push({ deckId: deckId as string, question: q, answer: a, tags: t });
 		}
 		if (cardsToCreate.length > 0) {
-			try {
-				const chunks = chunkArray(cardsToCreate, 500);
-				let totalCount = 0;
-				for (const chunk of chunks) {
-					const res = await bulkCreateCards(chunk);
-					totalCount += res.count;
-				}
-				toast.success(`Імпортовано ${totalCount} карток`);
-			} catch { toast.error("Помилка під час імпорту карток"); }
+			try { const res = await bulkCreateCards(cardsToCreate); toast.success(`Імпортовано ${res.count} карток`); }
+			catch { toast.error("Помилка під час імпорту карток"); }
 		} else { toast.info("Не знайдено карток для імпорту"); }
 		await loadCards();
 		if (fileInputRef.current) fileInputRef.current.value = "";
@@ -162,14 +147,8 @@ export default function DeckDetailPage() {
 			const parsed = await parseApkg(file);
 			if (parsed.length === 0) { toast.info("Не знайдено карток у .apkg файлі"); return; }
 			const cardsToCreate = parsed.map((c) => ({ deckId: deckId as string, question: c.question, answer: c.answer, tags: [] }));
-			const chunks = chunkArray(cardsToCreate, 500);
-			let totalCount = 0;
-			for (const chunk of chunks) {
-				const res = await bulkCreateCards(chunk);
-				totalCount += res.count;
-			}
-
-			toast.success(`Імпортовано ${totalCount} карток з Anki`);
+			const res = await bulkCreateCards(cardsToCreate);
+			toast.success(`Імпортовано ${res.count} карток з Anki`);
 			await loadCards();
 		} catch (err) { console.error(err); toast.error("Помилка при імпорті .apkg файлу"); }
 		finally { if (apkgInputRef.current) apkgInputRef.current.value = ""; }
@@ -198,27 +177,27 @@ export default function DeckDetailPage() {
 	];
 
 	return (
-		<div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500 pb-10">
+		<div className="space-y-6 animate-in slide-in-from-bottom-2 fade-in duration-500">
 			{/* Header */}
-			<section className="bg-card border rounded-2xl p-5 shadow-sm">
+			<section className="bg-card border border-border rounded-xl p-5 shadow-sm">
 				<div className="flex items-center gap-4 mb-4">
-					<Link href="/app" className="p-2 rounded-lg border bg-background hover:bg-muted transition-colors">
-						<ArrowLeft className="h-4 w-4 text-foreground" />
+					<Link href="/app" className="p-2 rounded-md border border-border bg-background shadow-sm hover:bg-accent transition-colors">
+						<ArrowLeft className="h-4 w-4" />
 					</Link>
 					<div className="flex-1 min-w-0">
-						<h1 className="text-2xl font-bold tracking-tight text-foreground truncate">{deckName}</h1>
+						<h1 className="text-2xl sm:text-3xl font-bold tracking-tight truncate">{deckName}</h1>
 						<p className="text-sm font-medium text-muted-foreground">{totalCards} {t("app.deck.total")}</p>
 					</div>
 				</div>
 
 				{/* Tabs */}
-				<div className="flex gap-1 bg-muted/50 rounded-lg p-1 w-fit">
+				<div className="flex gap-1 bg-muted/50 rounded-lg p-1">
 					{TABS.map(({ key, labelKey }) => (
 						<button
 							key={key}
 							onClick={() => setActiveTab(key)}
-							className={`py-1.5 px-4 rounded-md text-sm font-medium transition-all ${activeTab === key
-								? "bg-background shadow-sm text-foreground"
+							className={`flex-1 py-1.5 px-3 rounded-md text-sm font-medium transition-all ${activeTab === key
+								? "bg-background text-foreground shadow-sm"
 								: "text-muted-foreground hover:text-foreground"
 								}`}
 						>
@@ -230,16 +209,16 @@ export default function DeckDetailPage() {
 
 			{/* Study tab */}
 			{activeTab === "study" && (
-				<section className="p-1">
+				<section className="bg-card border border-border rounded-xl p-5 md:p-6 shadow-sm">
 					<Lernground deckId={deckId as string} version={reviewVersion} />
 				</section>
 			)}
 
 			{/* Cards tab */}
 			{activeTab === "cards" && (
-				<section className="space-y-5">
+				<section className="space-y-4">
 					{/* Toolbar */}
-					<div className="flex items-center gap-2 flex-wrap bg-card border rounded-xl p-3 shadow-sm">
+					<div className="flex items-center gap-2 flex-wrap">
 						<Sheet open={isEditSheetOpen} onOpenChange={(open) => { setIsEditSheetOpen(open); if (!open) { setEditingCard(null); setQuestion(""); setAnswer(""); setTags(""); } }}>
 							<SheetTrigger asChild>
 								<Button size="sm">{t("deck.detail.add")}</Button>
@@ -252,25 +231,25 @@ export default function DeckDetailPage() {
 								<form onSubmit={handleSaveCard} className="flex flex-col gap-3 px-4 pb-4 pt-2">
 									<Input placeholder={t("deck.detail.question")} value={question} onChange={(e) => setQuestion(e.target.value)} />
 									<Textarea placeholder={t("deck.detail.answer")} value={answer} onChange={(e) => setAnswer(e.target.value)} rows={3} />
-									<Input placeholder={t("deck.detail.tags")} value={tags} onChange={(e) => setTags(e.target.value)} className="text-xs" />
+									<Input placeholder={t("deck.detail.tags")} value={tags} onChange={(e) => setTags(e.target.value)} className="text-sm" />
 									<div className="flex justify-end gap-2">
 										<Button type="button" variant="outline" size="sm" onClick={() => { setEditingCard(null); setQuestion(""); setAnswer(""); setTags(""); setIsEditSheetOpen(false); }}>{t("deck.detail.cancel")}</Button>
-										<Button type="submit" size="sm" disabled={!question.trim() || !answer.trim() || saving}>{saving ? t("deck.detail.saving") : editingCard ? t("deck.detail.edit.save") : t("deck.detail.save")}</Button>
+										<Button type="submit" variant="default" size="sm" disabled={!question.trim() || !answer.trim() || saving}>{saving ? t("deck.detail.saving") : editingCard ? t("deck.detail.edit.save") : t("deck.detail.save")}</Button>
 									</div>
 								</form>
 							</SheetContent>
 						</Sheet>
 
-						<Button variant="outline" size="sm" onClick={handleExport} disabled={totalCards === 0}><Download className="h-4 w-4 mr-1.5" />CSV</Button>
-						<Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}><Upload className="h-4 w-4 mr-1.5" />{t("deck.detail.import")}</Button>
+						<Button variant="outline" size="sm" onClick={handleExport} disabled={totalCards === 0}><Download className="h-4 w-4 mr-1" />CSV</Button>
+						<Button variant="outline" size="sm" onClick={() => fileInputRef.current?.click()}><Upload className="h-4 w-4 mr-1" />{t("deck.detail.import")}</Button>
 						<input ref={fileInputRef} type="file" accept=".csv" className="hidden" onChange={handleImport} />
-						<Button variant="outline" size="sm" onClick={() => apkgInputRef.current?.click()}><FileArchive className="h-4 w-4 mr-1.5" />APKG</Button>
+						<Button variant="outline" size="sm" onClick={() => apkgInputRef.current?.click()}><FileArchive className="h-4 w-4 mr-1" />APKG</Button>
 						<input ref={apkgInputRef} type="file" accept=".apkg" className="hidden" onChange={handleApkgImport} />
 
 						{totalCards > 0 && (
 							<AlertDialog>
 								<AlertDialogTrigger asChild>
-									<Button variant="ghost" size="sm" className="text-destructive hover:bg-destructive/10 hover:text-destructive ml-auto">{t("deck.detail.delete_all")}</Button>
+									<Button variant="ghost" size="sm" className="text-destructive hover:text-destructive/90 hover:bg-destructive/10 font-medium ml-auto">{t("deck.detail.delete_all")}</Button>
 								</AlertDialogTrigger>
 								<AlertDialogContent>
 									<AlertDialogHeader>
@@ -288,33 +267,37 @@ export default function DeckDetailPage() {
 
 					{/* Tag filters */}
 					{allTags.length > 0 && (
-						<div className="flex flex-wrap gap-1.5">
-							<button onClick={() => setTagFilter(null)} className={`text-xs px-3 py-1 rounded-full font-medium transition-colors ${!tagFilter ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>All</button>
+						<div className="flex flex-wrap gap-1">
+							<button onClick={() => setTagFilter(null)} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${!tagFilter ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>All</button>
 							{allTags.map((tag) => (
-								<button key={tag} onClick={() => setTagFilter(tagFilter === tag ? null : tag)} className={`text-xs px-3 py-1 rounded-full font-medium transition-colors ${tagFilter === tag ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>{tag}</button>
+								<button key={tag} onClick={() => setTagFilter(tagFilter === tag ? null : tag)} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${tagFilter === tag ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}>{tag}</button>
 							))}
 						</div>
 					)}
 
 					{/* Card list */}
 					{!loading && totalCards === 0 && (
-						<div className="text-center py-16 px-4 bg-card/50 border border-dashed rounded-2xl">
-							<p className="text-muted-foreground text-sm">{t("deck.detail.due")}</p>
+						<div className="text-center py-12 bg-card border border-border rounded-xl shadow-sm">
+							<p className="text-muted-foreground font-medium">{t("deck.detail.due")}</p>
 						</div>
 					)}
 					<div className="space-y-2">
 						{filteredCards.map((card, idx) => (
-							<div key={`${card.id}-${idx}`} className="bg-card border rounded-xl p-4 shadow-sm flex items-start justify-between gap-3 group hover:shadow-md transition-all">
+							<div key={`${card.id}-${idx}`} className="bg-card border border-border rounded-lg p-4 shadow-sm flex items-start justify-between gap-3 group hover:border-primary/50 transition-colors">
 								<div className="min-w-0 flex-1">
-									<div className="font-semibold text-sm text-foreground">{card.question}</div>
-									<div className="mt-1 text-sm text-muted-foreground">{card.answer}</div>
-									{card.tags.length > 0 && <div className="flex gap-1.5 mt-2">{card.tags.map((t) => <Badge key={t} variant="secondary" className="px-2 font-normal text-[10px]">{t}</Badge>)}</div>}
+									<div className="font-semibold text-sm truncate">{card.question}</div>
+									<div className="mt-1 text-xs text-muted-foreground line-clamp-1">{card.answer}</div>
+									{card.tags.length > 0 && (
+										<div className="flex gap-1.5 mt-2">
+											{card.tags.map((t) => <Badge key={t} variant="secondary" className="text-[10px] uppercase font-semibold px-1.5 py-0">{t}</Badge>)}
+										</div>
+									)}
 								</div>
-								<div className="flex shrink-0 gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+								<div className="flex shrink-0 gap-1 opacity-100 sm:opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
 									<Button type="button" variant="ghost" size="icon" className="h-8 w-8" onClick={() => { setEditingCard(card); setQuestion(card.question); setAnswer(card.answer); setTags(card.tags.join(", ")); setIsEditSheetOpen(true); }}><Pencil className="h-4 w-4" /></Button>
 									<AlertDialog>
 										<AlertDialogTrigger asChild><Button type="button" variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"><Trash2 className="h-4 w-4" /></Button></AlertDialogTrigger>
-										<AlertDialogContent><AlertDialogHeader><AlertDialogTitle>?</AlertDialogTitle><AlertDialogDescription></AlertDialogDescription></AlertDialogHeader><AlertDialogFooter><AlertDialogCancel>{t("deck.detail.cancel")}</AlertDialogCancel><AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90" onClick={() => handleDeleteCard(card.id)}>Видалити</AlertDialogAction></AlertDialogFooter></AlertDialogContent>
+										<AlertDialogContent><AlertDialogHeader><AlertDialogTitle>Delete Card?</AlertDialogTitle><AlertDialogDescription>Are you sure you want to delete this card?</AlertDialogDescription></AlertDialogHeader><AlertDialogFooter><AlertDialogCancel>{t("deck.detail.cancel")}</AlertDialogCancel><AlertDialogAction className="bg-destructive text-destructive-foreground" onClick={() => handleDeleteCard(card.id)}>Delete</AlertDialogAction></AlertDialogFooter></AlertDialogContent>
 									</AlertDialog>
 								</div>
 							</div>
@@ -326,40 +309,42 @@ export default function DeckDetailPage() {
 			{/* Stats tab */}
 			{activeTab === "stats" && (
 				<section className="space-y-4">
-					<div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-						<div className="bg-card border rounded-2xl p-5 shadow-sm space-y-2">
-							<div className="text-3xl font-bold tracking-tight text-foreground">{totalCards}</div>
-							<div className="text-sm font-medium text-muted-foreground">{t("stats.total_cards")}</div>
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+						<div className="bg-card border border-border rounded-xl p-5 shadow-sm text-center flex flex-col items-center justify-center">
+							<div className="text-3xl font-bold">{totalCards}</div>
+							<div className="text-xs font-medium text-muted-foreground mt-1">{t("stats.total_cards")}</div>
 						</div>
-						<div className="bg-card border rounded-2xl p-5 shadow-sm space-y-2 relative overflow-hidden">
-							<div className="text-3xl font-bold tracking-tight text-emerald-500">{matureCards}</div>
-							<div className="text-sm font-medium text-muted-foreground">{t("deck.stats.mature")}</div>
+						<div className="bg-card border border-border rounded-xl p-5 shadow-sm text-center flex flex-col items-center justify-center">
+							<div className="text-3xl font-bold text-green-500">{matureCards}</div>
+							<div className="text-xs font-medium text-muted-foreground mt-1">{t("deck.stats.mature")}</div>
 						</div>
-						<div className="bg-card border rounded-2xl p-5 shadow-sm space-y-2">
-							<div className="text-3xl font-bold tracking-tight text-orange-500">{learningCards}</div>
-							<div className="text-sm font-medium text-muted-foreground">{t("deck.stats.learning")}</div>
+						<div className="bg-card border border-border rounded-xl p-5 shadow-sm text-center flex flex-col items-center justify-center">
+							<div className="text-3xl font-bold text-orange-500">{learningCards}</div>
+							<div className="text-xs font-medium text-muted-foreground mt-1">{t("deck.stats.learning")}</div>
 						</div>
-						<div className="bg-card border rounded-2xl p-5 shadow-sm space-y-2">
-							<div className="text-3xl font-bold tracking-tight text-yellow-500">{newCards}</div>
-							<div className="text-sm font-medium text-muted-foreground">{t("deck.stats.new")}</div>
+						<div className="bg-card border border-border rounded-xl p-5 shadow-sm text-center flex flex-col items-center justify-center">
+							<div className="text-3xl font-bold text-blue-500">{newCards}</div>
+							<div className="text-xs font-medium text-muted-foreground mt-1">{t("deck.stats.new")}</div>
 						</div>
 					</div>
 
 					{/* Mastery bar */}
-					<div className="bg-card border rounded-2xl p-6 shadow-sm">
-						<div className="flex items-center justify-between mb-4">
-							<h3 className="text-lg font-semibold tracking-tight text-foreground">{t("deck.stats.mastery")}</h3>
-							<span className="text-xl font-bold text-foreground">{masteryPercent}%</span>
+					<div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+						<div className="flex items-center justify-between mb-3">
+							<h3 className="text-lg font-semibold">{t("deck.stats.mastery")}</h3>
+							<span className="text-xl font-bold">{masteryPercent}%</span>
 						</div>
-						<div className="h-3 w-full bg-secondary rounded-full overflow-hidden flex">
-							{matureCards > 0 && <div className="bg-emerald-500 h-full transition-all duration-700" style={{ width: `${(matureCards / Math.max(totalCards, 1)) * 100}%` }} />}
-							{learningCards > 0 && <div className="bg-orange-500 h-full transition-all duration-700" style={{ width: `${(learningCards / Math.max(totalCards, 1)) * 100}%` }} />}
-							{newCards > 0 && <div className="bg-yellow-500 h-full transition-all duration-700" style={{ width: `${(newCards / Math.max(totalCards, 1)) * 100}%` }} />}
+						<div className="h-4 w-full bg-secondary rounded-full overflow-hidden">
+							<div className="h-full rounded-full flex gap-1">
+								{matureCards > 0 && <div className="bg-green-500 h-full transition-all duration-700 rounded-l-full" style={{ width: `${(matureCards / Math.max(totalCards, 1)) * 100}%` }} />}
+								{learningCards > 0 && <div className="bg-orange-500 h-full transition-all duration-700" style={{ width: `${(learningCards / Math.max(totalCards, 1)) * 100}%` }} />}
+								{newCards > 0 && <div className="bg-blue-500 h-full transition-all duration-700 rounded-r-full" style={{ width: `${(newCards / Math.max(totalCards, 1)) * 100}%` }} />}
+							</div>
 						</div>
-						<div className="flex gap-4 mt-4 text-xs font-medium text-muted-foreground">
-							<span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500" /> {matureCards} {t("deck.stats.mature")}</span>
-							<span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-orange-500" /> {learningCards} {t("deck.stats.learning")}</span>
-							<span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-yellow-500" /> {newCards} {t("deck.stats.new")}</span>
+						<div className="flex flex-wrap gap-4 mt-4 text-sm font-medium text-muted-foreground">
+							<span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-500" /> {matureCards} {t("deck.stats.mature")}</span>
+							<span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-orange-500" /> {learningCards} {t("deck.stats.learning")}</span>
+							<span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-500" /> {newCards} {t("deck.stats.new")}</span>
 						</div>
 					</div>
 				</section>

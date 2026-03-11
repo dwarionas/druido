@@ -48,61 +48,53 @@ export default function StatsPage() {
         return cells;
     }, [heatmap]);
 
-    const heatmapColors = [
-        "bg-muted",
-        "bg-primary/20",
-        "bg-primary/40",
-        "bg-primary/60",
-        "bg-primary",
-    ];
-
     if (loading) {
         return (
-            <div className="space-y-6 animate-pulse">
-                <div className="h-8 w-48 bg-muted rounded-xl" />
+            <div className="space-y-6 animate-pulse pt-4">
+                <div className="h-8 w-48 bg-white/5 rounded-md" />
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[1, 2, 3, 4].map(i => <div key={i} className="h-28 bg-muted rounded-2xl" />)}
+                    {[1, 2, 3, 4].map(i => <div key={i} className="h-28 bg-white/5 rounded-2xl border border-border" />)}
                 </div>
-                <div className="h-40 bg-muted rounded-2xl" />
+                <div className="h-40 bg-white/5 rounded-2xl border border-border" />
             </div>
         );
     }
 
     return (
-        <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500 pb-10">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">{t("stats.title")}</h1>
+        <div className="space-y-6 animate-fade-in-up py-6">
+            <h1 className="text-3xl font-bold tracking-tight">{t("stats.title")}</h1>
 
             {/* Overview cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-card border rounded-2xl p-5 shadow-sm space-y-1 hover:shadow-md transition-shadow">
-                    <div className="text-2xl mb-2">🔥</div>
-                    <div className="text-3xl font-bold tracking-tight text-foreground">{overview?.streak ?? 0}</div>
-                    <div className="text-sm font-medium text-muted-foreground">{t("stats.streak")}</div>
+                <div className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl mb-2">🔥</div>
+                    <div className="text-3xl font-bold text-foreground">{overview?.streak ?? 0}</div>
+                    <div className="text-xs font-medium text-muted-foreground mt-1">{t("stats.streak")}</div>
                 </div>
-                <div className="bg-card border rounded-2xl p-5 shadow-sm space-y-1 hover:shadow-md transition-shadow">
-                    <div className="text-2xl mb-2">⭐</div>
-                    <div className="text-3xl font-bold tracking-tight text-foreground">{overview?.xp ?? 0}</div>
-                    <div className="text-sm font-medium text-muted-foreground">{t("stats.xp")}</div>
+                <div className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl mb-2">⭐</div>
+                    <div className="text-3xl font-bold text-foreground">{overview?.xp ?? 0}</div>
+                    <div className="text-xs font-medium text-muted-foreground mt-1">{t("stats.xp")}</div>
                 </div>
-                <div className="bg-card border rounded-2xl p-5 shadow-sm space-y-1 hover:shadow-md transition-shadow">
-                    <div className="text-2xl mb-2">📚</div>
-                    <div className="text-3xl font-bold tracking-tight text-foreground">{overview?.totalCards ?? 0}</div>
-                    <div className="text-sm font-medium text-muted-foreground">{t("stats.total_cards")}</div>
+                <div className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl mb-2">📚</div>
+                    <div className="text-3xl font-bold text-foreground">{overview?.totalCards ?? 0}</div>
+                    <div className="text-xs font-medium text-muted-foreground mt-1">{t("stats.total_cards")}</div>
                 </div>
-                <div className="bg-card border rounded-2xl p-5 shadow-sm space-y-1 hover:shadow-md transition-shadow">
-                    <div className="text-2xl mb-2">🗂️</div>
-                    <div className="text-3xl font-bold tracking-tight text-foreground">{overview?.totalDecks ?? 0}</div>
-                    <div className="text-sm font-medium text-muted-foreground">{t("stats.total_decks")}</div>
+                <div className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl mb-2">🗂️</div>
+                    <div className="text-3xl font-bold text-foreground">{overview?.totalDecks ?? 0}</div>
+                    <div className="text-xs font-medium text-muted-foreground mt-1">{t("stats.total_decks")}</div>
                 </div>
             </div>
 
             {/* Daily goal progress */}
-            <div className="bg-card border rounded-2xl p-6 shadow-sm">
+            <div className="bg-card border border-border rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold tracking-tight text-foreground">{t("stats.daily_goal")}</h2>
-                    <span className="text-sm font-medium text-foreground">{overview?.reviewedToday ?? 0} / {overview?.dailyGoal ?? 20}</span>
+                    <h2 className="text-lg font-semibold">{t("stats.daily_goal")}</h2>
+                    <span className="text-sm font-medium text-muted-foreground">{overview?.reviewedToday ?? 0} / {overview?.dailyGoal ?? 20}</span>
                 </div>
-                <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
+                <div className="h-3 w-full bg-white/5 rounded-full overflow-hidden">
                     <div
                         className="h-full bg-primary transition-all duration-700 rounded-full"
                         style={{ width: `${goalProgress}%` }}
@@ -111,14 +103,15 @@ export default function StatsPage() {
             </div>
 
             {/* Activity heatmap */}
-            <div className="bg-card border rounded-2xl p-6 shadow-sm">
-                <h2 className="text-lg font-semibold tracking-tight text-foreground mb-6">{t("stats.activity")}</h2>
+            <div className="bg-card border border-border rounded-2xl p-6">
+                <h2 className="text-lg font-semibold mb-6">{t("stats.activity")}</h2>
                 <div className="overflow-x-auto pb-2">
                     <div className="grid grid-flow-col grid-rows-7 gap-1 min-w-[700px]">
                         {heatmapCells.map((cell) => (
                             <div
                                 key={cell.date}
-                                className={`w-3 h-3 rounded-sm ${heatmapColors[cell.level]} transition-colors`}
+                                className={`w-3 h-3 rounded-sm transition-opacity hover:ring-2 hover:ring-primary/50 hover:ring-offset-1 hover:ring-offset-background cursor-help ${cell.count > 0 ? 'bg-primary' : 'bg-white/5'}`}
+                                style={cell.count > 0 ? { opacity: Math.max(0.3, cell.level * 0.25) } : {}}
                                 title={`${cell.date}: ${cell.count} ${t("stats.cards")}`}
                             />
                         ))}
@@ -126,25 +119,29 @@ export default function StatsPage() {
                 </div>
                 <div className="flex items-center gap-2 mt-4 text-xs font-medium text-muted-foreground">
                     <span>Less</span>
-                    {heatmapColors.map((c, i) => (
-                        <div key={i} className={`w-3 h-3 rounded-sm ${c}`} />
-                    ))}
+                    <div className="flex gap-1">
+                        <div className="w-3 h-3 rounded-sm bg-white/5" />
+                        <div className="w-3 h-3 rounded-sm bg-primary/30" />
+                        <div className="w-3 h-3 rounded-sm bg-primary/50" />
+                        <div className="w-3 h-3 rounded-sm bg-primary/75" />
+                        <div className="w-3 h-3 rounded-sm bg-primary" />
+                    </div>
                     <span>More</span>
                 </div>
             </div>
 
             {/* 30-day bar chart */}
-            <div className="bg-card border rounded-2xl p-6 shadow-sm">
-                <h2 className="text-lg font-semibold tracking-tight text-foreground mb-6">{t("stats.daily_chart")}</h2>
-                <div className="flex items-end gap-1 h-32">
+            <div className="bg-card border border-border rounded-2xl p-6">
+                <h2 className="text-lg font-semibold mb-6">{t("stats.daily_chart")}</h2>
+                <div className="flex items-end gap-1 h-40">
                     {daily.map((d) => (
                         <div
                             key={d.date}
-                            className="flex-1 bg-primary/40 hover:bg-primary rounded-t-sm transition-colors cursor-pointer relative group min-w-[6px]"
+                            className="flex-1 bg-primary/40 hover:bg-primary rounded-t-sm transition-colors cursor-pointer relative group min-w-[8px]"
                             style={{ height: `${Math.max((d.cardsReviewed / maxDaily) * 100, 4)}%` }}
                             title={`${d.date}: ${d.cardsReviewed} ${t("stats.cards")}`}
                         >
-                            <div className="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-foreground text-background text-[10px] font-medium px-2 py-1 rounded shadow-sm whitespace-nowrap z-10">
+                            <div className="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-popover text-popover-foreground border border-border shadow-md text-[10px] font-medium px-2 py-1 rounded-lg whitespace-nowrap z-10">
                                 {d.cardsReviewed}
                             </div>
                         </div>
@@ -160,24 +157,26 @@ export default function StatsPage() {
 
             {/* Deck mastery */}
             {deckStats.length > 0 && (
-                <div className="bg-card border rounded-2xl p-6 shadow-sm">
-                    <h2 className="text-lg font-semibold tracking-tight text-foreground mb-6">{t("stats.deck_mastery")}</h2>
-                    <div className="space-y-5">
+                <div className="bg-card border border-border rounded-2xl p-6">
+                    <h2 className="text-lg font-semibold mb-6">{t("stats.deck_mastery")}</h2>
+                    <div className="space-y-6">
                         {deckStats.map((ds) => (
                             <div key={ds.deckId}>
                                 <div className="flex items-center justify-between mb-2">
-                                    <span className="text-sm font-semibold text-foreground truncate">{ds.deckName}</span>
-                                    <span className="text-sm font-medium text-muted-foreground shrink-0 ml-2">{ds.masteryPercent}%</span>
+                                    <span className="text-sm font-semibold truncate">{ds.deckName}</span>
+                                    <span className="text-xs font-medium shrink-0 ml-2 text-primary">{ds.masteryPercent}%</span>
                                 </div>
-                                <div className="h-2 w-full bg-secondary rounded-full overflow-hidden flex">
-                                    {ds.mature > 0 && <div className="bg-emerald-500 h-full" style={{ width: `${(ds.mature / Math.max(ds.total, 1)) * 100}%` }} />}
-                                    {ds.learning > 0 && <div className="bg-orange-500 h-full" style={{ width: `${(ds.learning / Math.max(ds.total, 1)) * 100}%` }} />}
-                                    {ds.new > 0 && <div className="bg-yellow-500 h-full" style={{ width: `${(ds.new / Math.max(ds.total, 1)) * 100}%` }} />}
+                                <div className="h-2.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-full rounded-full flex gap-0.5">
+                                        {ds.mature > 0 && <div className="bg-green-500 h-full rounded-l-full" style={{ width: `${(ds.mature / Math.max(ds.total, 1)) * 100}%` }} />}
+                                        {ds.learning > 0 && <div className="bg-orange-500 h-full" style={{ width: `${(ds.learning / Math.max(ds.total, 1)) * 100}%` }} />}
+                                        {ds.new > 0 && <div className="bg-blue-500 h-full rounded-r-full" style={{ width: `${(ds.new / Math.max(ds.total, 1)) * 100}%` }} />}
+                                    </div>
                                 </div>
-                                <div className="flex gap-4 mt-2 text-xs font-medium text-muted-foreground">
-                                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /> {ds.mature} {t("deck.stats.mature")}</span>
+                                <div className="flex flex-wrap gap-4 mt-2 text-[10px] uppercase tracking-wider font-medium text-muted-foreground">
+                                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500" /> {ds.mature} {t("deck.stats.mature")}</span>
                                     <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-orange-500" /> {ds.learning} {t("deck.stats.learning")}</span>
-                                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-yellow-500" /> {ds.new} {t("deck.stats.new")}</span>
+                                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-blue-500" /> {ds.new} {t("deck.stats.new")}</span>
                                 </div>
                             </div>
                         ))}
@@ -186,7 +185,8 @@ export default function StatsPage() {
             )}
 
             {/* Achievements */}
-            <div className="bg-card border rounded-2xl p-6 shadow-sm">
+            <div className="bg-card border border-border rounded-2xl p-6">
+                <h2 className="text-lg font-semibold mb-6">Achievements</h2>
                 <AchievementsBadges achievements={computeAchievements(overview, deckStats)} />
             </div>
         </div>

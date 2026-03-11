@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { listCards, getDecksSummary, type Card, type DeckSummary } from "@/lib/decks-api";
 import { Card as UICard, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useI18n } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
 
 function SearchContent() {
 	const searchParams = useSearchParams();
@@ -39,47 +40,49 @@ function SearchContent() {
 	}
 
 	return (
-		<div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+		<div className="space-y-8 animate-fade-in-up">
 			<section>
-				<h1 className="text-3xl font-bold tracking-tight text-foreground mb-2">{t("app.search.title")}</h1>
+				<h1 className="text-3xl font-bold tracking-tight mb-2">{t("app.search.title")}</h1>
 			</section>
 
 			<form onSubmit={handleSubmit} className="flex gap-4">
 				<input
-					className="flex-1 bg-background border rounded-lg px-4 text-base shadow-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+					autoFocus
+					type="text"
+					className="flex-1 h-12 bg-white/5 border border-border rounded-xl px-4 font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 placeholder:text-muted-foreground transition-all"
 					placeholder={t("app.search.placeholder")}
 					value={query}
-					onChange={(e) => setQuery(e.target.value)}
+					onChange={e => setQuery(e.target.value)}
 				/>
-				<button className="bg-primary text-primary-foreground font-medium px-6 py-2 rounded-lg h-12 shadow-sm hover:bg-primary/90 transition-colors" type="submit">
+				<Button type="submit" className="h-12 px-6">
 					Шукати
-				</button>
+				</Button>
 			</form>
 
-			{loading && <p className="text-muted-foreground font-medium text-sm animate-pulse">Шукаю...</p>}
+			{loading && <p className="text-foreground font-medium text-lg animate-pulse">Шукаю...</p>}
 
 			{!loading && decks.length === 0 && cards.length === 0 && initialQ && (
-				<div className="bg-card border rounded-xl shadow-sm p-6 text-center mt-8">
-					<p className="text-foreground font-medium text-lg">{t("app.search.empty")} «{initialQ}».</p>
+				<div className="bg-card border border-border rounded-2xl p-6 sm:p-8 text-center mt-8">
+					<p className="text-foreground font-semibold text-xl">{t("app.search.empty")} «{initialQ}».</p>
 				</div>
 			)}
 
 			{!loading && decks.length > 0 && (
 				<section className="space-y-4 pt-4">
-					<h2 className="text-xl font-bold text-foreground tracking-tight">{t("app.search.decks")}</h2>
-					<div className="grid gap-4 sm:p-2 md:grid-cols-2">
+					<h2 className="text-2xl font-bold text-foreground">{t("app.search.decks")}</h2>
+					<div className="grid gap-4 md:grid-cols-2">
 						{decks.map((deck) => (
-							<UICard key={deck.id} className="bg-card border rounded-xl shadow-sm hover:shadow-md transition-shadow">
+							<UICard key={deck.id} className="border-primary/10 hover:border-primary/25 transition-all p-4">
 								<CardHeader className="pb-2">
 									<CardTitle className="flex items-start justify-between gap-2">
-										<span className="text-lg font-semibold text-foreground line-clamp-1">{deck.name}</span>
-										<span className="text-xs font-medium text-muted-foreground shrink-0">{deck.totalCards} {t("app.deck.total")}</span>
+										<span className="text-xl font-semibold text-foreground line-clamp-1">{deck.name}</span>
+										<span className="text-sm font-medium text-muted-foreground shrink-0">{deck.totalCards} {t("app.deck.total")}</span>
 									</CardTitle>
 								</CardHeader>
 								<CardContent>
 									{deck.description && <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{deck.description}</p>}
-									<Link href={`/app/decks/${deck.id}`} className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
-										Відкрити
+									<Link href={`/app/decks/${deck.id}`}>
+										<Button size="sm">Відкрити</Button>
 									</Link>
 								</CardContent>
 							</UICard>
@@ -90,12 +93,12 @@ function SearchContent() {
 
 			{!loading && cards.length > 0 && (
 				<section className="space-y-4 pt-4">
-					<h2 className="text-xl font-bold text-foreground tracking-tight">{t("app.search.cards")}</h2>
-					<div className="grid gap-4 sm:p-2 md:grid-cols-2">
+					<h2 className="text-2xl font-bold text-foreground">{t("app.search.cards")}</h2>
+					<div className="grid gap-4 md:grid-cols-2">
 						{cards.map((card) => (
-							<UICard key={card.id} className="bg-card border rounded-xl shadow-sm">
+							<UICard key={card.id} className="p-4">
 								<CardHeader className="pb-2">
-									<CardTitle className="text-base font-semibold text-foreground leading-tight">{card.question}</CardTitle>
+									<CardTitle className="text-lg font-semibold text-foreground leading-tight">{card.question}</CardTitle>
 								</CardHeader>
 								<CardContent>
 									<p className="text-sm text-muted-foreground">{card.answer}</p>
@@ -113,12 +116,12 @@ export default function SearchPage() {
 	return (
 		<Suspense
 			fallback={
-				<div className="space-y-8 animate-pulse">
+				<div className="space-y-8 animate-fade-in-up">
 					<section>
-						<h1 className="text-3xl font-bold tracking-tight text-foreground mb-2">Пошук</h1>
-						<p className="text-sm font-medium text-muted-foreground">Шукай серед усіх карток та колод.</p>
+						<h1 className="text-3xl font-bold tracking-tight mb-2">Пошук</h1>
+						<p className="text-sm text-muted-foreground">Шукай серед усіх карток та колод.</p>
 					</section>
-					<p className="text-muted-foreground font-medium text-sm">Завантаження...</p>
+					<p className="text-foreground font-medium text-lg animate-pulse">Завантаження...</p>
 				</div>
 			}
 		>

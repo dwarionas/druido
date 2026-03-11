@@ -12,7 +12,7 @@ export function CallToActionButton() {
     return (
         <Link
             href={!loading && user ? "/app" : "/login"}
-            className="w-full h-14 bg-primary text-primary-foreground font-medium text-xl rounded-full flex items-center justify-center shadow hover:bg-primary/90 transition-colors"
+            className="w-full h-14 bg-primary text-primary-foreground hover:bg-teal-hover text-xl font-medium rounded-full flex items-center justify-center transition-all hover:shadow-[0_0_30px_rgba(30,193,167,0.4)]"
         >
             {!loading && user ? t("header.app") : t("landing.cta")}
         </Link>
