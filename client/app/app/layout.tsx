@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n } from "@/lib/i18n";
+import { api } from "@/lib/api-client";
 import { Input } from "@/components/ui/input";
 import { LayoutDashboard, BarChart3, User, Search, Menu, X } from "lucide-react";
 
@@ -51,17 +52,21 @@ const NAV_ITEMS = [
 ] as const;
 
 export default function AppLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	const { user, loading, logout } = useAuth();
+	const { user, loading, refreshUser } = useAuth();
 	const { t } = useI18n();
 	const router = useRouter();
 	const pathname = usePathname();
 	const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+	const [autoStarting, setAutoStarting] = React.useState(false);
 
 	React.useEffect(() => {
-		if (!loading && !user) {
-			router.push("/login");
+		if (!loading && !user && !autoStarting) {
+			setAutoStarting(true);
+			api.post("/auth/demo")
+				.then(() => refreshUser())
+				.catch(() => router.push("/"));
 		}
-	}, [loading, user, router]);
+	}, [loading, user, autoStarting, refreshUser, router]);
 
 	React.useEffect(() => {
 		setMobileMenuOpen(false);
@@ -70,7 +75,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 	if (loading || !user) {
 		return (
 			<div className="flex min-h-dvh items-center justify-center bg-background">
-				<p className="text-sm text-muted-foreground animate-pulse">{t("app.decks.loading")}</p>
+				<p className="text-sm text-muted-foreground animate-pulse">{t("demo.loading")}</p>
 			</div>
 		);
 	}
@@ -107,7 +112,6 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 					))}
 				</nav>
 
-				{/* Sidebar footer: XP + Streak */}
 				<div className="p-4 border-t border-border space-y-3">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center gap-2 text-sm font-medium text-foreground">
@@ -121,12 +125,12 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 					</div>
 					<div className="flex items-center justify-between">
 						<span className="text-xs font-medium text-muted-foreground truncate">{user.name || user.email}</span>
-						<button
-							onClick={() => logout().then(() => router.push("/login"))}
+						<Link
+							href="/"
 							className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
 						>
-							{t("profile.logout")}
-						</button>
+							← Landing
+						</Link>
 					</div>
 				</div>
 			</aside>
@@ -148,7 +152,6 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 						</div>
 					</div>
 
-					{/* Mobile dropdown nav */}
 					{mobileMenuOpen && (
 						<nav className="mt-3 pb-1 space-y-1 animate-in slide-in-from-top-2">
 							{NAV_ITEMS.map(({ href, icon: Icon, labelKey }) => (
@@ -166,7 +169,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
 							))}
 							<div className="flex items-center justify-between px-3 pt-2">
 								<span className="text-sm font-medium text-foreground">🔥 {user.streak} · ⭐ {user.xp} XP</span>
-								<button onClick={() => logout().then(() => router.push("/login"))} className="text-xs text-muted-foreground hover:text-foreground transition-colors">{t("profile.logout")}</button>
+								<Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors">← Landing</Link>
 							</div>
 						</nav>
 					)}

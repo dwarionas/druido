@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { RegisterDto, LoginDto } from './dto/auth.dto';
 import { UpdateProfileDto, ChangePasswordDto } from './dto/profile.dto';
+import { seedDemoUser, resetDemoUser } from '../seed-demo';
 
 const BCRYPT_ROUNDS = 12;
 
@@ -21,7 +22,6 @@ export class AuthService {
         });
 
         if (existing) {
-            // generic message to prevent user enumeration
             throw new ConflictException('Registration failed');
         }
 
@@ -35,7 +35,6 @@ export class AuthService {
             },
         });
 
-        // console.log('registered:', user.email);
         const token = this.signToken(user.id);
         return { user, token };
     }
@@ -115,6 +114,18 @@ export class AuthService {
         });
 
         return { success: true };
+    }
+
+    async loginAsDemo() {
+        const user = await seedDemoUser(this.prisma);
+        const token = this.signToken(user.id);
+        return { user, token };
+    }
+
+    async resetDemo(userId: string) {
+        const user = await resetDemoUser(this.prisma);
+        const token = this.signToken(user.id);
+        return { user, token };
     }
 
     private signToken(userId: string): string {

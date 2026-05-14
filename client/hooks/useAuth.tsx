@@ -72,8 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	const logout = useCallback(async () => {
 		try {
 			await api.post("/auth/logout");
-		} catch (e) {
-			// ignore errors on logout
+		} catch {
 		}
 		setUser(null);
 	}, []);
@@ -83,7 +82,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 			const data = await api.get<User | null>("/auth/me");
 			setUser(data);
 		} catch {
-			// ignore
 		}
 	}, []);
 

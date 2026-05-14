@@ -7,9 +7,6 @@ export interface ParsedCard {
     answer: string;
 }
 
-/**
- * Strip HTML tags, decode entities, and collapse whitespace.
- */
 function stripHtml(html: string): string {
     let text = html.replace(/<br\s*\/?>/gi, "\n").replace(/<\/?(div|p)[^>]*>/gi, "\n");
     text = text.replace(/<[^>]+>/g, "");
@@ -23,34 +20,23 @@ function stripHtml(html: string): string {
     return text.replace(/\n{3,}/g, "\n\n").trim();
 }
 
-/**
- * Creates a SQLite database from a buffer, decompressing zstd if necessary.
- */
 function getSqliteDb(buf: ArrayBuffer, SQL: any): Database {
     let uint8: Uint8Array = new Uint8Array(buf);
     if (uint8.length >= 4) {
         const magic = new DataView(buf).getUint32(0, true);
         if (magic === 0xFD2FB528) {
-            console.log("[apkg] decompressing zstd database");
             uint8 = decompress(uint8);
         }
     }
     return new SQL.Database(uint8);
 }
 
-/**
- * Try to extract cards from a SQLite database buffer.
- * Handles both the old `notes` table format and checks for
- * other table structures that newer Anki versions might use.
- */
 function extractCardsFromDb(db: Database): ParsedCard[] {
     const cards: ParsedCard[] = [];
 
-    // check which tables exist
     const tables = db.exec("SELECT name FROM sqlite_master WHERE type='table'");
     const tableNames = tables.length ? tables[0].values.map((r) => String(r[0])) : [];
 
-    // try the standard `notes` table first (Anki 2.0 / 2.1)
     if (tableNames.includes("notes")) {
         const results = db.exec("SELECT flds FROM notes");
         if (results.length && results[0].values.length) {
@@ -66,8 +52,6 @@ function extractCardsFromDb(db: Database): ParsedCard[] {
         }
     }
 
-    // some exports have a `cards` + `notes` join
-    // try cards -> notes via nid if we got nothing and both tables exist
     if (cards.length === 0 && tableNames.includes("cards") && tableNames.includes("notes")) {
         const results = db.exec(
             "SELECT n.flds FROM cards c JOIN notes n ON c.nid = n.id GROUP BY n.id"
@@ -88,14 +72,6 @@ function extractCardsFromDb(db: Database): ParsedCard[] {
     return cards;
 }
 
-/**
- * Parse an .apkg file and return an array of { question, answer }.
- *
- * Supports multiple Anki export formats:
- * - Legacy: collection.anki2 (SQLite)
- * - Newer: collection.anki21 / collection.anki21b (SQLite, optionally zstd)
- * - Modern (2.1.50+): may contain multiple .sqlite files or data directory
- */
 export async function parseApkg(file: File): Promise<ParsedCard[]> {
     const buf = await file.arrayBuffer();
     const zip = await JSZip.loadAsync(buf);
@@ -104,11 +80,8 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
         locateFile: () => "/sql-wasm.wasm",
     });
 
-    // list all files in the archive for debugging
     const fileNames = Object.keys(zip.files);
-    console.log("[apkg] files in archive:", fileNames);
 
-    // strategy 1: classic database files
     const dbCandidates = [
         "collection.anki21b",
         "collection.anki21",
@@ -129,7 +102,6 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
         }
     }
 
-    // strategy 2: modern format — try any .sqlite file in the archive
     const sqliteFiles = fileNames.filter(
         (n) => n.endsWith(".sqlite") || n.endsWith(".sqlite3") || n.endsWith(".db")
     );
@@ -147,7 +119,6 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
         }
     }
 
-    // strategy 3: brute-force — try every file that isn't media
     for (const name of fileNames) {
         if (name === "media" || name.match(/^\d+$/) || name.endsWith(".json")) continue;
         if (dbCandidates.includes(name) || sqliteFiles.includes(name)) continue;
@@ -165,10 +136,8 @@ export async function parseApkg(file: File): Promise<ParsedCard[]> {
                 if (db && typeof db.close === "function") db.close();
             }
         } catch {
-            // not a valid sqlite file, skip
         }
     }
 
-    console.warn("[apkg] no cards found in any database within the archive");
     return [];
 }

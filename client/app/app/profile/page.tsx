@@ -4,13 +4,14 @@ import React from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n, LanguageSwitcher } from "@/lib/i18n";
 import { updateProfile, changePassword } from "@/lib/decks-api";
+import { api } from "@/lib/api-client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 export default function ProfilePage() {
-    const { user, updateUser } = useAuth();
+    const { user, updateUser, refreshUser } = useAuth();
     const { t } = useI18n();
 
     const [name, setName] = React.useState(user?.name ?? "");
@@ -115,10 +116,25 @@ export default function ProfilePage() {
                 </Button>
             </form>
 
-            {/* Danger zone */}
-            <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-5 space-y-2">
-                <h2 className="text-lg font-semibold text-destructive">{t("profile.danger_zone")}</h2>
-                <p className="text-sm font-medium text-destructive/80">{t("profile.delete_info")}</p>
+            {/* Reset Demo */}
+            <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-5 space-y-3">
+                <h2 className="text-lg font-semibold text-destructive">{t("demo.reset")}</h2>
+                <p className="text-sm font-medium text-destructive/80">{t("demo.reset.desc")}</p>
+                <Button
+                    variant="destructive"
+                    onClick={async () => {
+                        try {
+                            await api.post("/auth/demo/reset");
+                            await refreshUser();
+                            toast.success(t("demo.reset.success"));
+                            window.location.href = "/app";
+                        } catch {
+                            toast.error("Reset failed");
+                        }
+                    }}
+                >
+                    {t("demo.reset.confirm")}
+                </Button>
             </div>
 
             {/* Stats summary */}

@@ -53,6 +53,38 @@ export class AuthController {
         return;
     }
 
+    @Public()
+    @Post('demo')
+    @HttpCode(HttpStatus.OK)
+    async demo(@Res({ passthrough: true }) res: Response) {
+        const { user, token } = await this.authService.loginAsDemo();
+        this.setAuthCookie(res, token);
+        return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            xp: user.xp,
+            streak: user.streak,
+            dailyGoal: user.dailyGoal,
+        };
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Post('demo/reset')
+    @HttpCode(HttpStatus.OK)
+    async resetDemo(@CurrentUser() userId: string, @Res({ passthrough: true }) res: Response) {
+        const { user, token } = await this.authService.resetDemo(userId);
+        this.setAuthCookie(res, token);
+        return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            xp: user.xp,
+            streak: user.streak,
+            dailyGoal: user.dailyGoal,
+        };
+    }
+
     @UseGuards(JwtAuthGuard)
     @Get('me')
     async me(@CurrentUser() userId: string) {

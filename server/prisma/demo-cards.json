@@ -1,0 +1,3654 @@
+[
+  {
+    "question": "Створювати",
+    "answer": "erstellen"
+  },
+  {
+    "question": "Збирати",
+    "answer": "sammeln"
+  },
+  {
+    "question": "Різниця",
+    "answer": "der Unterschied"
+  },
+  {
+    "question": "Вийти (з системи)",
+    "answer": "abmelden"
+  },
+  {
+    "question": "Сміливість",
+    "answer": "Der Mut"
+  },
+  {
+    "question": "Заражати (хвороба)",
+    "answer": "anstecken"
+  },
+  {
+    "question": "Відверто кажучи",
+    "answer": "Offen gesagt"
+  },
+  {
+    "question": "Грубо кажучи",
+    "answer": "Streng genommen"
+  },
+  {
+    "question": "Блідий",
+    "answer": "bleich"
+  },
+  {
+    "question": "Непоголений",
+    "answer": "unrasiert"
+  },
+  {
+    "question": "Круглий",
+    "answer": "rund"
+  },
+  {
+    "question": "Зморшкуватий",
+    "answer": "runzelig"
+  },
+  {
+    "question": "Неохайний",
+    "answer": "ungepflegt"
+  },
+  {
+    "question": "Стрункий",
+    "answer": "schlank"
+  },
+  {
+    "question": "Приємний",
+    "answer": "angenehm"
+  },
+  {
+    "question": "Не тупи!",
+    "answer": "Sei nicht albern!"
+  },
+  {
+    "question": "Замовкни!",
+    "answer": "Sei still!"
+  },
+  {
+    "question": "Поспішай!",
+    "answer": "Beeil dich!"
+  },
+  {
+    "question": "Дай сюди!",
+    "answer": "Gib mal her!"
+  },
+  {
+    "question": "Так би мовити",
+    "answer": "Sozusagen"
+  },
+  {
+    "question": "До речі / між іншим",
+    "answer": "Übrigens"
+  },
+  {
+    "question": "To add / Додавати (напр. картку)",
+    "answer": "hinzufügen"
+  },
+  {
+    "question": "Звучати",
+    "answer": "Tönen"
+  },
+  {
+    "question": "Булькати",
+    "answer": "Gluckern"
+  },
+  {
+    "question": "Шипіти (кішка)",
+    "answer": "Fauchen"
+  },
+  {
+    "question": "Шелестіти (листя)",
+    "answer": "Rascheln"
+  },
+  {
+    "question": "Сигналити (машина)",
+    "answer": "hupen"
+  },
+  {
+    "question": "Щебетати",
+    "answer": "Zwitschern"
+  },
+  {
+    "question": "Шуміти",
+    "answer": "Rauschen"
+  },
+  {
+    "question": "Schon",
+    "answer": "Bereits"
+  },
+  {
+    "question": "Oft",
+    "answer": "Häufig"
+  },
+  {
+    "question": "Прогрес",
+    "answer": "Der Fortschritt"
+  },
+  {
+    "question": "З іншого боку",
+    "answer": "Andererseits"
+  },
+  {
+    "question": "Пригодницький",
+    "answer": "Abenteuerlich"
+  },
+  {
+    "question": "Соромʼязливий",
+    "answer": "schüchtern"
+  },
+  {
+    "question": "Боягузливий",
+    "answer": "ägnstlich"
+  },
+  {
+    "question": "Допитливий",
+    "answer": "neugierig"
+  },
+  {
+    "question": "Нечесний",
+    "answer": "unehrlich"
+  },
+  {
+    "question": "Напевно / можливо (probably)",
+    "answer": "Wahrscheinlich"
+  },
+  {
+    "question": "Передбачувана (погода)",
+    "answer": "berechenbar (Wetter)"
+  },
+  {
+    "question": "Сміливий",
+    "answer": "mutig"
+  },
+  {
+    "question": "Подушка",
+    "answer": "Das Kissen"
+  },
+  {
+    "question": "Терміново",
+    "answer": "dringend"
+  },
+  {
+    "question": "Обережно! Бережись!",
+    "answer": "aufpassen / pass auf"
+  },
+  {
+    "question": "Рекомендувати",
+    "answer": "empfehlen"
+  },
+  {
+    "question": "Шина (машина, велосипед)",
+    "answer": "Der Reifen"
+  },
+  {
+    "question": "Злетіти (літак)",
+    "answer": "abfliegen"
+  },
+  {
+    "question": "Ми поїхали звідти / Ми вирушили",
+    "answer": "Wir sind losgefahren"
+  },
+  {
+    "question": "Відвідати",
+    "answer": "besichtigen"
+  },
+  {
+    "question": "Прокидатися",
+    "answer": "aufwachen"
+  },
+  {
+    "question": "Листок (папір / на дереві)",
+    "answer": "Das Blatt"
+  },
+  {
+    "question": "Полумʼя",
+    "answer": "Die Flamme"
+  },
+  {
+    "question": "Відомий чимось",
+    "answer": "Bekannt für"
+  },
+  {
+    "question": "Злий на",
+    "answer": "Böse auf"
+  },
+  {
+    "question": "Вдячний за",
+    "answer": "Dankbar für"
+  },
+  {
+    "question": "Здивований / вражений чимось",
+    "answer": "Erstaunt über"
+  },
+  {
+    "question": "Радісний через",
+    "answer": "Froh über"
+  },
+  {
+    "question": "Звиклий до",
+    "answer": "Gewöhnt an"
+  },
+  {
+    "question": "Щасливий через",
+    "answer": "Glücklich über"
+  },
+  {
+    "question": "Заздрісний до",
+    "answer": "Neidisch auf"
+  },
+  {
+    "question": "Відкритий для",
+    "answer": "Offen für"
+  },
+  {
+    "question": "Шкідливий для",
+    "answer": "Schädlich für"
+  },
+  {
+    "question": "Спостерігати (spectate)",
+    "answer": "Beobachten"
+  },
+  {
+    "question": "Споглядати",
+    "answer": "erblicken"
+  },
+  {
+    "question": "Зосереджено дивитися",
+    "answer": "starren\n\nanstarren - витріщатися"
+  },
+  {
+    "question": "Оглядати (загальне значення, переносне значення)",
+    "answer": "überblicken"
+  },
+  {
+    "question": "Для початку",
+    "answer": "Erstmal"
+  },
+  {
+    "question": "Через раз",
+    "answer": "Jedes zweite Mal"
+  },
+  {
+    "question": "Подивимось (посмотрим)",
+    "answer": "Mal sehen"
+  },
+  {
+    "question": "А відгадай (Угадай-ка)",
+    "answer": "Rate mal"
+  },
+  {
+    "question": "Зачекай",
+    "answer": "Warte mal"
+  },
+  {
+    "question": "Я вважаю",
+    "answer": "Ich meine"
+  },
+  {
+    "question": "Я припускаю",
+    "answer": "Ich vermute"
+  },
+  {
+    "question": "Я сумніваюсь",
+    "answer": "Ich bezweifle"
+  },
+  {
+    "question": "Я виключаю (ідею)",
+    "answer": "Ich schließe aus"
+  },
+  {
+    "question": "Я обіцяю",
+    "answer": "Ich verspreche"
+  },
+  {
+    "question": "Я стверджую",
+    "answer": "Ich behaupte"
+  },
+  {
+    "question": "Я згоден",
+    "answer": "Ich stimme zu"
+  },
+  {
+    "question": "Час від часу",
+    "answer": "Ab und zu"
+  },
+  {
+    "question": "З ввічливості / Ради приличия",
+    "answer": "anstandshalber"
+  },
+  {
+    "question": "І тому, звідси (причинно-наслідкове)",
+    "answer": "daher"
+  },
+  {
+    "question": "Поэтому",
+    "answer": "darum / deswegen"
+  },
+  {
+    "question": "Виходячи з цього / відповідно",
+    "answer": "demnach"
+  },
+  {
+    "question": "А саме",
+    "answer": "nämlich"
+  },
+  {
+    "question": "Обходитись",
+    "answer": "mit etwas umgehen"
+  },
+  {
+    "question": "Обхватывать",
+    "answer": "umfassen \n\n• Er umfasste ihre Hand sanft \n\n• Der Zaun umfasst das ganze Grundstück"
+  },
+  {
+    "question": "Оточувати",
+    "answer": "umgeben"
+  },
+  {
+    "question": "Перезавантажувати",
+    "answer": "umladen"
+  },
+  {
+    "question": "Переключати",
+    "answer": "umschalten"
+  },
+  {
+    "question": "Суспільство",
+    "answer": "Die Gesellschaft"
+  },
+  {
+    "question": "Виключено!",
+    "answer": "Ausgeschlossen!"
+  },
+  {
+    "question": "Точно ні",
+    "answer": "Bestimmt nicht"
+  },
+  {
+    "question": "У жодному разі",
+    "answer": "Auf keinen Fall"
+  },
+  {
+    "question": "Definitely",
+    "answer": "Auf jeden Fall"
+  },
+  {
+    "question": "Жадібний",
+    "answer": "gierig"
+  },
+  {
+    "question": "Лінивий",
+    "answer": "faul"
+  },
+  {
+    "question": "Ревнощі",
+    "answer": "Die Eifersucht"
+  },
+  {
+    "question": "Ревнивий",
+    "answer": "eifersüchtig"
+  },
+  {
+    "question": "Грубий",
+    "answer": "grob"
+  },
+  {
+    "question": "Жорстокий",
+    "answer": "grausam"
+  },
+  {
+    "question": "Заздрісний",
+    "answer": "neidisch"
+  },
+  {
+    "question": "Самовпевнений",
+    "answer": "arrogant"
+  },
+  {
+    "question": "Самозакоханий / марнославний",
+    "answer": "eitel"
+  },
+  {
+    "question": "Боягузливий, малодушний",
+    "answer": "feige"
+  },
+  {
+    "question": "Страждання",
+    "answer": "Das Leiden"
+  },
+  {
+    "question": "Звинувачувати",
+    "answer": "beschuldigen"
+  },
+  {
+    "question": "Насолоджуватись / смакувати",
+    "answer": "genießen"
+  },
+  {
+    "question": "Лякати",
+    "answer": "erschrecken"
+  },
+  {
+    "question": "Дивувати",
+    "answer": "überraschen"
+  },
+  {
+    "question": "Іноді / подекуди",
+    "answer": "Bisweilen"
+  },
+  {
+    "question": "Оточення",
+    "answer": "Die Umgebung"
+  },
+  {
+    "question": "Навколишнє середовище",
+    "answer": "Die Umwelt"
+  },
+  {
+    "question": "Падати",
+    "answer": "fallen"
+  },
+  {
+    "question": "Відвалюватися",
+    "answer": "<ist> abfallen\n\n• Ein Knopf ist von meiner Jacke abgefallen"
+  },
+  {
+    "question": "Скасовуватися / випадати",
+    "answer": "ausfallen"
+  },
+  {
+    "question": "Кидатися в очі",
+    "answer": "auffallen\n\nDas Erste, was mir aufgefallen \n\nDas Erste, was mir auffiel"
+  },
+  {
+    "question": "Провалитися (іспит)",
+    "answer": "durchfallen"
+  },
+  {
+    "question": "Спадати на думку",
+    "answer": "<ist> einfallen\n\n• Mir fällt gerade eine gute Idee ein \n• Fällt dir ein besserer Name fürs Perfekt ein?"
+  },
+  {
+    "question": "• Вилетіти з голови (забути)\n• Випадати (в значенні розподілу)\n\n• Випадати (не відбутися)\n\n• Випадати (фізично)",
+    "answer": "entfallen\n\n• Mir ist der Name entfallen \n\n• Auf jedes Kind entfällt ein Stück Kuchen\n\n• Das Meeting entfällt heute\n\n• Dem Tier sind die Zähne entfallen"
+  },
+  {
+    "question": "Не подобатися (ант. gefallen)",
+    "answer": "missfallen\n\n• Sein Verhalten missfällt mir \n\n• Die Art, wie er spricht, missfällt vielen Menschen"
+  },
+  {
+    "question": "Траплятися, ставатись",
+    "answer": "<ist> vorfallen\n\n• Was ist hier vorgefallen?"
+  },
+  {
+    "question": "Руйнуватися / розпадатися / занепадати",
+    "answer": "zerfallen"
+  },
+  {
+    "question": "Покликати",
+    "answer": "rufen"
+  },
+  {
+    "question": "Викрикувати / вигукувати",
+    "answer": "ausrufen"
+  },
+  {
+    "question": "Горланити",
+    "answer": "grölen"
+  },
+  {
+    "question": "Втішати",
+    "answer": "trösten"
+  },
+  {
+    "question": "Заспокоювати",
+    "answer": "beruhigen"
+  },
+  {
+    "question": "Заохочувати, підбадьорювати",
+    "answer": "ermutigen"
+  },
+  {
+    "question": "Старанний",
+    "answer": "fleißig"
+  },
+  {
+    "question": "Фара (машина)",
+    "answer": "Der Scheinwerfer"
+  },
+  {
+    "question": "Капот (машина)",
+    "answer": "Die Motorhaube"
+  },
+  {
+    "question": "Зовнішнє дзеркало (машина)",
+    "answer": "Der Außenspiegel"
+  },
+  {
+    "question": "Лобове скло (машина)",
+    "answer": "Die Windschutzscheibe"
+  },
+  {
+    "question": "Номерний знак (машина)",
+    "answer": "Das Kennenzeichen"
+  },
+  {
+    "question": "Решітка радіатора",
+    "answer": "Der Kühlergrill"
+  },
+  {
+    "question": "Залишати / оставляти / допускати",
+    "answer": "Lassen"
+  },
+  {
+    "question": "Покидати",
+    "answer": "verlassen"
+  },
+  {
+    "question": "Звільнити\n*формально",
+    "answer": "entlassen\n\n• Er wurde aus der Firma entlassen"
+  },
+  {
+    "question": "Залишати (щось після себе: враження / слід)",
+    "answer": "hinterlassen\n\n• Seine Worte haben eine tiefen Eindruck hinterlassen"
+  },
+  {
+    "question": "Дозволяти / допускати / терпіти",
+    "answer": "zulassen"
+  },
+  {
+    "question": "Уступати",
+    "answer": "überlassen"
+  },
+  {
+    "question": "Закон",
+    "answer": "Das Gesetz"
+  },
+  {
+    "question": "Повінь",
+    "answer": "Die Flut"
+  },
+  {
+    "question": "Статки, майно",
+    "answer": "Das Vermögen"
+  },
+  {
+    "question": "Шлях",
+    "answer": "Der Pfad"
+  },
+  {
+    "question": "Заробіток",
+    "answer": "Der Verdienst\n*не плутати з Das Verdienst - заслуга \n\n• Sein Verdienst reicht kaum zum Leben"
+  },
+  {
+    "question": "Зарплата",
+    "answer": "Das Gehalt"
+  },
+  {
+    "question": "Досвід",
+    "answer": "Das Erlebnis / Die Erfahrung"
+  },
+  {
+    "question": "Розповідати (to tell)",
+    "answer": "erzählen"
+  },
+  {
+    "question": "Переносити / відкладати (на інший час / місце)",
+    "answer": "verschieben"
+  },
+  {
+    "question": "Карати",
+    "answer": "bestrafen"
+  },
+  {
+    "question": "Упускати",
+    "answer": "verpassen"
+  },
+  {
+    "question": "Старанність",
+    "answer": "Der Fleiß"
+  },
+  {
+    "question": "Небо",
+    "answer": "Der Himmel"
+  },
+  {
+    "question": "Вічність",
+    "answer": "Die Ewigkeit"
+  },
+  {
+    "question": "Конкурс",
+    "answer": "Der Wettbewerb"
+  },
+  {
+    "question": "Сертифікат / свідоцтво",
+    "answer": "Das Zeugnis"
+  },
+  {
+    "question": "Корабель",
+    "answer": "Das Schiff"
+  },
+  {
+    "question": "Розмовляти / спілкуватись / розважати",
+    "answer": "unterhalten"
+  },
+  {
+    "question": "Дотримуватися / виконувати (правила, обіцянки)",
+    "answer": "einhalten\n\n• Er hat die Frist nicht eingehalten \n\n• Bitte halten Sie die Verkehrsregeln ein!"
+  },
+  {
+    "question": "Образа / ображати",
+    "answer": "Die Beleidigung / beleidigen"
+  },
+  {
+    "question": "Поспішати",
+    "answer": "eilen, hasten"
+  },
+  {
+    "question": "Навіть (even)",
+    "answer": "sogar"
+  },
+  {
+    "question": "Навіть я (позитивний відтінок) (навіть я зрозумів завдання)",
+    "answer": "Sogar ich (Sogar ich habe die Aufgabe verstanden)"
+  },
+  {
+    "question": "Навіть я (негативний відтінок) (навіть я не зрозумів завдання)",
+    "answer": "Nicht mal ich (Nicht mal ich habe die Aufgabe verstanden)"
+  },
+  {
+    "question": "Сенс (смысл)",
+    "answer": "Der Sinn"
+  },
+  {
+    "question": "Сковорідка",
+    "answer": "Die Pfanne"
+  },
+  {
+    "question": "Хвилювання / занепокоєння / турбота",
+    "answer": "Die Sorge / Sorgen"
+  },
+  {
+    "question": "Скиглити / нити / стогнати",
+    "answer": "jammern über"
+  },
+  {
+    "question": "Припини! (+Infinitiv)",
+    "answer": "Hör auf (zu jammern)"
+  },
+  {
+    "question": "Порада",
+    "answer": "Der Rat"
+  },
+  {
+    "question": "Позіхати",
+    "answer": "gähnen"
+  },
+  {
+    "question": "Покращувати (to improve)",
+    "answer": "verbessern"
+  },
+  {
+    "question": "На самому початку",
+    "answer": "Ganz am Anfang"
+  },
+  {
+    "question": "Похвала / хвалити",
+    "answer": "Das Lob / loben"
+  },
+  {
+    "question": "Тиснути / переслідувати / змушувати / пригнічувати",
+    "answer": "bedrängen \n\nDie Reporter bedrängten den Politiker mit Fragen\n\nIch fühlte mich von der Situation bedrängt"
+  },
+  {
+    "question": "It depends",
+    "answer": "Es kommt darauf an"
+  },
+  {
+    "question": "Самотність",
+    "answer": "Die Einsamkeit"
+  },
+  {
+    "question": "Допитливість / цікавість",
+    "answer": "Die Neugier"
+  },
+  {
+    "question": "Лити / наливати / поливати",
+    "answer": "gießen"
+  },
+  {
+    "question": "Гнів / лють",
+    "answer": "Die Wut"
+  },
+  {
+    "question": "Темрява / морок",
+    "answer": "Die Finsternis"
+  },
+  {
+    "question": "Дригатись / тремтіти / підскакувати",
+    "answer": "zuckend \nСхоже: zitternd (тремтіти)"
+  },
+  {
+    "question": "Хтивість",
+    "answer": "Die Geilheit"
+  },
+  {
+    "question": "Із задоволенням!",
+    "answer": "Mit Vergnügen!"
+  },
+  {
+    "question": "Кордон / межа",
+    "answer": "Die Grenze"
+  },
+  {
+    "question": "Отримати доступ до чогось",
+    "answer": "zugreifen"
+  },
+  {
+    "question": "Підтверджувати / погоджуватись / підходити",
+    "answer": "zusagen"
+  },
+  {
+    "question": "Досягати",
+    "answer": "erreichen"
+  },
+  {
+    "question": "План / задум",
+    "answer": "Das Vorhaben"
+  },
+  {
+    "question": "Планувати / щось задумати",
+    "answer": "vorhaben"
+  },
+  {
+    "question": "Погоджуватись",
+    "answer": "zustimmen"
+  },
+  {
+    "question": "Готуватися (до екзамену)",
+    "answer": "vorbereiten"
+  },
+  {
+    "question": "Замість того",
+    "answer": "statt zu\n\n• Er lernt selbst, statt einen Lehrer zu finden"
+  },
+  {
+    "question": "Молитва",
+    "answer": "Die Bete"
+  },
+  {
+    "question": "Підсудний",
+    "answer": "Der, Die Beklagte"
+  },
+  {
+    "question": "Сповідь",
+    "answer": "Das Bekenntnis"
+  },
+  {
+    "question": "Співвідношення",
+    "answer": "Das Verhältnis / Die Proportion"
+  },
+  {
+    "question": "Ховати / приховувати (більш літературне)",
+    "answer": "verbergen (Er konnte seine Angst nicht verbergen)"
+  },
+  {
+    "question": "Тужити",
+    "answer": "sehnen sich (Ich sehne mich nach dir)"
+  },
+  {
+    "question": "Задумливий / вдумливий",
+    "answer": "nachdenklich \n\n• Sie sah mich mit einem nachdenklichen Blick an"
+  },
+  {
+    "question": "Підборіддя",
+    "answer": "Das Kinn"
+  },
+  {
+    "question": "Штовхати / підштовхувати / перекладати провину",
+    "answer": "schieben"
+  },
+  {
+    "question": "Переносити / відкладати на потім",
+    "answer": "aufschieben"
+  },
+  {
+    "question": "Провина",
+    "answer": "Die Schuld \n\n• Er trägt die Schuld an dem Unfall"
+  },
+  {
+    "question": "Розборка / разбирательство (в значенні конфлікту)",
+    "answer": "sich auseinandersetzen"
+  },
+  {
+    "question": "Щось тут не так..",
+    "answer": "Irgendwas stimmt nicht"
+  },
+  {
+    "question": "Підтримка",
+    "answer": "Die Unterstützung"
+  },
+  {
+    "question": "«Відшити» когось (відносини)",
+    "answer": "abservieren"
+  },
+  {
+    "question": "Закочувати очі (ідіома)",
+    "answer": "die Augen verdrehen"
+  },
+  {
+    "question": "Попереджувальний вистріл (ідіома)",
+    "answer": "ein Schuss vor Bug"
+  },
+  {
+    "question": "Дихати",
+    "answer": "atmen"
+  },
+  {
+    "question": "Сперечатись / прирікатись",
+    "answer": "sich anlegen mit (+ Dativ) \n\n• Er hat sich mit dem Chef angelegt"
+  },
+  {
+    "question": "Доста! Хватить!",
+    "answer": "Jetzt reicht‘s!"
+  },
+  {
+    "question": "Заворожуючий, захоплюючий",
+    "answer": "faszinierend"
+  },
+  {
+    "question": "Більшість",
+    "answer": "Die Mehrheit"
+  },
+  {
+    "question": "Вбивати",
+    "answer": "umbringen"
+  },
+  {
+    "question": "Істота, створіння, сутність",
+    "answer": "Das Wesen"
+  },
+  {
+    "question": "Дурачок, глупиш (лагідно)",
+    "answer": "Der, Die Dummerchen"
+  },
+  {
+    "question": "Інтерʼєр",
+    "answer": "Die Einrichtung"
+  },
+  {
+    "question": "Мріяти про щось",
+    "answer": "träumen von +D \n\n• Seit Jahren träume ich von diesem Moment"
+  },
+  {
+    "question": "Вибирати, підбирати",
+    "answer": "aussuchen"
+  },
+  {
+    "question": "Затамовувати подих",
+    "answer": "Den Atem anhalten (Wenn ihr Spiel begann, hielt ich den Atem an)"
+  },
+  {
+    "question": "Допитливий",
+    "answer": "wissbegierig"
+  },
+  {
+    "question": "Небезпека",
+    "answer": "Die Gefahr"
+  },
+  {
+    "question": "Луг",
+    "answer": "Die Wiese"
+  },
+  {
+    "question": "Відділ (в фірмі)",
+    "answer": "Die Abteilung"
+  },
+  {
+    "question": "Благословенний",
+    "answer": "gesegnet"
+  },
+  {
+    "question": "Благословіння",
+    "answer": "Der Segen"
+  },
+  {
+    "question": "Заблукати / загубитись",
+    "answer": "sich verirren (Im Wald kann man sich leicht verirren)"
+  },
+  {
+    "question": "Вираз обличчя (емоції, настрій, а не фізичні риси)",
+    "answer": "Die Miene \n\n• Seine Miene verriet seine Enttäuschung"
+  },
+  {
+    "question": "Розчарування",
+    "answer": "Die Enttäuschung"
+  },
+  {
+    "question": "Капати / покапувати",
+    "answer": "tropfen / tröpfeln"
+  },
+  {
+    "question": "Вимагати",
+    "answer": "fordern"
+  },
+  {
+    "question": "Підморгувати",
+    "answer": "zwinkern \n\nTom zwinkert mit den Augen\n\nTom zwinkerte in die Kamera"
+  },
+  {
+    "question": "Викликати / пробуджувати / виводити назовні певні почуття",
+    "answer": "evozieren \n\n• Seine Worte evozierten alte Erinnerungen"
+  },
+  {
+    "question": "Викликати когось (офіційно)",
+    "answer": "vorladen \n\n• Der Zeuge wurde vor Gericht vorgeladen"
+  },
+  {
+    "question": "Витончений / делікатний",
+    "answer": "subtil \n• Sie hat einen subtilen Humor, den nicht jeder versteht"
+  },
+  {
+    "question": "Очевидно, лежить на поверхні",
+    "answer": "Auf der Hand liegen \n\n• Die Lösung des Problems liegt auf der Hand"
+  },
+  {
+    "question": "Приблизно",
+    "answer": "ungefähr"
+  },
+  {
+    "question": "Виховувати",
+    "answer": "erziehen \n\n• Es ist wichtig, Kinder zu respektvollen Menschen zu erziehen"
+  },
+  {
+    "question": "Наказувати",
+    "answer": "befehlen (Bück dich, befehl ich dir)"
+  },
+  {
+    "question": "Відвертати,сь",
+    "answer": "abwenden (Wende dein Antlitz ab von mir)"
+  },
+  {
+    "question": "Зрештою / в кінці-кінців",
+    "answer": "immerhin"
+  },
+  {
+    "question": "Обдумувати",
+    "answer": "überlegen (Ich muss mir das noch einmal überlegen)"
+  },
+  {
+    "question": "Незабаром",
+    "answer": "demnächst \n\nВикористовується як і gleich, але означає більший проміжок часу"
+  },
+  {
+    "question": "Плакати",
+    "answer": "weinen (weinen vor Freude)"
+  },
+  {
+    "question": "Упертий",
+    "answer": "stur"
+  },
+  {
+    "question": "Амбітний / цілеспрямований",
+    "answer": "strebsam"
+  },
+  {
+    "question": "З цього щось вийшло\n(у результаті вийшла пісня) \n\nрозмовний вираз, який використовується для опису результату або наслідку якоїсь дії чи процесу",
+    "answer": "Es ist ein Lied bei (mir) rausgekommen"
+  },
+  {
+    "question": "Тобто",
+    "answer": "Das heißt"
+  },
+  {
+    "question": "Добробут, достаток",
+    "answer": "Der Wohlstand"
+  },
+  {
+    "question": "Звільнений (від чогось)",
+    "answer": "befreit (Ich war von Unterricht befreit)"
+  },
+  {
+    "question": "Борошно",
+    "answer": "Das Mehl"
+  },
+  {
+    "question": "Половина (іменник)",
+    "answer": "Die Hälfte"
+  },
+  {
+    "question": "Розпорядок дня",
+    "answer": "Der Tagesablauf"
+  },
+  {
+    "question": "Злодій",
+    "answer": "Der Dieb, Die Diebin"
+  },
+  {
+    "question": "Так званий",
+    "answer": "sogenannt"
+  },
+  {
+    "question": "Сірник",
+    "answer": "Das Streichholz"
+  },
+  {
+    "question": "Родич",
+    "answer": "DD Angehörige"
+  },
+  {
+    "question": "Відділення невідкладної допомоги",
+    "answer": "Die Notaufnahme"
+  },
+  {
+    "question": "Незвичайний",
+    "answer": "ungewöhnlich"
+  },
+  {
+    "question": "Недовіра",
+    "answer": "Das Misstrauen, misstrauen"
+  },
+  {
+    "question": "Рівноправний",
+    "answer": "gleichberechtigt\n\n• Wir sind die gleichberechtigten Mitglieder der Gesellschaft"
+  },
+  {
+    "question": "Голос (Voice)",
+    "answer": "Die Stimme"
+  },
+  {
+    "question": "Посередництво",
+    "answer": "Die Vermittlung"
+  },
+  {
+    "question": "До речі (в питальному реченні)",
+    "answer": "nebenbei gefragt\n\nNebenbei gefragt, hast du heute Abend Zeit?"
+  },
+  {
+    "question": "Сумнів",
+    "answer": "Der Zweifel"
+  },
+  {
+    "question": "Розвиток / розробка (Development)",
+    "answer": "Die Entwicklung"
+  },
+  {
+    "question": "Очевидно",
+    "answer": "offenbar\n\n• Es ist offenbar ein Missverständnis"
+  },
+  {
+    "question": "Ядовитий",
+    "answer": "giftig"
+  },
+  {
+    "question": "Заряджати (тел.) / Загружати (валізи)",
+    "answer": "aufladen"
+  },
+  {
+    "question": "Мотузка",
+    "answer": "Das Seil, Der Strick"
+  },
+  {
+    "question": "• Вставляти (ключ в шпаринку)\n• Використовувати (свої здібності)",
+    "answer": "einsetzen \n\n• Er setze den Schlüssel ins Schloss ein \n\n• Er setzte seine Fähigkeiten in der Arbeit ein"
+  },
+  {
+    "question": "Вузький / тісний",
+    "answer": "eng"
+  },
+  {
+    "question": "Подружня пара",
+    "answer": "Das Ehepaar"
+  },
+  {
+    "question": "Дорожній знак",
+    "answer": "Das Verkehrszeichen"
+  },
+  {
+    "question": "Бути залученим до чогось / бути на черзі",
+    "answer": "dran (daran / darauf)\n\n• Wer ist dran? \n• Ich bin dran\n• Er ist schon lange dran, das Problem zu lösen"
+  },
+  {
+    "question": "Незмінно чогось дотримуватись",
+    "answer": "festhalten"
+  },
+  {
+    "question": "Забруднення довкілля",
+    "answer": "Die Umweltverschmutzung"
+  },
+  {
+    "question": "Взаємозвʼязок",
+    "answer": "Der Zusammenhang"
+  },
+  {
+    "question": "Коробка / ящик",
+    "answer": "Der Kasten, Die Kiste"
+  },
+  {
+    "question": "Через / з причини / заради",
+    "answer": "wegen +D/G (син.: aufgrund)\n\n• Wegen dir bin ich zu spät gekommen \n• Wegen des schlechten Wetters blieb ich zu Hause \n• Ich mache das nur wegen dir"
+  },
+  {
+    "question": "Письменник",
+    "answer": "DD Schriftsteller"
+  },
+  {
+    "question": "Жнива, врожай",
+    "answer": "Die Ernte"
+  },
+  {
+    "question": "Берег (річки)",
+    "answer": "Das Ufer"
+  },
+  {
+    "question": "Відповідальний / відповідний",
+    "answer": "zuständig\n\n• Wer ist für diese Angelegenheit zuständig?\n• Die zuständigen Behörden haben die Situation untersucht"
+  },
+  {
+    "question": "Час прийому їжі",
+    "answer": "Die Mahlzeit"
+  },
+  {
+    "question": "Подія",
+    "answer": "Das Ereignis\n\nСин.: Die Veranstaltung"
+  },
+  {
+    "question": "Містити щось / утримувати",
+    "answer": "enthalten\n\n• Die Schokolade enthält Nüsse\n\n• Die Flasche enthält einen Liter Wasser"
+  },
+  {
+    "question": "На відкритому повітрі",
+    "answer": "im Freien"
+  },
+  {
+    "question": "Чорнило",
+    "answer": "Die Tinte"
+  },
+  {
+    "question": "Зображати / представляти / демонструвати",
+    "answer": "darstellen (trennbar)\n\n• Der Film stellt das Leben im Mittelalter dar\n\n• Das Bild stellt eine Landschaft dar\n\n• Er stellt sich als Experte dar"
+  },
+  {
+    "question": "Отримувати / зберігати / підтримувати",
+    "answer": "erhalten\n\n• Ich habe ein Paket erhalten \n• Das Gebäude wurde in seinem ursprünglichen Zustand erhalten \n• Er erhält seine Gesundheit durch regelmäßigen Sport"
+  },
+  {
+    "question": "Початковий / оригінальний / первісний",
+    "answer": "ursprünglich \n\n• Das Gebäude wurde ursprünglich als Schule erbaut \n\n• Die ursprüngliche Idee war es, ein kleines Cafe zu eröffnen"
+  },
+  {
+    "question": "Підніматися / зростати / сідати (транспорт)",
+    "answer": "steigen\n\n• Der Bergsteiger steigt den Gipfel hinauf\nАльпініст піднімається на вершину\n• Die Temperaturen steigen am Wochenende \n• Die Aktienkurse sind gestiegen \n• Sie steigt auf das Pferd\n• Ich steige ins Auto ein \n• Die Spannung steigt\n• Sein Ansehen in der Firma ist gesteigen gestiegen"
+  },
+  {
+    "question": "Дуже відчутно\n\nВикористовується, щоб підкреслити, що щось є дуже помітним в сенсі фізичного або емоційного досвіду",
+    "answer": "deutlich spürbar \n\ndeutlich - чітко / виразно / очевидно\nspürbar - відчутний (для органів чуття)\n\n• Die Veränderung in seiner Einstellung war deutlich spürbar \nЗміна в його ставленні була чітко відчутна"
+  },
+  {
+    "question": "Репутація / повага / шанування / імідж",
+    "answer": "Das Ansehen\n\n• Das Ansehen einer Person hängt oft von ihrem Verhalten ab \n\n• Sie genießt hohes Ansehen unter ihren Kollegen"
+  },
+  {
+    "question": "Зачитувати",
+    "answer": "vorlesen"
+  },
+  {
+    "question": "Необхідно / на вимогу",
+    "answer": "erforderlich \n\n• Für die Bewerbung sind bestimmte Unterlagen erforderlich"
+  },
+  {
+    "question": "Гребінець / щітка",
+    "answer": "Die Bürste, Der Kamm"
+  },
+  {
+    "question": "Хазяйство / економіка",
+    "answer": "Die Wirtschaft"
+  },
+  {
+    "question": "Деталь / дрібниця / тонкощі",
+    "answer": "Die Einzelheit, Kleinigkeit\n\n• Die Einzelheiten des Plans wurden noch nicht besprochen"
+  },
+  {
+    "question": "Вирішувати / приймати рішення",
+    "answer": "entscheiden \n\n• Ich muss entscheiden, welche Richtung ich nehmen soll \n\n• Die Jury wird entscheiden, wer gewonnen hat \n\n• Es liegt an dir, zu entscheiden, was du tun möchtest \n\nСин.: \nwählen - вибирати\nbeschließen - приймати рішення \nbestimmen - визначати / встановлювати"
+  },
+  {
+    "question": "Жертва",
+    "answer": "Das Opfer\n\n• Er ist das Opfer eines groß angelegten Betrugs"
+  },
+  {
+    "question": "Додатково / на додачу",
+    "answer": "zusätzlich \n\n• Wir haben zusätzliches Personal eingestellt \n\n• Zusätzlich zu seiner Arbeit studiert er noch an der Universität \n\n• Die zusätzlichen Kosten werden Ihnen später in Rechnung gestellt \n\nСин.: \nergänzend - додатковий, що доповнює\nweiter - ще, інший (залежить від контексту)\nobendrauf - додатково, зверху (розмовне)"
+  },
+  {
+    "question": "Вимоги / право на щось",
+    "answer": "Der Anspruch\n\n• Sie stellt hohe Ansprüche an ihre Mitarbeiter \n\n• Er hat Anspruch auf kostenlose medizinische Versorgung"
+  },
+  {
+    "question": "Площа / поверхня",
+    "answer": "Die Fläche"
+  },
+  {
+    "question": "Загалом / вцілому",
+    "answer": "insgesamt \n\n• Es waren insgesamt 50 Gäste bei der Hochzeit\n\n• Insgesamt war die Veranstaltung ein Erfolg\n\n• Insgesamt hat sich die Mühe gelohnt"
+  },
+  {
+    "question": "Зусилля / Праця, вкладена для досягнення мети",
+    "answer": "Die Mühe\n\n• Die Mühe hat sich gelohnt \n\n• Es war eine große Mühe, das Problem zu lösen \n\n• Er hatte keine Mühe, die Aufgabe zu erledigen"
+  },
+  {
+    "question": "Окупитися / мати сенс / бути вартим чогось",
+    "answer": "sich lohnen\n\n• Die Mühe hat sich gelohnt \n\n• Es lohnt sich, früh aufzustehen \n\n• Der Film lohnt sich wirklich"
+  },
+  {
+    "question": "Тим не менш / Всеодно",
+    "answer": "trotzdem \n\n• Es regnet, trotzdem gehe ich spazieren \n\n• Er ist müde, trotzdem arbeitet er weiter"
+  },
+  {
+    "question": "Незважаючи на / Попри\n\nВикористовується для вираження того, що певна дія чи обставина відбувається чи існує, попри якусь перешкоду чи фактор",
+    "answer": "trotz \n\n• Trotz des Regens gingen wir spazieren \n\n• Er hat es trotzdem gemacht, trotz der schwierigen Umstände"
+  },
+  {
+    "question": "Виявляти / Опрацьовувати",
+    "answer": "rausarbeiten\n\n• Wir müssen die wichtigsten Punkte rausarbeiten\n\n• Die Gewinner und die Verlierer aus der letzten Zeit mal so ein bisschen rauszuarbeiten"
+  },
+  {
+    "question": "Нагода, можливість",
+    "answer": "Die Gelegenheit\n\n• Ich habe die Gelegenheit genutzt, mit ihm zu sprechen \n\n• Wenn sich die Gelegenheit ergibt, werde ich das unbedingt machen\n\ndie Gelegenheit nutzen - скористатися нагодою \n\neine Gelegenheit ergreifen - схопити / використати можливість \n\ndie Gelegenheit verpassen - втратити нагоду"
+  },
+  {
+    "question": "Рішення",
+    "answer": "Die Entscheidung"
+  },
+  {
+    "question": "Дійти згоди, погодитися, домовитися",
+    "answer": "sich einigen (auf, über)\n\n• Wir haben uns auf einen Termin geeinigt \n\n• Nach langen Diskussionen einigten sie sich endlich \n\n• Die Parteien konnten sich nicht über den Vertrag einigen\n\n- sich auf etwas einigen - домовитись про щось (конкретне рішення)\n- sich über etwas einigen - дійти згоди щодо чогось \n- sich mit jemandem einigen - домовитись з кимось\n\nСин.: \n- sich verständigen - порозумітися\n- einen Kompromiss finden\n- einen Konsens erzielen - досягти консенсусу"
+  },
+  {
+    "question": "Домовились!",
+    "answer": "Abgemacht!"
+  },
+  {
+    "question": "Гірський масив",
+    "answer": "Das Gebirge"
+  },
+  {
+    "question": "Терпіння",
+    "answer": "Die Geduld"
+  },
+  {
+    "question": "Розкіш, пишність, велич",
+    "answer": "Die Pracht, prächtig\n\n• Es ist eine große Pracht, ein langes Leben zu haben"
+  },
+  {
+    "question": "Для того, щоб",
+    "answer": "um zu\n\n• Um in Deutschland zu arbeiten, muss ich Deutsch können"
+  },
+  {
+    "question": "Запалювати",
+    "answer": "anzünden \n\nEr zündet eine Kerze an \n\nJemand hat das Auto angezündet"
+  },
+  {
+    "question": "Торкатися",
+    "answer": "anfassen"
+  },
+  {
+    "question": "Домашньо",
+    "answer": "heimelig"
+  },
+  {
+    "question": "Добробут, благополуччя",
+    "answer": "Das Wohl"
+  },
+  {
+    "question": "Зло",
+    "answer": "Das Übel"
+  },
+  {
+    "question": "Проводити (час)",
+    "answer": "verbringen\nverbrachte • hat verbracht"
+  },
+  {
+    "question": "Шепіт, перешіптуватись",
+    "answer": "• Das Wispern, wispern\n• Das Flüstern, flüstern\n• Das Getuschel, tuscheln"
+  },
+  {
+    "question": "Вирок, рішення",
+    "answer": "Das Urteil\n\n• Sein Urteil über den Film war sehr positiv \n• Das Urteil des Gerichts war eindeutig"
+  },
+  {
+    "question": "Надурювати",
+    "answer": "verarschen\n*не для широкого вжитку"
+  },
+  {
+    "question": "Переконувати",
+    "answer": "überzeugen\n\n• Er hat mich davon überzeugt, dass es die beste Lösung ist"
+  },
+  {
+    "question": "Перетинати",
+    "answer": "überqueren \n\n• Tom überquert einen Fluss"
+  },
+  {
+    "question": "Перевіряти",
+    "answer": "überprüfen \n\nDie Polizei überprüft seine Aussagen \n\nBitte überprüfen Sie ihren Angaben"
+  },
+  {
+    "question": "Переосмислювати",
+    "answer": "überdenken"
+  },
+  {
+    "question": "Перебільшувати",
+    "answer": "übertreiben \n\n• Du übertreibst mal wieder! Es war doch nur ein kleiner Fehler"
+  },
+  {
+    "question": "Перевищувати (межу), перетинати (кордони)",
+    "answer": "überschreiten \n\n• Wir haben die Grenze zu Frankreich überschritten \n\n• Das überschreitet meine Geduld"
+  },
+  {
+    "question": "Сила",
+    "answer": "Die Kraft"
+  },
+  {
+    "question": "Відповідальність",
+    "answer": "Die Verantwortung"
+  },
+  {
+    "question": "Оголошувати / повідомляти / заявляти",
+    "answer": "bekannt geben\n\n• Die Ergebnisse des Wettbewerbs werden morgen bekannt gegeben \n\n• Die Firma gab bekannt, dass sie ihre Produktion erweitern wird"
+  },
+  {
+    "question": "Матеріал, тканина",
+    "answer": "Der Stoff"
+  },
+  {
+    "question": "Знак, сигнал",
+    "answer": "Das Zeichen"
+  },
+  {
+    "question": "Застосовувати",
+    "answer": "anwenden\n\n• Wie kann ich diese Regeln im Alltag anwenden?\n\n• Die Salbe sollte zweimal täglich angewendet werden"
+  },
+  {
+    "question": "Град",
+    "answer": "Der Hagel • hageln"
+  },
+  {
+    "question": "Травма",
+    "answer": "Die Verletzung"
+  },
+  {
+    "question": "Нагадування / попередження",
+    "answer": "Die Mahnung\n\n• Ich habe eine Mahnung für die unbezahlte Rechnung bekommen \n\n• Die Mahnung des Lehrers war deutlich"
+  },
+  {
+    "question": "Вихід\n(буквально та в значенні виходу з ситуації)",
+    "answer": "Der Ausweg\n\nIch sehe keinen Ausweg\n\nWenn ich in Schwierigkeiten geraten bin, versuche ich, einen Ausweg zu finden"
+  },
+  {
+    "question": "Перемога",
+    "answer": "Der Sieg • siegen"
+  },
+  {
+    "question": "Відмовлятися (син. до ablehnen)",
+    "answer": "verweigern + Akk\nsich weigern + Infinitiv \n\n• Er verweigert den Befehl\n\nAnne weigerte sich beharrlich zu gestehen."
+  },
+  {
+    "question": "Хвилювання",
+    "answer": "Die Aufregung"
+  },
+  {
+    "question": "«Куди не подивись»",
+    "answer": "weit und breit"
+  },
+  {
+    "question": "Кермо (автомобіля)",
+    "answer": "Das Lenkrad"
+  },
+  {
+    "question": "Переплутати",
+    "answer": "verwechseln"
+  },
+  {
+    "question": "Дехто, деякі",
+    "answer": "manche\n\n• Manche Leute verwechseln Gaspedal und Bremse"
+  },
+  {
+    "question": "Одночасно, в той самий час",
+    "answer": "gleichzeitig\n\n• Ich kann nicht gleichzeitig telefonieren und schreiben"
+  },
+  {
+    "question": "Споживання, витрата",
+    "answer": "Der Verbrauch\n\n• Der Kraftstoffverbrauch ist bei diesem Auto gering\n\n• Der Spritverbrauch ist bei diesem Auto niedrig"
+  },
+  {
+    "question": "Під час (щось під час чогось)",
+    "answer": "während"
+  },
+  {
+    "question": "Чим… тим…",
+    "answer": "Je… desto… \n \n• Je mehr du übst, desto besser wirst du \n\n• Je länger ich warte, desto ungeduldiger werde ich"
+  },
+  {
+    "question": "Напамʼять",
+    "answer": "auswendig"
+  },
+  {
+    "question": "Мовчати",
+    "answer": "schweigen"
+  },
+  {
+    "question": "Лікувати",
+    "answer": "behandeln\n\n• Der Arzt behandelt den Patienten"
+  },
+  {
+    "question": "Невдача, провал",
+    "answer": "Der Misserfolg"
+  },
+  {
+    "question": "Так само, аналогічно, подібним чином",
+    "answer": "ebenso \n\n• Er ist ebenso fleißig wie seine Schwester \n\n• Ich komme ebenso zur Party\n\n• Schönen Tag noch! - Ebenso!"
+  },
+  {
+    "question": "Вибоїна",
+    "answer": "Das Schlagloch"
+  },
+  {
+    "question": "Хитрий, розумний",
+    "answer": "schlau"
+  },
+  {
+    "question": "Ретельно, акуратно, дбайливо",
+    "answer": "sorgfältig \n\n• Er hat die Aufgabe sorgfältig erledigt \n\n• Bitte lesen Sie den Vertrag sorgfältig durch"
+  },
+  {
+    "question": "Скутий",
+    "answer": "steif"
+  },
+  {
+    "question": "Представляти / відрекомендовувати",
+    "answer": "sich vorstellen \n\n• Stellen Sie sich erstmal vor"
+  },
+  {
+    "question": "Відправка",
+    "answer": "Der Versand\n\n• Der Versand der Pakete erfolgt schnell."
+  },
+  {
+    "question": "Правопорушення",
+    "answer": "Der Verstoß \n\n• Ein Verstoß soll Konsequenzen haben"
+  },
+  {
+    "question": "Напружений / втомлюючий",
+    "answer": "anstrengend \n\n• Die Arbeit ist sehr anstrengend"
+  },
+  {
+    "question": "Відключати",
+    "answer": "abstellen\n\nEr hat den Motor abgestellt"
+  },
+  {
+    "question": "Виставляти",
+    "answer": "ausstellen"
+  },
+  {
+    "question": "Передавати, переводити (когось/щось офіційно)",
+    "answer": "überstellen\n\n• Der Verdächtige wurde der Polizei überstellt \n\n• Der Offizier wurde in eine andere Einheit überstellt"
+  },
+  {
+    "question": "Доставляти (лист), загороджувати (вихід)",
+    "answer": "zustellen \n\n• Das bestellte Buch wurde mir gestern zugestellt \n\n• Bitte stellen Sie den Fluchtweg nicht zu"
+  },
+  {
+    "question": "Лякати",
+    "answer": "Angst machen \n\n• Die Schatten können Kindern Angst machen"
+  },
+  {
+    "question": "Виконувати роботу",
+    "answer": "Arbeit erledigen \n\n• Ich muss heute meine Arbeit erledigen"
+  },
+  {
+    "question": "Уникати (неприємностей)",
+    "answer": "aus dem Weg gehen \n\n• Sie möchte dem Ärger aus dem Weg gehen"
+  },
+  {
+    "question": "Поза сумнівом",
+    "answer": "außer Frage stehen\n\n• Diese Information stehen außer Frage"
+  },
+  {
+    "question": "Настрій",
+    "answer": "Die Laune"
+  },
+  {
+    "question": "Захекатись (біг)",
+    "answer": "aus der Puste sein\n\n• Ich bin aus der Puste"
+  },
+  {
+    "question": "Невеликий, обмежений",
+    "answer": "eingeschränkten\n\n• Ich möchte über mein eingeschränkten Erfahrung als Freiberuflerin sprechen"
+  },
+  {
+    "question": "Розширювати",
+    "answer": "erweitern"
+  },
+  {
+    "question": "Знання",
+    "answer": "Die Kenntnisse"
+  },
+  {
+    "question": "Я проти цього",
+    "answer": "Ich bin dagegen"
+  },
+  {
+    "question": "Обманути, надурити",
+    "answer": "reinlegen\n\n• Lea legt ihre Eltern rein"
+  },
+  {
+    "question": "На наступний день",
+    "answer": "Am folgenden Tag"
+  },
+  {
+    "question": "Поправлятись (вага)",
+    "answer": "zunehmen"
+  },
+  {
+    "question": "Перешкоджати",
+    "answer": "abhalten"
+  },
+  {
+    "question": "Перебувати, затримуватись",
+    "answer": "sich aufhalten\n\n• Er hält sich zurzeit in München auf\n\n• Ich will dich nicht lange aufhalten \n\n- sich bei jemandem aufhalten (перебувати в когось)\n\n- sich mit etwas aufhalten (витрачати час на щось)"
+  },
+  {
+    "question": "Витримувати, терпіти",
+    "answer": "aushalten"
+  },
+  {
+    "question": "Протриматися, витримувати",
+    "answer": "durchhalten"
+  },
+  {
+    "question": "Стримувати, утримувати",
+    "answer": "zurückhalten \n\n• Die Polizei hielt die Demonstranten zurück \n\n• Ich musste mich zurückhalten, um nicht zu lachen \n\n• Er hat wichtige Informationen zurückgehalten"
+  },
+  {
+    "question": "Рішення",
+    "answer": "Die Lösung"
+  },
+  {
+    "question": "Переодягатися",
+    "answer": "sich umziehen (an, aus)"
+  },
+  {
+    "question": "Перевертати (сторінку)",
+    "answer": "umdrehen"
+  },
+  {
+    "question": "Наважитися",
+    "answer": "Mut bekommen"
+  },
+  {
+    "question": "Злякатися (не erschrecken)",
+    "answer": "Angst bekommen"
+  },
+  {
+    "question": "Здобути",
+    "answer": "In die Finger bekommen"
+  },
+  {
+    "question": "Захотіти",
+    "answer": "Lust bekommen"
+  },
+  {
+    "question": "Дістати (квитки на концерт)",
+    "answer": "besorgen\n\n• Er hat die Tickets für das Konzert besorgt"
+  },
+  {
+    "question": "Я поспішаю",
+    "answer": "Ich habe es eilig"
+  },
+  {
+    "question": "Ніжний, делікатний",
+    "answer": "zart\nzarter • am zartesten"
+  },
+  {
+    "question": "Розподіляти",
+    "answer": "verteilen\n\n• Die Lehrerin hat die Arbeitsblätter an die Schüler verteilt"
+  },
+  {
+    "question": "Народження",
+    "answer": "Die Geburt"
+  },
+  {
+    "question": "Задовільнити (якісь умови, вимоги)",
+    "answer": "erfüllen"
+  },
+  {
+    "question": "Монета",
+    "answer": "Die Münze"
+  },
+  {
+    "question": "Струсити, струснути",
+    "answer": "schütteln"
+  },
+  {
+    "question": "Пʼяний",
+    "answer": "betrunken"
+  },
+  {
+    "question": "Відбулося, сталося (формально)",
+    "answer": "geschehen\n\n• Was ist gestern geschehen?\n• Unrecht ist geschehen"
+  },
+  {
+    "question": "Пилюка",
+    "answer": "Der Staub"
+  },
+  {
+    "question": "Хапати, схопити, взяти",
+    "answer": "greifen nach\ngreift · griff (griffe) · hat gegriffen\n\n• Er griff nach dem Buch\n• Der Dieb griff nach der Tasche"
+  },
+  {
+    "question": "Гладкий (на дотик)",
+    "answer": "glatt"
+  },
+  {
+    "question": "Ретельно, ґрунтовно",
+    "answer": "gründlich"
+  },
+  {
+    "question": "Підходити (фізично чи переносно)",
+    "answer": "zugehen auf\n\n• Er geht auf mich zu  \n• Das Fest geht auf das Ende zu\n\nzu підкреслює саму дію наближення"
+  },
+  {
+    "question": "Вимова (pronunciation)",
+    "answer": "Die Aussprache"
+  },
+  {
+    "question": "Одинаковий, однорідний, цілісний, уніфікований",
+    "answer": "einheitlich\n\n• Die Regeln sollten für alle einheitlich sein"
+  },
+  {
+    "question": "Видимий, помітний",
+    "answer": "sichtbar"
+  },
+  {
+    "question": "Домовленість (про зустріч)",
+    "answer": "Die Verabredung"
+  },
+  {
+    "question": "Доглядати, дбати",
+    "answer": "pflegen"
+  },
+  {
+    "question": "Нахабний",
+    "answer": "frech"
+  },
+  {
+    "question": "Ймовірно, можливо",
+    "answer": "vermutlich"
+  },
+  {
+    "question": "Випічка",
+    "answer": "Das Gebäck"
+  },
+  {
+    "question": "Адвокат",
+    "answer": "Der/Die Anwalt,-“in"
+  },
+  {
+    "question": "Свідок",
+    "answer": "Der Zeuge"
+  },
+  {
+    "question": "Залежний",
+    "answer": "süchtig / abhängig"
+  },
+  {
+    "question": "Переговори",
+    "answer": "Die Verhandlungen"
+  },
+  {
+    "question": "Іграшка",
+    "answer": "Das Spielzeug"
+  },
+  {
+    "question": "Глухий",
+    "answer": "taub"
+  },
+  {
+    "question": "Блистіти",
+    "answer": "blitzen"
+  },
+  {
+    "question": "Склад, сховище / журнал",
+    "answer": "Das Magazin"
+  },
+  {
+    "question": "Туга за домівкою",
+    "answer": "Das Heimweh\n(Die Sehnsucht nach dem Heim)"
+  },
+  {
+    "question": "Заголовок",
+    "answer": "Die Überschrift"
+  },
+  {
+    "question": "Понаднормова робота",
+    "answer": "Die Überstunde"
+  },
+  {
+    "question": "Знімати (гроші з рахунку)",
+    "answer": "abheben\n\n• Er möchte Geld abheben"
+  },
+  {
+    "question": "Процес, хід",
+    "answer": "Der Ablauf\n\n• Der Ablauf der Besprechung war gut organisiert"
+  },
+  {
+    "question": "Навмисно, свідомо",
+    "answer": "absichtlich \n\n• Er handelte absichtlich, um seinen Gegner zu provozieren"
+  },
+  {
+    "question": "Діяти",
+    "answer": "handeln\n\n• Er handelte absichtlich"
+  },
+  {
+    "question": "Враження",
+    "answer": "Der Eindruck / Die Eindrücke"
+  },
+  {
+    "question": "Точний (переклад)",
+    "answer": "präzise \n\n• Die Übersetzung ist präzise"
+  },
+  {
+    "question": "Увірватися, завалитися",
+    "answer": "hereinplatzen\n\n• Er ist einfach so in unser Meeting hereingeplatzt\n\n• Bitte klopfen, bevor du hereinplatzt"
+  },
+  {
+    "question": "Я тебе на роль помножу",
+    "answer": "Ich mach dich platt"
+  },
+  {
+    "question": "Працьовитий, здібний",
+    "answer": "tüchtig"
+  },
+  {
+    "question": "Напівголосно",
+    "answer": "halblaut"
+  },
+  {
+    "question": "Спалахувати (очі)",
+    "answer": "Die Augen blitzen"
+  },
+  {
+    "question": "Серйозний",
+    "answer": "ernst, ernsthaft\n\n• Bist du ernst oder machst du nur Spaß?\n\n• Er kennt den Ernst des Lebens"
+  },
+  {
+    "question": "Бездоганний",
+    "answer": "makellos"
+  },
+  {
+    "question": "Недолік",
+    "answer": "Der Makel"
+  },
+  {
+    "question": "Дивитися (в сенсі шукати)",
+    "answer": "nachschauen"
+  },
+  {
+    "question": "Я маю намір",
+    "answer": "Ich beabsichtige"
+  },
+  {
+    "question": "Звернутись до",
+    "answer": "sich wenden an\n\n• Sie wenden sich an den Kundenservice"
+  },
+  {
+    "question": "Як.. так.. (Як учні, так і вчителі)",
+    "answer": "Sowohl.. als..\n\n• Sowohl Schüler als Lehrer"
+  },
+  {
+    "question": "Вірити в щось",
+    "answer": "glauben an\n\n• Viele Menschen glauben an die Liebe"
+  },
+  {
+    "question": "Або.. або..",
+    "answer": "entweder.. oder (sonst)..\n\n• Entweder gehst du heute einkaufen, oder ich gehe morgen \n\n• Entweder du hilfst mir, sonst mache ich es allein\n\n• Entweder wir schaffen das, oder wir geben auf"
+  },
+  {
+    "question": "Загубитися (пішки)",
+    "answer": "sich verlaufen"
+  },
+  {
+    "question": "Орієнтуватись, добре розбиратись в чомусь",
+    "answer": "sich auskennen\n\n• Er kennt sich mit dem Thema gut aus"
+  },
+  {
+    "question": "Повз",
+    "answer": "vorbei"
+  },
+  {
+    "question": "Відкусувати щось",
+    "answer": "abbeißen\nbiss ab, hat abgebissen\n\n• Ich habe ein Stück von der Banana abgebissen"
+  },
+  {
+    "question": "Правдивий, істинний, справжній",
+    "answer": "wahr\n\n• Das ist wahr\n\n• Er hat eine wahre Geschichte erzählt \n\n• Er ist ein wahrer Freund\n\n• Das war ein wahres Wunder"
+  },
+  {
+    "question": "Подолати (щось)",
+    "answer": "überwinden\nüberwand • hat überwunden\n\nWir müssen viele Hindernisse überwinden"
+  },
+  {
+    "question": "Видатний, значущий",
+    "answer": "prominent\n\n• Er ist ein prominenter Politiker \n\n• Das Thema ist derzeit sehr prominent in den Medien"
+  },
+  {
+    "question": "Пристрасть",
+    "answer": "Die Leidenschaft"
+  },
+  {
+    "question": "Рости, виростати",
+    "answer": "aufwachsen\n\n• Ich bin in der Ukraine aufgewachsen"
+  },
+  {
+    "question": "Повзати / виповзати",
+    "answer": "<ist> kriechen / auskriechen\nkriecht · kroch (kröche) · ist gekrochen"
+  },
+  {
+    "question": "Бути нерухомим, не рухатись",
+    "answer": "stillhalten"
+  },
+  {
+    "question": "Вести переговори, домовлятися",
+    "answer": "verhandeln / aushandeln / sich verabreden"
+  },
+  {
+    "question": "Контроль, нагляд, моніторинг",
+    "answer": "Die Überwachung"
+  },
+  {
+    "question": "Заблукати (на транспорті)",
+    "answer": "sich verfahren \n\nWir haben uns in der Stadt verfahren"
+  },
+  {
+    "question": "Застарівати",
+    "answer": "veralten"
+  },
+  {
+    "question": "Організовувати, влаштовувати",
+    "answer": "veranstalten"
+  },
+  {
+    "question": "Разом з",
+    "answer": "mitsamt"
+  },
+  {
+    "question": "Віддавати, здавати",
+    "answer": "abgeben\n\n• Ich muss das Paket bei der Post abgeben \n\n• Er hat seine Hausaufgaben pünktlich abgegeben"
+  },
+  {
+    "question": "Відмовлятися (напр.: від поганої звички)",
+    "answer": "aufhören mit\n\n• Er hat mit dem Rauchen aufgehört"
+  },
+  {
+    "question": "Поступитися",
+    "answer": "nachgeben\n\nEr hat endlich nachgegeben"
+  },
+  {
+    "question": "Вводити, вносити (щось кудись)",
+    "answer": "eingeben \n\nIch muss mein Passwort eingeben"
+  },
+  {
+    "question": "Давати результат, виявляти",
+    "answer": "ergeben\n\nDie Untersuchung hat ergeben, dass er unschuldig ist \n\nZwei plus zwei ergibt vier"
+  },
+  {
+    "question": "Прикидатися",
+    "answer": "vorgeben\n\n• Sie gab vor, krank zu sein \n\n• Tom spricht Französisch besser, als er vorgibt"
+  },
+  {
+    "question": "Відтворювати, відображати\nЯк zurückgeben, тільки в нематеріальному сенсі",
+    "answer": "wiedergeben"
+  },
+  {
+    "question": "Жалість, милосердя",
+    "answer": "Das Erbarmen"
+  },
+  {
+    "question": "Зжалитись, пощадити, помилувати",
+    "answer": "erbarmen"
+  },
+  {
+    "question": "Мстить, отомстить",
+    "answer": "(sich) rächen"
+  },
+  {
+    "question": "Клітка",
+    "answer": "Der Käfig"
+  },
+  {
+    "question": "Вузол",
+    "answer": "Der Knoten"
+  },
+  {
+    "question": "Посредством",
+    "answer": "indem"
+  },
+  {
+    "question": "Крихітний",
+    "answer": "winzig\n\n• Das Baby hat winzige Finger"
+  },
+  {
+    "question": "Гігантський",
+    "answer": "riesig"
+  },
+  {
+    "question": "Пахне (гарно)",
+    "answer": "duften"
+  },
+  {
+    "question": "Пахнути (нейтрально)",
+    "answer": "riechen"
+  },
+  {
+    "question": "Факт",
+    "answer": "Die Tatsache\n\n• Die Tatsache, dass er gelogen hat, enttäuscht mich"
+  },
+  {
+    "question": "Впізнати, розпізнати",
+    "answer": "erkennen"
+  },
+  {
+    "question": "Щось легко / трудно дається",
+    "answer": "schwer / leicht fallen\n\n• Es fällt mir leicht, deutsche Texte zu verstehen, \naber es fällt mir schwer, deutsch zu sprechen"
+  },
+  {
+    "question": "Невірність, зрада",
+    "answer": "Die Untreue, untreu, fremdgehen"
+  },
+  {
+    "question": "Зʼясовувати",
+    "answer": "feststellen \n\n• Ich habe festgestellt, dass …"
+  },
+  {
+    "question": "Самооцінка",
+    "answer": "Das Selbstwertgefühl"
+  },
+  {
+    "question": "Паркан",
+    "answer": "Der Zaun"
+  },
+  {
+    "question": "Відрубати",
+    "answer": "abhacken"
+  },
+  {
+    "question": "Навпаки",
+    "answer": "andersrum"
+  },
+  {
+    "question": "Завлекать, созблазнять",
+    "answer": "verlocken"
+  },
+  {
+    "question": "Алчность",
+    "answer": "Die Habgier, habgierig"
+  },
+  {
+    "question": "Пристосовуватись, адаптуватись",
+    "answer": "anpassen"
+  },
+  {
+    "question": "Тоді, в той час",
+    "answer": "damals"
+  },
+  {
+    "question": "В умі подумали ви - О ні!\n(внутрішньо)",
+    "answer": "innerlich\n\n• Innerlich denken Sie - Oh, nein!"
+  },
+  {
+    "question": "Дозволити, (дай собі відпочити)",
+    "answer": "gönnen\n\n• Gönn dir die Ruhe\n• Ich wollte mir eine Pause gönnen"
+  },
+  {
+    "question": "Зобовʼязувати, брати на себе зобовʼязання",
+    "answer": "(sich) verpflichten\n\n• Und schon haben Sie sich wieder einmal verpflichtet"
+  },
+  {
+    "question": "Крім того",
+    "answer": "zudem"
+  },
+  {
+    "question": "Застерігати, закликати",
+    "answer": "ermahnen wegen + Genitiv\n\n• Der Schiedsrichter ermahnte den Spieler wegen unsportlichen Verhaltens\n• Zudem gibt es in uns diese innere Stimme, die uns ständig ermahnt"
+  },
+  {
+    "question": "Навантажувати, обтяжувати, -сь",
+    "answer": "belasten\n\nDie Kisten dürfen den Aufzug nicht zu sehr belasten \n\nDie Sorge um die Familie belastet sie sehr"
+  },
+  {
+    "question": "Деінде, в іншому місці",
+    "answer": "woanders\n\n• Könnt ihr bitte woanders hingehen und spielen?"
+  },
+  {
+    "question": "Хропіти",
+    "answer": "schnarchen"
+  },
+  {
+    "question": "Принаймні",
+    "answer": "zumindest"
+  },
+  {
+    "question": "Шпаргалка",
+    "answer": "Der Spickzettel"
+  },
+  {
+    "question": "Домовлятися",
+    "answer": "sich verabreden"
+  },
+  {
+    "question": "Підмітати",
+    "answer": "fegen"
+  },
+  {
+    "question": "Зганьбити, принизити",
+    "answer": "blamieren"
+  },
+  {
+    "question": "Захищати / -сь",
+    "answer": "verteidigen (sich)"
+  },
+  {
+    "question": "Худнути (антонім zunehmen)\n\nЗнімати щось (фізично прибирати щось)",
+    "answer": "abnehmen\n\nIch will fünf Kilo abnehmen \n\nKannst du mir den Mantel abnehmen \n\nDer Prüfer nimmt die Fahrprüfung ab"
+  },
+  {
+    "question": "Послідовно, один за одним",
+    "answer": "hintereinander"
+  },
+  {
+    "question": "Напад, атака",
+    "answer": "Der Angriff, angreifen"
+  },
+  {
+    "question": "Принаймні",
+    "answer": "zumindest, wenigstens"
+  },
+  {
+    "question": "Запах",
+    "answer": "Der Geruch"
+  },
+  {
+    "question": "Небо, небозвід",
+    "answer": "Das Firmament"
+  },
+  {
+    "question": "Кошмар",
+    "answer": "Der Alptraum"
+  },
+  {
+    "question": "Примус, тиск",
+    "answer": "Der Zwang, zwingen, zwanghaft\n\n• Er handelte aus Zwang\n\n• Jemanden unter Zwang setzen"
+  },
+  {
+    "question": "Загроза",
+    "answer": "Die Bedrohung"
+  },
+  {
+    "question": "Пригрозити",
+    "answer": "drohen\n*bedrohen - напряму погрожувати, потребує акузатив обʼєкта"
+  },
+  {
+    "question": "Звʼязок, відношення",
+    "answer": "Der Bezug\n\n• Nicht nur in Bezug auf die Sache, die…"
+  },
+  {
+    "question": "Ймовірно",
+    "answer": "vermutlich"
+  },
+  {
+    "question": "Виправдовувати, -сь",
+    "answer": "(sich) rechtfertigen"
+  },
+  {
+    "question": "Докоряти, звинувачувати",
+    "answer": "vorwerfen"
+  },
+  {
+    "question": "Докір",
+    "answer": "Der Vorwurf"
+  },
+  {
+    "question": "Проте, з іншого боку (протиставлення)",
+    "answer": "hingegen \n\n• Er mag Kaffe, sie hingegen trinkt lieber Tee"
+  },
+  {
+    "question": "Допускати, підпускати (до себе)",
+    "answer": "herankommen lassen\n\n• Du lässt es zu nah an dich herankommen \n\n• Destruktive Kritik, die vielleicht nur dazu dient, uns runterzuziehen, sollten wir ignorieren, oder zumindest nicht zu nah an uns herankommen lassen"
+  },
+  {
+    "question": "Йдеться про, мова йде про",
+    "answer": "handelt es sich um"
+  },
+  {
+    "question": "Відступити (крок) (в переносному і фізичному значенні)",
+    "answer": "<ist> zurücktreten\n\n• Aber in solchen Momenten ist es immer hilfreich, einen Schritt zurückzutreten"
+  },
+  {
+    "question": "Пізнавальний, інформативний, показово",
+    "answer": "aufschlussreich \n\n• Es kann sehr aufschlussreich sein, um genauere Hinweise zu bitten"
+  },
+  {
+    "question": "Розцінювати, вважати, оцінювати",
+    "answer": "werten\n\n• Es gibt auch die Kritik nicht sofort als persönliche Angriff zu werten"
+  },
+  {
+    "question": "Бути здатним на щось",
+    "answer": "In der Lage sein"
+  },
+  {
+    "question": "Безтурботний, спокійний, стриманий",
+    "answer": "gelassen\n\n• Er blieb gelassen, obwohl die Situation schwierig war \n\n• Mit gelassener Haltung reagierte sie auf die Kritik"
+  },
+  {
+    "question": "Емоційний, чуттєвий",
+    "answer": "gefühlsbetont \n\n• Er ist ein sehr gefühlsbetonter Mensch"
+  },
+  {
+    "question": "Виснажений",
+    "answer": "erschöpft von"
+  },
+  {
+    "question": "Вираз, вислів",
+    "answer": "Der Ausdrück"
+  },
+  {
+    "question": "Цвісти, процвітати",
+    "answer": "blühen"
+  },
+  {
+    "question": "Зайвий, лишній",
+    "answer": "übrig"
+  },
+  {
+    "question": "Вставити, (схоже до hinzufügen)",
+    "answer": "einfügen, beifügen"
+  },
+  {
+    "question": "Обмін (товару в магазині)",
+    "answer": "Der Umtausch\n\nDer Austausch - загальне слово, обмін ідеями, досвідом"
+  },
+  {
+    "question": "Занурюватись, пірнати",
+    "answer": "eintauchen, versinken \n\n• Heute tauchen wir in ein Thema ein \n\n• Und er versank in eine Träumerei, die lange dauerte."
+  },
+  {
+    "question": "Блукати",
+    "answer": "<ist> streifen"
+  },
+  {
+    "question": "Помилитися (у виборі чогось)",
+    "answer": "sich vergreifen \n\n• Er hat sich bei der Kleidung vergriffen"
+  },
+  {
+    "question": "Потреба, необхідність",
+    "answer": "Das Bedürfnis\n\n• Schlaf ist eine der grundlegendsten Bedürfnisse unseres Körpers \n\nEs ist eine der grundlegenden Bedürfnisse der Menschen"
+  },
+  {
+    "question": "Основний, базовий",
+    "answer": "grundlegend\n\nEs ist eines der grundlegenden Bedürfnisse der Menschen"
+  },
+  {
+    "question": "Вижити, пережити",
+    "answer": "überleben"
+  },
+  {
+    "question": "Вирішальний",
+    "answer": "entscheidende"
+  },
+  {
+    "question": "Відмова (спати)",
+    "answer": "Der Entzug (Schlafentzug)"
+  },
+  {
+    "question": "Слабшати (сила, ефективність )\n(аналог reduzieren)",
+    "answer": "nachlassen\n\n• Die Konzentration lässt nach"
+  },
+  {
+    "question": "Уяви:",
+    "answer": "Stell dir vor:"
+  },
+  {
+    "question": "Страждати (емоції)",
+    "answer": "leiden unter"
+  },
+  {
+    "question": "Схильний, вразливий",
+    "answer": "anfällig\n\n• Das Immunsystem wird geschwächt, was uns anfälliger für Infektionen macht"
+  },
+  {
+    "question": "Захворіти",
+    "answer": "erkranken"
+  },
+  {
+    "question": "Вплив, наслідки",
+    "answer": "Die Auswirkung, -en \n\n• Die Auswirkungen des Klimawandels sind weltweit spürbar \n\n• Diese Entscheidung hat große Auswirkungen auf die Wirtschaft"
+  },
+  {
+    "question": "Памʼять",
+    "answer": "Das Gedächtnis\n\n• Ein weiteres bemerkenswertes Phänomen ist der Einfluss von Schlafentzug auf das Gedächtnis"
+  },
+  {
+    "question": "Зайвий, непотрібний",
+    "answer": "unnötig"
+  },
+  {
+    "question": "Досягти своїх меж (сталий вираз)",
+    "answer": "An die Grenzen stoßen \n\n• Diese Halluzinationen sind ein Zeichen dafür, dass das Gehirn an seine Grenzen gestoßen ist"
+  },
+  {
+    "question": "Закінчувати, припиняти",
+    "answer": "aufhören"
+  },
+  {
+    "question": "Метушливий, неспокійний",
+    "answer": "hektisch\n\n• In unserer hektischen Welt, in der Produktivität oft über alles andere gestellt wird, wird Schlaf manchmal als Luxus betrachtet, den man sich leisten kann, wenn die Arbeit getan ist"
+  },
+  {
+    "question": "Вдихати",
+    "answer": "einatmen"
+  },
+  {
+    "question": "База, фундамент",
+    "answer": "Die Grundlage\n\n• Die Wahrheit ist, dass Schlaff die Grundlage für alles andere ist"
+  },
+  {
+    "question": "Нехтувати",
+    "answer": "vernachlässigen\n\n• Sie vernachlässigt ihre Pflichten\n\n• Er vernachlässigt häufig seine Gesundheit"
+  },
+  {
+    "question": "Заздалегідь, наперед",
+    "answer": "vorab\n\n• Es gibt die Möglichkeit, vorab per Briefwahl zu wählen"
+  },
+  {
+    "question": "Предʼявити (документ)",
+    "answer": "vorlegen\n\nDu kannst ein amtliches Dokument vorlegen"
+  },
+  {
+    "question": "Діє, застосовується",
+    "answer": "es gilt (не плутати з gelten für)\n\n• Es gilt das personalisierte Verhältniswahlrecht – du hast zwei Stimmen zu vergeben."
+  },
+  {
+    "question": "Навчання",
+    "answer": "Die Schulung\n\n• Hier findet eine Schulung statt"
+  },
+  {
+    "question": "Окупація",
+    "answer": "Die Besatzung\n\n• Das Abkommen beendete nicht nur die Besatzung in der BRD und gab ihr fast vollständige Souveränität"
+  },
+  {
+    "question": "Побоюватись",
+    "answer": "befürchten"
+  },
+  {
+    "question": "Поновлення, відновлення (чогось, що було перервано)",
+    "answer": "Die Wiederaufnahme\n\n• Sie sahen einerseits die Gefahr einer zunehmenden Eskalation des Kalten Krieges und forderten andererseits die Wiederaufnahme von Verhandlungen über eine deutsche Einheit."
+  },
+  {
+    "question": "Необхідність (вимога)\n\n • Часто абстрактне, загальне.\n\n •\tСхоже на Notwendigkeit",
+    "answer": "Das Erfordernis,-se"
+  },
+  {
+    "question": "Пригнічений\nсинонім до niedergeschlagen",
+    "answer": "betrübt • betrüben"
+  },
+  {
+    "question": "Дозволяти",
+    "answer": "zulassen\n\n• Der Lehrer lässt keine Handys im Unterricht zu"
+  },
+  {
+    "question": "Невдоволення, несхвалення",
+    "answer": "Das Missfallen\n\n• Er zeigte sein Missfallen über die Entscheidung"
+  },
+  {
+    "question": "Втручатися",
+    "answer": "eingreifen\n\n• Die Polizei musste eingreifen, um die Situation zu entschärfen \n\n• Ich wollte nicht eingreifen, aber es war notwendig"
+  },
+  {
+    "question": "Хоча",
+    "answer": "zwar\n\n• Ich hatte zwar einen Job und konnte mir vieles leisten, aber das Gefühl der Unsicherheit das aufkam als ich in dieser Situation war, war kein gutes Gefühl"
+  },
+  {
+    "question": "Зʼявлятись, виникати",
+    "answer": "aufkommen\n\n• Es kam plötzlich Wind auf\n\n• Es kam Streit auf der Straße auf \n\n• Ich hatte zwar einen Job und konnte mir vieles leisten, aber das Gefühl der Unsicherheit das aufkam als ich in dieser Situation war, war kein gutes Gefühl"
+  },
+  {
+    "question": "Співчуття, співчувати",
+    "answer": "Das Mitleid, mitleiden"
+  },
+  {
+    "question": "Відпускати \n(Відпусти це..)",
+    "answer": "loslassen \n\nLass es los"
+  },
+  {
+    "question": "Шия",
+    "answer": "Das Genick"
+  },
+  {
+    "question": "Скутий, негнучкий",
+    "answer": "steif"
+  },
+  {
+    "question": "Списувати",
+    "answer": "abschreiben"
+  },
+  {
+    "question": "Роздавати",
+    "answer": "vergeben"
+  },
+  {
+    "question": "Дивний",
+    "answer": "seltsam, merkwürdig"
+  },
+  {
+    "question": "Огорожа, паркан",
+    "answer": "Der Zaun"
+  },
+  {
+    "question": "Відкладати (щось на потім)",
+    "answer": "hinausschieben"
+  },
+  {
+    "question": "Нахабний",
+    "answer": "frech"
+  },
+  {
+    "question": "Задумливий, спокійний",
+    "answer": "besinnlich"
+  },
+  {
+    "question": "Залежати від",
+    "answer": "(un)abhängig sein von"
+  },
+  {
+    "question": "Бути в захваті",
+    "answer": "begeistert sein von"
+  },
+  {
+    "question": "Роздратуватись від",
+    "answer": "genervt sein von"
+  },
+  {
+    "question": "Бути враженим чимось",
+    "answer": "beeindruckt sein von"
+  },
+  {
+    "question": "Суспільство",
+    "answer": "Die Gesellschaft \n\n• Wir sind die gleichberechtigten Mitglieder der Gesellschaft"
+  },
+  {
+    "question": "Передумова для чогось",
+    "answer": "Die Voraussetzung\n\n• Dies ist eine Voraussetzung für die Steigerung der Leistungen"
+  },
+  {
+    "question": "Вимагати",
+    "answer": "verlangen\n\n• Ich verlange, dass Sie sofort hier verschwinden"
+  },
+  {
+    "question": "Зникати, «забиратись»",
+    "answer": "<ist> verschwinden\n\n• Ich verlange, dass Sie sofort hier verschwinden"
+  },
+  {
+    "question": "Лише (вставне слово)",
+    "answer": "zwar"
+  },
+  {
+    "question": "Сидіти на чомусь",
+    "answer": "draufsitzen\nsitzt drauf · saß drauf (säße drauf) · hat draufgesessen"
+  },
+  {
+    "question": "Співчуття",
+    "answer": "Das Mitgefühl"
+  },
+  {
+    "question": "Псувати",
+    "answer": "verderben"
+  },
+  {
+    "question": "Забезпечувати, піклуватися",
+    "answer": "versorgen \n\n• Eine Haustiere versorgen \n\n• Die Eltern versorgen ihre Kinder mit Essen und Kleidung"
+  },
+  {
+    "question": "Заходити (в кімнату)",
+    "answer": "eintreten in + Akk"
+  },
+  {
+    "question": "Крім того (офіційно)",
+    "answer": "Des Weiteren \n\n• Des Weiteren hat unser Hausmeister Mister Filz mich gebeten euch an eines zu erinner:"
+  },
+  {
+    "question": "Трясти, взбовтувати",
+    "answer": "schütteln"
+  },
+  {
+    "question": "Посадка (в транспорт)",
+    "answer": "zusteigen"
+  },
+  {
+    "question": "Викликати, закликати",
+    "answer": "aufrufen\n\n• Sie riefen zu mehr Respekt und neuen Gesetzen auf\n\n• Ich rufe jeden einzeln auf"
+  },
+  {
+    "question": "Жилетка",
+    "answer": "Die Weste"
+  },
+  {
+    "question": "Постійно, безперервно",
+    "answer": "ständig \n\n• Er ist ständig müde"
+  },
+  {
+    "question": "Витріщатися",
+    "answer": "anstarren"
+  },
+  {
+    "question": "Використовувати (щось у власних інтересах)",
+    "answer": "ausnutzen\n\n• Er hat ihre Gutmütigkeit ausgenutzt \n\n• Wir sollten die Gelegenheit ausnutzen und heute ins Freibad gehen \n\n• Die Firma nutzt ihre Arbeiter aus"
+  },
+  {
+    "question": "Добросердечність, доброзичливість",
+    "answer": "Die Gutmütigkeit"
+  },
+  {
+    "question": "Малоймовірно",
+    "answer": "unwahrscheinlich"
+  },
+  {
+    "question": "Недолік",
+    "answer": "Der Nachteil \nСин.: Der Makel"
+  },
+  {
+    "question": "Перевага, надавати перевагу",
+    "answer": "Der Vorzug, vorziehen\n\nJemandem/etwas den Vorzug geben \n\n• Ich ziehe Tee dem Kaffe vor\n\n• Sie zieht es vor, allein zu reisen"
+  },
+  {
+    "question": "Відстань, віддаленіст",
+    "answer": "Die Entfernung \n\n• Die Entfernung zwischen den beiden Städten beträgt 190 Kilometer"
+  },
+  {
+    "question": "Усувати, прибрати",
+    "answer": "entfernen\n\n• Ich werde den Fleck von meinem Hemd entfernen \n\n• Er hat den alten Schrank entfernt"
+  },
+  {
+    "question": "Знешкодити (небезпеку)\nРозрядити (обстановку)",
+    "answer": "entschärfen\n\n• Die Experten haben die Bombe erfolgreich entschärft \n\n• Durch klärendes Gespräch konnte der Konflikt entschärft werden"
+  },
+  {
+    "question": "Вести себе (в суспільстві, в певній ситуації)",
+    "answer": "sich benehmen\n\n• Er benimmt sich immer höflich \n\n• Benimm dich anständig!"
+  },
+  {
+    "question": "Сума (грошей)",
+    "answer": "Der Betrag"
+  },
+  {
+    "question": "Намазувати, змазувати",
+    "answer": "schmieren"
+  },
+  {
+    "question": "Скористатись послугою, використовувати",
+    "answer": "In Anspruch nehmen \n\n• Ich musste seinen Service in Anspruch nehmen, als mein vorheriger Schläger während eines intensiven Spiels ein wenig kaputtgegangen ist, und er hat seine Arbeit erfolgreich erledigt."
+  },
+  {
+    "question": "Подія (особлива, важлива)",
+    "answer": "Das Ereignis\n\n• Das war ein historisches Ereignis"
+  },
+  {
+    "question": "Порядно, пристойно",
+    "answer": "anständig\n\n• Benimm dich anständig!\n\n• Besorge dir einen anständigen Anzug"
+  },
+  {
+    "question": "Накривати, покривати",
+    "answer": "zudecken\n\nSie hat mich mit einer Decke zugedeckt"
+  },
+  {
+    "question": "Зачаровувати (приводити в захват)",
+    "answer": "verzücken\n\n• Die Musik verzückte das Publikum"
+  },
+  {
+    "question": "Задихатися, душитися",
+    "answer": "ersticken\n\n• Die Protesten wurden im Keim erstickt\n\n• Er drohte im dichten Rauch zu ersticken"
+  },
+  {
+    "question": "Надмірна вага",
+    "answer": "Das Übergewicht"
+  },
+  {
+    "question": "Знижувати, опускати",
+    "answer": "senken\n\n• Er senkte seinen Blick\n\n• Unsere Miete ist gesenkt worden"
+  },
+  {
+    "question": "Совість",
+    "answer": "Das Gewissen"
+  },
+  {
+    "question": "Апатія",
+    "answer": "Die Lustlosigkeit, lustlos"
+  },
+  {
+    "question": "Безпорадний",
+    "answer": "ratlos"
+  },
+  {
+    "question": "Звична практика / поширене явище\n*сталий вираз",
+    "answer": "Gang und Gäbe\n\nIn großen Firmen ist es Gang und Gäbe, dass Meetings online stattfinden."
+  },
+  {
+    "question": "Формувати щось, впливати на щось",
+    "answer": "prägen\n\nDie Umwelt prägt den Menschen\n\nDas hat mich sehr geprägt \n\nErfahrungen und Erlebnisse können den Menschen prägen"
+  },
+  {
+    "question": "Єдиний",
+    "answer": "einzig"
+  },
+  {
+    "question": "Либитись, ухмилятись",
+    "answer": "grinsen"
+  },
+  {
+    "question": "Надзвичайно; вкрай",
+    "answer": "äußerst \n\n… eines äußerst schmerzvollen Todes zu sterben"
+  },
+  {
+    "question": "Прагнення",
+    "answer": "Der Drang\n\nDrang, sich zu beweisen - прагнення показати себе\n\nБажання - Die Lust"
+  },
+  {
+    "question": "Пояснювати (син. до erklären)",
+    "answer": "erläutern"
+  },
+  {
+    "question": "Пошук квартири вдався / склався",
+    "answer": "klappen\n\nHat alles geklappt?\n\nHoffentlich klappt es"
+  },
+  {
+    "question": "Зберігати щось:\n*спокій",
+    "answer": "behalten\n\nDu kannst das Buch behalten\n\nIch kann mir Namen schlecht behalten \n\nBitte behalten Sie ruhe\n\nEr behält immer die Kontrolle"
+  },
+  {
+    "question": "Вирішувати",
+    "answer": "beschließen \nhat beschlossen \n\nWir haben beschlossen, eine Reise nach Italien zu machen"
+  },
+  {
+    "question": "Входити, заходити кудись",
+    "answer": "betreten + Akk\n\nEr betritt den Raum\n\nAls sie den Saal betrat, wurde es plötzlich still"
+  },
+  {
+    "question": "Відчувати, сприймати\n*піднесене значення",
+    "answer": "empfinden\n\nIch empfinde große Freude\n\nIch empfand Schmerzen im Rücken"
+  },
+  {
+    "question": "Справлятися, впоратись (син. schaffen)",
+    "answer": "klarkommen, zurechtkommen"
+  },
+  {
+    "question": "Внесок, вклад",
+    "answer": "Der Beitrag\n\nSein Beitrag zum Erfolg des Projekts war enorm"
+  },
+  {
+    "question": "Ворог",
+    "answer": "Der Feind"
+  },
+  {
+    "question": "Той самий (вказівний займенник)",
+    "answer": "derselbe, dasselbe, dieselbe"
+  },
+  {
+    "question": "Багаторазово",
+    "answer": "mehrfach\n\nSie haben gegen die mehrfache Aufforderung vom Standesamt sogar geklagt"
+  },
+  {
+    "question": "Передбачати",
+    "answer": "vorsehen\n\nDas Gesetz sieht vor…"
+  },
+  {
+    "question": "Безсумнівно",
+    "answer": "unbestreitbar"
+  },
+  {
+    "question": "Захоплювати, заворожувати",
+    "answer": "mitreißen\n\nDie Musik hat das Publikum mitgerissen \n\nEr ließ sich von der Menge mitreißen"
+  },
+  {
+    "question": "Один біля одного",
+    "answer": "beieinander \n\nSie saßen stundenlang beieinander und redeten"
+  },
+  {
+    "question": "Помилятися",
+    "answer": "sich irren\n\nIch habe mich geirrt\n\nDu irrst dich, wenn du das glaubst"
+  },
+  {
+    "question": "Розпоряджатися",
+    "answer": "verfügen über\n\nDas Hotel verfügt über einen großen Wellnessbereich"
+  },
+  {
+    "question": "Втрачати",
+    "answer": "einbüßen \n\nUm ihre gesellschaftliche Reputation nicht vollends einzubüßen, verzichtete sie vorerst auf eine Scheidung\n\nEr hat durch die lange Krankheit viel an Kraft eingebüßt \n\nDas Unternehmen musste Markanteile einbüßen"
+  },
+  {
+    "question": "Після того, як",
+    "answer": "nachdem"
+  },
+  {
+    "question": "Сила волі",
+    "answer": "Die Willensstärke"
+  },
+  {
+    "question": "Витримка",
+    "answer": "Die Ausdauer"
+  },
+  {
+    "question": "Розпускати, анулювати",
+    "answer": "auflösen\n\nNachdem Bundeskanzler Olaf Scholz im Dezember seine Vertrauensfrage verloren hatte, löste Bundespräsident Frank-Walter Steinmeier das Parlament auf."
+  },
+  {
+    "question": "Один для одного",
+    "answer": "füreinander"
+  },
+  {
+    "question": "Як попало, хаотично, переплутано",
+    "answer": "durcheinander"
+  },
+  {
+    "question": "Один проти одного",
+    "answer": "gegeneinander"
+  },
+  {
+    "question": "Битва",
+    "answer": "Die Schlacht"
+  },
+  {
+    "question": "Завзяття",
+    "answer": "Der Eifer, eifrig\n\nTom arbeitet eifrig\n\nSie brannten vor Eifer\n\nSie lernte mit großem Eifer Englisch"
+  },
+  {
+    "question": "Підстерігати, затаїтись",
+    "answer": "lauern auf\n\nDie Katze lauern auf die Maus"
+  },
+  {
+    "question": "Один за одним",
+    "answer": "nacheinander"
+  },
+  {
+    "question": "Один від одного",
+    "answer": "voreinander \n\nSie haben viel voneinander gelernt"
+  },
+  {
+    "question": "Язикатий",
+    "answer": "redselig, schwatzhaft, geschwätzig"
+  },
+  {
+    "question": "Скандал, інцидент",
+    "answer": "Der Eklat\n\nNach dem Eklat auf der Pressekonferenz trat der Manager zurück \n\nDer Politiker sorgte mit seiner Rede für einen Eklat"
+  },
+  {
+    "question": "Бігти за кимось",
+    "answer": "nachlaufen\n\nIch bin dem Troll nachgelaufen"
+  },
+  {
+    "question": "Я помилявся",
+    "answer": "Ich habe mich getäuscht \n\nTäusche mich nicht"
+  },
+  {
+    "question": "Дурість",
+    "answer": "Die Dummheit\nSie haben eine riesengroße Dummheit begangen"
+  },
+  {
+    "question": "Суттєво, значно",
+    "answer": "wesentlich\n\nVon ihnen hätte ich wesentlich mehr Vernunft erwartet"
+  },
+  {
+    "question": "Вирахування (податків)",
+    "answer": "Der Abzug\n\nDer Abzug von Steuern"
+  },
+  {
+    "question": "Нестача, відсутність чогось",
+    "answer": "Der Mangel an + Dativ\n\nMangel an Zeit\n\nMangel an Urteilsvermögen"
+  },
+  {
+    "question": "Розсудливість, здоровий глузд",
+    "answer": "Das Urteilsvermögen \n\n5 Punkte Abzug für Gryffindor für ihren Mangel an Urteilsvermögen"
+  },
+  {
+    "question": "Стерегти",
+    "answer": "(sich vor etwas) hüten\n\nEs ist ein wohl gehütetes Geheimnis"
+  },
+  {
+    "question": "Поспішність",
+    "answer": "Die Voreiligkeit"
+  },
+  {
+    "question": "Підземелля",
+    "answer": "Der Kerker"
+  },
+  {
+    "question": "Вʼязень",
+    "answer": "Der Gefangene, Der Häftling, Der Insasse"
+  },
+  {
+    "question": "Що з ним/нею сталося?",
+    "answer": "Was ist aus ihm/ihr geworden?"
+  },
+  {
+    "question": "Знищувати",
+    "answer": "vernichten"
+  },
+  {
+    "question": "Ми дійшли згоди",
+    "answer": "Wir waren uns einig, dass.."
+  },
+  {
+    "question": "Дістатись до чогось (до інформації, або фізично)\n*аналог erreichen",
+    "answer": "rankommen an \n\nIch kam nicht an die Dokumente ran \n\nWie kommst du an solche Informationen ran?"
+  },
+  {
+    "question": "Досягати успіху, вдаватися",
+    "answer": "<ist> gelingen\ngelang • ist gelungen \n\nEs gelingt mir\n\nEs wird mir gelingen"
+  },
+  {
+    "question": "Між нами кажучи",
+    "answer": "unter uns beiden"
+  },
+  {
+    "question": "Поділятись",
+    "answer": "unterteilen\n\nEs unterteilt in 4 Fachrichtungen"
+  },
+  {
+    "question": "Висновок, підсумок",
+    "answer": "Das Fazit"
+  },
+  {
+    "question": "Мати справу з чимось",
+    "answer": "zu tun haben \n\nIch weiß nicht, womit ich morgen zu tun haben werde \n\nWomit hast du im letzten Projekt zu tun gehabt?\n\nEr hat mir nicht gesagt, womit er beschäftigt ist"
+  },
+  {
+    "question": "Нині",
+    "answer": "heutzutage \n\nHeutzutage benutzen viele Menschen Smartphones statt Computer"
+  },
+  {
+    "question": "Попадати (в ситуацію)",
+    "answer": "<ist> geraten\n\nEr ist in Schwierigkeiten geraten\n\nIn Not geraten"
+  },
+  {
+    "question": "leider",
+    "answer": "bedauerlicherweise"
+  },
+  {
+    "question": "außerdem",
+    "answer": "darüber hinaus \n\nEr spricht fließend Deutsch. Darüber hinaus beherrscht er Englisch und Französisch \n\nDas Unternehmen bietet gute Gehälter. Darüber hinaus gibt es viele Zusatzleistungen"
+  },
+  {
+    "question": "wieder",
+    "answer": "erneut"
+  },
+  {
+    "question": "Тривалість",
+    "answer": "Die Dauer"
+  },
+  {
+    "question": "Зразок, приклад",
+    "answer": "Das Vorbild"
+  },
+  {
+    "question": "Заарештовувати, затримувати",
+    "answer": "festnehmen\n\nEr wurde wegen Diebstahls festgenommen"
+  },
+  {
+    "question": "Стояти/ставати на коліна",
+    "answer": "knien \n\nEin Video zeigt, wie der Polizist auf seinem Hals kniete"
+  },
+  {
+    "question": "Справедливість",
+    "answer": "Die Gerechtigkeit"
+  },
+  {
+    "question": "Дати поштовх чомусь",
+    "answer": "in Gang bringen \n\nDer Fall von George Floyd brachte eine große Bewegung in Gang"
+  },
+  {
+    "question": "Уявлення, зображення",
+    "answer": "Die Darstellungen"
+  },
+  {
+    "question": "Активно брати участь у чомусь \nПрисвячувати себе чомусь",
+    "answer": "sich engagieren für \n\nSie engagiert sich für den Tierschutz"
+  },
+  {
+    "question": "Унікальний, неповторний",
+    "answer": "einzigartig"
+  },
+  {
+    "question": "Визначати \nЗʼясовувати- feststellen",
+    "answer": "bestimmen\n\nDer Chef bestimmt den Plan"
+  },
+  {
+    "question": "Я рекомендую цю книгу",
+    "answer": "Ich empfehle dieses Buch"
+  },
+  {
+    "question": "Я розпізнаю його по голосу",
+    "answer": "Ich erkenne ihn an seiner Stimme"
+  },
+  {
+    "question": "Ми очікуємо твою відповідь",
+    "answer": "Wir erwarten deine Antwort"
+  },
+  {
+    "question": "Бути в курсі (подій)",
+    "answer": "auf dem Laufenden sein\n\nIch lese jeden Morgen die Nachrichten, um auf dem Laufenden zu sein"
+  },
+  {
+    "question": "Прийти до ідеї",
+    "answer": "auf die Idee kommen\n\nWie bist du auf die Idee gekommen, nach Deutschland zu ziehen"
+  },
+  {
+    "question": "Бути «на кону» / під загрозою",
+    "answer": "auf dem Spiel stehen\n\nSein Ruf steht auf dem Spiel"
+  },
+  {
+    "question": "Репутація",
+    "answer": "Der Ruf\n\nSein Ruf steht auf dem Spiel"
+  },
+  {
+    "question": "Розпочати розмову",
+    "answer": "ins Gespräch kommen \n\nAuf der Party kamen wir schnell ins Gespräch"
+  },
+  {
+    "question": "Змиритися з чимось",
+    "answer": "in Kauf nehmen\n\nWer in einer Großstadt lebt, muss Lärm in Kauf nehmen"
+  },
+  {
+    "question": "Сіно",
+    "answer": "Das Heu"
+  },
+  {
+    "question": "Мені здається, що..",
+    "answer": "Es scheint mir, dass…"
+  },
+  {
+    "question": "Прихильність, приязнь",
+    "answer": "Die Zuneigung\n\nSie zeigte ihm viel Zuneigung"
+  },
+  {
+    "question": "Відданий",
+    "answer": "anhänglich"
+  },
+  {
+    "question": "Безперечно",
+    "answer": "mit Abstand\n\nDas ist mit Abstand der beste Film, den ich je gesehen habe"
+  },
+  {
+    "question": "Відстань (короткі дистанції)\n*Die Entfernung - довгі дистанції",
+    "answer": "Der Abstand"
+  },
+  {
+    "question": "Недоторканний",
+    "answer": "unantastbar \n\nDie Würde des Menschen ist unantastbar"
+  },
+  {
+    "question": "Здобич",
+    "answer": "Die Beute\n\nDie Boas verschlingen ihre Beute als Ganz"
+  },
+  {
+    "question": "Помста",
+    "answer": "Die Rache"
+  },
+  {
+    "question": "Клястися",
+    "answer": "schwören"
+  },
+  {
+    "question": "Без упину, безперервно",
+    "answer": "ohne Unterlass\n\nSie redet ohne Unterlass"
+  },
+  {
+    "question": "Зразок, шаблон",
+    "answer": "Die Vorlage\n\nDieses Dokument kann auch als Vorlage beim Finanzamt verwendet werden"
+  },
+  {
+    "question": "Район, округ",
+    "answer": "Der Bezirk"
+  },
+  {
+    "question": "Підготувати щось заздалегідь",
+    "answer": "bereitstellen\n\nDie Polizei stellte Wasser und Decken für die Opfer bereit."
+  },
+  {
+    "question": "Очікуваний, підлягає виконанню",
+    "answer": "fällig\n\nDie Rechnung ist heute fällig"
+  },
+  {
+    "question": "Запамʼятовувати (вкарбовувати в памʼять)\n*сильніше за merken",
+    "answer": "sich(Dat) einprägen\n\nIch präge mir die Vokabeln ein \n\nPräge dir das gut ein"
+  },
+  {
+    "question": "Збільшувати",
+    "answer": "vermehren"
+  },
+  {
+    "question": "Родина / рідня",
+    "answer": "Die Verwandtschaft"
+  },
+  {
+    "question": "Помилка, хибне уявлення/судження",
+    "answer": "Der Irrtum\n\nEin Irrtum ist menschlich \n\nEr war ein großer Irrtum, ihm zu vertrauen"
+  },
+  {
+    "question": "Зазвичай",
+    "answer": "im Normalfall"
+  },
+  {
+    "question": "Розвертатися(буквально), змінювати думку",
+    "answer": "umkehren"
+  },
+  {
+    "question": "Однозначний",
+    "answer": "eindeutig\n\nDas Urteil des Gerichts war eindeutig"
+  },
+  {
+    "question": "Користуватися (повагою) серед (колег)",
+    "answer": "genießen + Akk + unter + Dat\n\nSie genießt hohes Ansehen unter ihren Kollegen"
+  },
+  {
+    "question": "Зрозумілий",
+    "answer": "nachvollziehbar \n\nJede Entscheidung muss nachvollziehbar sein"
+  },
+  {
+    "question": "Розгортати (книжку)",
+    "answer": "aufklappen"
+  },
+  {
+    "question": "Лікарняний",
+    "answer": "Die Arbeitsunfähigkeitsbescheinigung (AU)"
+  },
+  {
+    "question": "Зрозуміти, усвідомити",
+    "answer": "nachvollziehen\n\nIch kann deine Entscheidung nicht nachvollziehen"
+  },
+  {
+    "question": "Що спільного між X та X?",
+    "answer": "Was haben X und X gemeinsam?\n\nWas sind die Gemeinsamkeiten zwischen X und X?"
+  },
+  {
+    "question": "Спільність, спільні риси",
+    "answer": "Die Gemeinsamkeiten"
+  },
+  {
+    "question": "Вибратись, втікти (звідкись)",
+    "answer": "<ist> entkommen + Dat\n\nDer Gefangene ist aus dem Gefängnis entkommen"
+  },
+  {
+    "question": "Провалитися, закінчитись невдачею",
+    "answer": "<ist> scheitern"
+  },
+  {
+    "question": "Отримувач",
+    "answer": "Der Empfänger"
+  },
+  {
+    "question": "Зловити, спіймати (таксі)",
+    "answer": "erwischen, auffangen\n\nDie Polizei hat den Dieb erwischt"
+  },
+  {
+    "question": "Перевірка(провірка), огляд",
+    "answer": "Die Durchsicht\n\nIch mache eine Durchsicht der Dokumente"
+  },
+  {
+    "question": "Обзор, сводка",
+    "answer": "Die Übersicht\n\nHier ist eine Übersicht der wichtigsten Ereignisse"
+  },
+  {
+    "question": "Очікування, прогноз",
+    "answer": "Die Voraussicht \n\nNach heutiger Voraussicht wird das Wetter besser"
+  },
+  {
+    "question": "Оголошувати, анонсувати",
+    "answer": "ankündigen\n\nDie Band hat ein neuer Album angekündigt"
+  },
+  {
+    "question": "Вирушати кудись",
+    "answer": "sich begeben,\n<ist> aufbrechen"
+  },
+  {
+    "question": "Виробляти, генерувати",
+    "answer": "erzeugen\n\nDie Maschine erzeugt Strom\n\nAngst erzeugen"
+  },
+  {
+    "question": "Карʼєра",
+    "answer": "Die Laufbahn"
+  },
+  {
+    "question": "Зберігати (щось, якусь річ, на потім)",
+    "answer": "(auf)bewahren \n\nIch bewahre meine Dokumente im Schrank auf\n\nWenn ich jemanden traf, der mir ein bisschen heller vorkam, versuchte ich es mit meiner Zeichnung Nr. 1, die ich gut aufbewahrt habe"
+  },
+  {
+    "question": "Набрехати комусь, розповісти вигадану історію",
+    "answer": "jemandem einen Bären aufbinden\n\nEr hat mir einen Bären aufgebunden, als er sagte, er habe den Mount Everest bestiegen"
+  },
+  {
+    "question": "Обмежувати",
+    "answer": "einschränken"
+  },
+  {
+    "question": "Заходи, міри",
+    "answer": "Die Maßnahme\n\nDie Regierung hat Maßnamen zur Bekämpfung der Arbeitslosigkeit ergriffen \n\nMaßnahmen ergreifen - вжити заходів"
+  },
+  {
+    "question": "Уповноважений",
+    "answer": "befugt\n\nNur befugte Personen dürfen den Raum betreten"
+  },
+  {
+    "question": "Радше",
+    "answer": "eher als\n\nEr ist eher schüchtern als arrogant"
+  },
+  {
+    "question": "Проєкт, ескіз",
+    "answer": "Der Entwurf"
+  },
+  {
+    "question": "Проєктувати, створювати",
+    "answer": "entwerfen \n\nDer Architekt entwirft ein neues Gebäude"
+  },
+  {
+    "question": "Вроджений (талант)",
+    "answer": "angeboren"
+  },
+  {
+    "question": "Смачний",
+    "answer": "köstlich"
+  },
+  {
+    "question": "fleißig",
+    "answer": "unermüdlich"
+  },
+  {
+    "question": "Буквально",
+    "answer": "buchstäblich"
+  },
+  {
+    "question": "Розбудити когось (від сну)",
+    "answer": "aufwecken"
+  },
+  {
+    "question": "Нібито, за чутками",
+    "answer": "angeblich\n\nEr ist angeblich krank"
+  },
+  {
+    "question": "Залежно від",
+    "answer": "Je nach Kontext"
+  },
+  {
+    "question": "Підкреслювати, виділяти",
+    "answer": "unterstreichen, betonen"
+  },
+  {
+    "question": "Незграбний",
+    "answer": "ungeschickt\n\ngeschickt - вправний, вмілий"
+  },
+  {
+    "question": "Обдарованість, талант",
+    "answer": "Die Begabung"
+  },
+  {
+    "question": "…ніби в мене вдарила блискавка",
+    "answer": "…als wäre der Blitz in mich gefahren \n\n•\tAls er die Nachricht hörte, sah er aus, als wäre der Blitz in ihn gefahren.\n\n— Коли він почув новину, виглядав так, ніби в нього блискавка влучила.\n\n •\tSie sprang auf, als wäre der Blitz in sie gefahren.\n\n— Вона підскочила, ніби її вдарило блискавкою."
+  },
+  {
+    "question": "Запалення",
+    "answer": "Die Entzündung"
+  },
+  {
+    "question": "Застібати",
+    "answer": "zuknöpfen"
+  },
+  {
+    "question": "Спостерігати",
+    "answer": "zusehen\n\nKann ich beim Malen zusehen?"
+  },
+  {
+    "question": "Закривати",
+    "answer": "zusperren\nsperrte zu • hat zugesperrt \n\n*розмовний синонім до abschließen"
+  },
+  {
+    "question": "Вирізати",
+    "answer": "zuschneiden"
+  },
+  {
+    "question": "Обіцяти",
+    "answer": "zusagen"
+  },
+  {
+    "question": "Поспішати (не eilen)",
+    "answer": "<ist> hasten"
+  },
+  {
+    "question": "Розуміти(охоплювати), фіксувати",
+    "answer": "erfassen\n\nIch konnte die Situation nicht sofort erfassen\n\nDie Daten werden automatisch erfasst"
+  },
+  {
+    "question": "Перечекати, перетерпіти (труднощі)\nсинонім до durchhalten \n\n„ausharren“ означає — залишатися на місці попри труднощі, терпляче чекати.\n\nЙого зазвичай не вживають із „das“ у загальному сенсі «я це не можу витримати».",
+    "answer": "ausharren\n\nEr harrt in Geduld aus, bis sich die Situation bessert \n\nViele hoffen auf Frieden und harren weiter aus \n\nDie Tiere harren im Winter in ihren Höhlen aus\n\nHarr aus, mein Freund, der Morgen wird kommen \n\nWir mussten den Sturm in der Hütte ausharren"
+  },
+  {
+    "question": "Хоронити",
+    "answer": "begraben"
+  },
+  {
+    "question": "Перебивати, переривати когось",
+    "answer": "unterbrechen \n\nUnterbrich mich nicht\n\nEntschuldige, ich unterbreche Sie jetzt"
+  },
+  {
+    "question": "Використовувати (старомодно)",
+    "answer": "gebrauchen"
+  },
+  {
+    "question": "Обізнаний",
+    "answer": "kundig + Genitiv\n\nEr ist der deutschen Grammatik kundig"
+  },
+  {
+    "question": "Марнувати",
+    "answer": "vergeuden, verschwenden"
+  },
+  {
+    "question": "Зубрити",
+    "answer": "pauken"
+  },
+  {
+    "question": "Забарвлення, відтінок",
+    "answer": "Die Färbung"
+  },
+  {
+    "question": "Нічого не можу вдіяти",
+    "answer": "Ich kann nichts dafür"
+  },
+  {
+    "question": "Присутній",
+    "answer": "anwesend"
+  },
+  {
+    "question": "Чутка",
+    "answer": "Das Gerücht"
+  },
+  {
+    "question": "Плакати (не weinen)",
+    "answer": "flennen"
+  },
+  {
+    "question": "Мені урвався терпець",
+    "answer": "Mir ging die Geduld aus"
+  },
+  {
+    "question": "Адресувати, спрямовувати щось комусь",
+    "answer": "richten an + Akk\n\nEr richtete viele Fragen an mich"
+  },
+  {
+    "question": "Прощання",
+    "answer": "Der Abschied"
+  },
+  {
+    "question": "Столяр",
+    "answer": "Der Schreiner"
+  },
+  {
+    "question": "Повертати, звертати",
+    "answer": "abbiegen\n\nIch bin falsch abgebogen"
+  },
+  {
+    "question": "Згинати",
+    "answer": "biegen"
+  },
+  {
+    "question": "Продовжити (говорити)\n\nАле він продовжив",
+    "answer": "fortfahren \n\nEr aber fuhr fort: …"
+  },
+  {
+    "question": "Забезпечувати, надавати",
+    "answer": "bereitstellen"
+  },
+  {
+    "question": "Замріяння",
+    "answer": "Die Träumerei"
+  },
+  {
+    "question": "Ця пропозиція здалась Маленькому Принцу дуже образливою",
+    "answer": "Dieser Vorschlag schien den kleinen Prinzen zu kränken"
+  },
+  {
+    "question": "Піднімати тост за щось",
+    "answer": "anstoßen auf\n\nDarauf müssen wir anstoßen!\n\nLass uns auf deinen Erfolg anstoßen"
+  },
+  {
+    "question": "Перекусити",
+    "answer": "naschen"
+  },
+  {
+    "question": "Вузький (не eng)",
+    "answer": "schmal"
+  },
+  {
+    "question": "До речі",
+    "answer": "apropos"
+  },
+  {
+    "question": "Невизначеність",
+    "answer": "Die Unentschiedenheit"
+  },
+  {
+    "question": "Доповідь, звіт",
+    "answer": "Der Bericht"
+  },
+  {
+    "question": "Голуб",
+    "answer": "Die Taube"
+  },
+  {
+    "question": "в змозі\n*синонім до in der Lage sein",
+    "answer": "imstande sein\n\nDann sind sie nicht imstande, sich dieses Haus vorzustellen"
+  },
+  {
+    "question": "Я б волів..",
+    "answer": "Viel lieber hätte ich\n\nViel lieber hätte ich diese Geschichte begonnen wie ein Märchen\n\nViel lieber hätte ich heute Abend zu Hause geblieben"
+  },
+  {
+    "question": "Фахівець",
+    "answer": "Die Fachkraft"
+  },
+  {
+    "question": "Через що, з причини?\n*запитальне слово",
+    "answer": "wodurch"
+  },
+  {
+    "question": "Значущий, важливий",
+    "answer": "bedeutsam\n\nDas war ein bedeutsamer Moment in seinem Leben"
+  },
+  {
+    "question": "Нарешті, врешті-решт",
+    "answer": "schließlich \n\nIch habe mir schließlich auch einen Farbenkasten und Zeichnenstifte gekauft"
+  },
+  {
+    "question": "Середньостатистичний, average",
+    "answer": "durchschnittlich"
+  },
+  {
+    "question": "Подарувати, віддати безкоштовно",
+    "answer": "verschenken"
+  },
+  {
+    "question": "Вартий уваги",
+    "answer": "beachtenswert / bemerkenswert"
+  },
+  {
+    "question": "Холодна оренда складає",
+    "answer": "Die Kaltmiete beläuft sich auf 10.000€"
+  },
+  {
+    "question": "Довільний",
+    "answer": "beliebig\n\nDas kannst du beliebig verändern"
+  },
+  {
+    "question": "Завдячувати",
+    "answer": "verdanken"
+  },
+  {
+    "question": "Несподівано \n*типу plötzlich",
+    "answer": "unvermittelt"
+  },
+  {
+    "question": "Докопатися до істини",
+    "answer": "etwas auf den Grund gehen / kommen\n\num der Sache auf den Grund zu kommen"
+  },
+  {
+    "question": "Інтенсивно",
+    "answer": "heftig"
+  },
+  {
+    "question": "Скаржитись\n\n*офіційно",
+    "answer": "beanstanden"
+  },
+  {
+    "question": "Численний",
+    "answer": "zahlreich"
+  },
+  {
+    "question": "Пастух",
+    "answer": "Der Hirte"
+  },
+  {
+    "question": "Наставник",
+    "answer": "Der Pate"
+  },
+  {
+    "question": "Утримувати (свою сімʼю)",
+    "answer": "unterhalten"
+  },
+  {
+    "question": "Бездіяльність",
+    "answer": "Die Untätigkeit"
+  },
+  {
+    "question": "Приміряти",
+    "answer": "anprobieren"
+  },
+  {
+    "question": "Перепробувати",
+    "answer": "durchprobieren"
+  },
+  {
+    "question": "Житло",
+    "answer": "Die Unterkunft"
+  },
+  {
+    "question": "В основному, загалом",
+    "answer": "Im Wesentlichen \n\nIm Wesentlichen hast du alles richtig gemacht \n\nDeine Aufgaben im Wesentlichen:"
+  },
+  {
+    "question": "Дивний, незвичайний",
+    "answer": "merkwürdig"
+  },
+  {
+    "question": "Наявний",
+    "answer": "vorhanden \n\nDas wird jetzt mit vorhandenen Proben untersucht\n\nBereits vorhandene Kunden zu halten ist ebenso wichtig, wie neue zu gewinnen"
+  },
+  {
+    "question": "Оминути (уникнути) (не vermeiden)",
+    "answer": "<ist> ausweichen + Dat\nwich aus • ist ausgewichen\n\nEr wich meiner Frage aus"
+  },
+  {
+    "question": "Щиро, відверто",
+    "answer": "aufrichtig\n\nIch bedauere das aufrichtig \n\nSie zeigte aufrichtiges Interesse an dem, was ich sagte"
+  },
+  {
+    "question": "Я офігів",
+    "answer": "Ich war baff"
+  },
+  {
+    "question": "Негідник",
+    "answer": "Der Nichtsnutz"
+  },
+  {
+    "question": "Борюкатись (за щось)",
+    "answer": "rangeln um"
+  },
+  {
+    "question": "Він сів у машину",
+    "answer": "Er setzte sich in den Wagen"
+  },
+  {
+    "question": "Він, мабуть, був хворий\n*припущення в минулому часі\n\n*Modalverb (в Präteritum) + Partizip II + sein / haben",
+    "answer": "Er muss krank gewesen sein"
+  },
+  {
+    "question": "Кліпати",
+    "answer": "blinzeln"
+  },
+  {
+    "question": "Застрягнути",
+    "answer": "festsitzen \nsaß fest • hat festgesessen\n\nEr saß im üblichen morgendlichen Stau fest"
+  },
+  {
+    "question": "Дискомфорт",
+    "answer": "Das Unbehagen \n\nEr verspürte ein gewisses Unbehagen, als er den Raum betrat"
+  },
+  {
+    "question": "«Вийти з себе»",
+    "answer": "außer sich geraten / ist ausrasten\n\nSie geriet immer so außer sich, wenn man ihre Schwester auch nur erwähnte"
+  },
+  {
+    "question": "Зіштовхнутись, врізатись один в одного\n*прямий та переносний сенс",
+    "answer": "<ist> zusammenprallen\n\nDie Spieler sind beim Fußballspiel zusammengeprallt"
+  },
+  {
+    "question": "Воображати (те, чого немає)\n*не sich vorstellen",
+    "answer": "sich einbilden + Dat\n\nEr hat sich eingebildet, dass sie ihn liebt\n\nBild dir bloß nichts darauf ein!"
+  },
+  {
+    "question": "Щось твердо вирішити",
+    "answer": "entschlossen sein\n\nIch bin entschlossen, Deutsch zu lernen \n\nImmer noch war er entschlossen, nichts von alledem seiner Frau zu sagen."
+  },
+  {
+    "question": "Світанок, схід сонця",
+    "answer": "Der Sonnenaufgang"
+  },
+  {
+    "question": "Трохи, деякий час",
+    "answer": "eine Weile\n\nIch bleibe noch eine Weile\n\nNach einer Weile kam er zurück"
+  },
+  {
+    "question": "цього разу",
+    "answer": "diesmal"
+  },
+  {
+    "question": "Тривало, стійко",
+    "answer": "nachhaltig\n\nWas kannst du tun, um die schlechte Gewohnheiten wirklich nachhaltig zu ändern?"
+  },
+  {
+    "question": "Крім того (всі варіанти)",
+    "answer": "außerdem \nzudem\n\ndarüber hinaus\n\nDes Weiteren\n\nferner"
+  },
+  {
+    "question": "Всяка-всячина",
+    "answer": "Die Siebensachen"
+  },
+  {
+    "question": "Настрій (не Laune)",
+    "answer": "Die Stimmung"
+  },
+  {
+    "question": "Полегшити, зменшити\n*біль, страх",
+    "answer": "lindern\n\nDieses Medikament lindert die Kopfschmerzen\n\nEin Gespräch kann die sorgen lindern"
+  },
+  {
+    "question": "Так не може тривати далі",
+    "answer": "So kann es nicht weitergehen"
+  },
+  {
+    "question": "Поступово",
+    "answer": "allmählich \n\nDie Wunde vernarbt allmählich"
+  },
+  {
+    "question": "Заживати, загоюватись (рана)",
+    "answer": "vernarben\nvernarbte • ist vernarbt \n\nDie Wunde vernarbt allmählich"
+  },
+  {
+    "question": "Уявлення",
+    "answer": "Die Ahnung"
+  },
+  {
+    "question": "Усі (офіційно)",
+    "answer": "sämtliche \n\nSämtliche Unterlagen müssen eingereicht werden"
+  },
+  {
+    "question": "Подавати, здавати, передавати на розгляд \n*наприклад документи",
+    "answer": "einreichen\n\nSämtliche Unterlagen müssen eingereicht werden"
+  },
+  {
+    "question": "Процвітати, розвиватися",
+    "answer": "gedeihen\ngedieh • ist gediehen\n\nTugend kann nur unter Gleichen gediehen"
+  },
+  {
+    "question": "Досконало, ідеально",
+    "answer": "vollkommen\n\nDie Gramma ist vollkommen korrekt"
+  },
+  {
+    "question": "Примирення",
+    "answer": "Versöhnung, die\n\nNach dem Streit kam es endlich zur Versöhnung"
+  },
+  {
+    "question": "Обмежений, інвалід",
+    "answer": "behindert"
+  },
+  {
+    "question": "Надріз, втручання",
+    "answer": "Der Einschnitt\n\nDer Wechsel der DDR-Planwirtschaft hin zur Marktwirtschaft bedeutete für die neuen Bundesländer radikale Einschnitte."
+  },
+  {
+    "question": "Дзьоб, клюв",
+    "answer": "Der Schnabel"
+  },
+  {
+    "question": "Памʼятник, монумент",
+    "answer": "Das Denkmal"
+  },
+  {
+    "question": "Екстренне повідомлення",
+    "answer": "Die Eilmeldung"
+  },
+  {
+    "question": "Напартачити",
+    "answer": "patzen, pfuschen \n\nSie patzte beim Bewerbungsgespräch"
+  },
+  {
+    "question": "Ябіднічати, доносити",
+    "answer": "petzen\n\nKinder petzen oft, wenn sie sich streiten"
+  },
+  {
+    "question": "Вмовляти",
+    "answer": "zureden"
+  },
+  {
+    "question": "Запас, резерв",
+    "answer": "Der Vorrat"
+  },
+  {
+    "question": "Вчасно, своєчасно",
+    "answer": "zeitnah"
+  },
+  {
+    "question": "Помітити, просікти",
+    "answer": "mitbekommen"
+  },
+  {
+    "question": "Натяк",
+    "answer": "Die Anspielung \n\nIst das eine Anspielung auf mich?\n\nWar das gerade eine Anspielung auf meine ethnische Herkunft?\n\nIst dies eine Anspielung auf mich?"
+  },
+  {
+    "question": "Вперто, наполегливо",
+    "answer": "beharrlich\n\nNur ein beharrlicher Mensch ist in der Lage, seinen Traum zu verwirklichen"
+  },
+  {
+    "question": "Зізнатися",
+    "answer": "gestehen\n\nEs steht zu befürchten, dass er seine Schuld nie gesteht\n\nTom gestand den Raubüberfall."
+  },
+  {
+    "question": "Грабіж",
+    "answer": "Der Raub\n\nDer Raubüberfall - напад для пограбування"
+  },
+  {
+    "question": "Є підстави побоюватись, що..",
+    "answer": "Es steht zu befürchten, dass …\n\n •\tEs steht zu befürchten, dass die Preise weiter steigen.\n\n •\tEs steht zu befürchten, dass der Konflikt eskaliert.\n\n •\tNach dem Sturm steht zu befürchten, dass es zu Stromausfällen kommt.\n\nСинонімічні варіанти\n\n •\tEs ist zu befürchten, dass …\n\n •\tMan muss befürchten, dass …\n\n •\tEs besteht die Gefahr, dass …\n\n⸻\n\nПримітка щодо стилю\n\n⚠️ Не розмовне.\n\nУ побуті сказали б:\n\n •\tIch fürchte, dass …\n\n •\tLeider sieht es so aus, als ob …"
+  },
+  {
+    "question": "Принести комусь користь",
+    "answer": "jemandem nützen \n\n•\tDas nützt dir nichts. — Це тобі нічого не дасть.\n\n •\tWas nützt mir das? — Яка мені з цього користь?\n\n •\tDie Übung nützt den Schülern sehr.\n\n👉 Дуже поширений вираз:\n\nDas nützt nichts. — Це марно / не має сенсу."
+  },
+  {
+    "question": "Зітхати",
+    "answer": "seufzen"
+  },
+  {
+    "question": "Колишній, попередній",
+    "answer": "ehemalig"
+  },
+  {
+    "question": "Підхоплювати",
+    "answer": "aufgreifen \n\nDer Lehrer hat das Thema der letzten Stunde aufgegriffen"
+  },
+  {
+    "question": "Вибагливий",
+    "answer": "wählerisch"
+  },
+  {
+    "question": "Володіти, керувати",
+    "answer": "innehaben"
+  },
+  {
+    "question": "Випендрюватись",
+    "answer": "sich aufspielen"
+  },
+  {
+    "question": "Цього року",
+    "answer": "heuer"
+  },
+  {
+    "question": "Наздогнати",
+    "answer": "aufholen"
+  },
+  {
+    "question": "Автор, авторське право",
+    "answer": "Der Urheber, Das Urheberrecht"
+  },
+  {
+    "question": "Негайно",
+    "answer": "unverzüglich"
+  },
+  {
+    "question": "Переконливий, вагомий",
+    "answer": "triftig"
+  },
+  {
+    "question": "Каверзний",
+    "answer": "knifflig"
+  },
+  {
+    "question": "Прийняти рішення",
+    "answer": "einen Entschluss fassen"
+  },
+  {
+    "question": "Виконувати (обовʼязки), практикувати (професію)",
+    "answer": "ausüben\n\n• Einen Beruf ausüben — працювати за фахом (наприклад, als Arzt).\n\n• Druck ausüben — чинити тиск.\n\n• Einen Einfluss ausüben — мати вплив (справляти вплив).\n\n• Kontrolle ausüben — здійснювати контроль."
+  },
+  {
+    "question": "Показушник",
+    "answer": "Der Wichtigtuer"
+  },
+  {
+    "question": "Зачепити, легко торкатися",
+    "answer": "streifen"
+  },
+  {
+    "question": "Не сприймати щось (nicht wahrnehmen)",
+    "answer": "abprallen\n\nEr war dermaßen von sich überzeugt, dass alle Argumente an ihm abgeprallt sind."
+  },
+  {
+    "question": "Посварити когось, розкол",
+    "answer": "entzweien \n\nDas Erbe hat die Geschwister entzweit.\n\nDie beiden Freunde haben sich über eine Kleinigkeit entzweit."
+  },
+  {
+    "question": "Врегульовувати (конфлікт)",
+    "answer": "schlichten\n\nEs gelang uns, den Streit zu schlichten"
+  },
+  {
+    "question": "Мстивий",
+    "answer": "nachtragend"
+  },
+  {
+    "question": "Вичерпати (переносно)",
+    "answer": "die Fehltage ausreizen"
+  },
+  {
+    "question": "Обман, шахрайство",
+    "answer": "Die Hochstapelei"
+  },
+  {
+    "question": "Налити",
+    "answer": "einschenken"
+  },
+  {
+    "question": "Блювати",
+    "answer": "abkotzen"
+  },
+  {
+    "question": "Він дратує мене",
+    "answer": "He irks me, he is irksome"
+  }
+]

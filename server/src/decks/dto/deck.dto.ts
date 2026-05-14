@@ -14,7 +14,6 @@ export class CreateDeckDto {
     @IsEnum(Language)
     language?: string;
 
-    // TODO: add max length validation
     @IsOptional()
     @IsArray()
     tags?: string[];

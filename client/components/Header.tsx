@@ -1,12 +1,28 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n } from "@/lib/i18n";
+import { api } from "@/lib/api-client";
+import React from "react";
 
 export function Header() {
-	const { user, loading } = useAuth();
+	const { user, loading, refreshUser } = useAuth();
 	const { t } = useI18n();
+	const router = useRouter();
+	const [starting, setStarting] = React.useState(false);
+
+	async function handleTryDemo() {
+		setStarting(true);
+		try {
+			await api.post("/auth/demo");
+			await refreshUser();
+			router.push("/app");
+		} catch {
+			setStarting(false);
+		}
+	}
 
 	return (
 		<header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto">
@@ -20,12 +36,22 @@ export function Header() {
 
 				<div className="w-px h-5 bg-white/10 mx-1" />
 
-				<Link
-					href={!loading && user ? "/app" : "/login"}
-					className="rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-sm font-medium transition-all hover:bg-teal-hover hover:shadow-[0_0_20px_rgba(30,193,167,0.3)]"
-				>
-					{!loading && user ? t("header.app") : t("header.login")}
-				</Link>
+				{!loading && user ? (
+					<Link
+						href="/app"
+						className="rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-sm font-medium transition-all hover:bg-teal-hover hover:shadow-[0_0_20px_rgba(30,193,167,0.3)]"
+					>
+						{t("header.app")}
+					</Link>
+				) : (
+					<button
+						onClick={handleTryDemo}
+						disabled={starting || loading}
+						className="rounded-full bg-primary text-primary-foreground px-4 py-1.5 text-sm font-medium transition-all hover:bg-teal-hover hover:shadow-[0_0_20px_rgba(30,193,167,0.3)] disabled:opacity-60"
+					>
+						{starting ? t("demo.loading") : t("header.login")}
+					</button>
+				)}
 			</nav>
 		</header>
 	);

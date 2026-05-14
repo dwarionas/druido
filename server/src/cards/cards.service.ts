@@ -15,7 +15,6 @@ import {
     type IPreview,
 } from 'ts-fsrs';
 
-// based on: https://github.com/open-spaced-repetition/ts-fsrs
 const FSRS_PARAMS = generatorParameters({
     request_retention: 0.9,
     maximum_interval: 420,
@@ -32,7 +31,6 @@ export class CardsService {
         private readonly statsService: StatsService,
     ) { }
 
-    // TODO: add pagination
     async list(userId: string, deckId?: string, q?: string, tag?: string, skip?: number, take?: number) {
         const where: any = { userId };
 
@@ -202,7 +200,6 @@ export class CardsService {
 
         const preview = this.buildSchedulePreview(scheduling, now);
 
-        // Record review in stats (XP based on rating: Again=5, Hard=8, Good=10, Easy=15)
         const xpMap: Record<number, number> = { 1: 5, 2: 8, 3: 10, 4: 15 };
         const xpEarned = xpMap[dto.rating] ?? 10;
         await this.statsService.recordReview(userId, xpEarned);

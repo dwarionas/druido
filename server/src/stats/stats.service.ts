@@ -43,7 +43,6 @@ export class StatsService {
             orderBy: { date: 'asc' },
         });
 
-        // Return as a map: { "2026-01-15": 12, "2026-01-16": 5, ... }
         const heatmap: Record<string, number> = {};
         for (const s of sessions) {
             const key = s.date.toISOString().split('T')[0];
@@ -84,11 +83,8 @@ export class StatsService {
             decks.map(async (deck) => {
                 const [total, mature, learning, newCards] = await Promise.all([
                     this.prisma.card.count({ where: { deckId: deck.id, userId } }),
-                    // state 2 = Review (mature)
                     this.prisma.card.count({ where: { deckId: deck.id, userId, state: 2 } }),
-                    // state 1 = Learning
                     this.prisma.card.count({ where: { deckId: deck.id, userId, state: 1 } }),
-                    // state 0 = New
                     this.prisma.card.count({ where: { deckId: deck.id, userId, state: 0 } }),
                 ]);
 
@@ -107,14 +103,10 @@ export class StatsService {
         return stats;
     }
 
-    /**
-     * Record a review in today's study session. Called after each card review.
-     */
     async recordReview(userId: string, xpEarned: number = 10) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        // Upsert study session for today
         await this.prisma.studySession.upsert({
             where: { userId_date: { userId, date: today } },
             create: { userId, date: today, cardsReviewed: 1, xpEarned },
@@ -124,7 +116,6 @@ export class StatsService {
             },
         });
 
-        // Update user XP and streak
         const user = await this.prisma.user.findUnique({
             where: { id: userId },
             select: { streak: true, lastStudiedAt: true },
@@ -140,13 +131,10 @@ export class StatsService {
             lastDate.setHours(0, 0, 0, 0);
 
             if (lastDate.getTime() === today.getTime()) {
-                // Already studied today, keep current streak
                 newStreak = user.streak;
             } else if (lastDate.getTime() === yesterday.getTime()) {
-                // Studied yesterday, increment streak
                 newStreak = user.streak + 1;
             }
-            // Otherwise streak resets to 1
         }
 
         await this.prisma.user.update({

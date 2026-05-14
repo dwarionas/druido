@@ -1,64 +1,58 @@
 # Druido
 
-A spaced repetition app for language learners, built with Next.js and NestJS.
+Spaced repetition app for language learners. Uses the [FSRS](https://github.com/open-spaced-repetition/ts-fsrs) scheduling algorithm instead of the traditional SM-2 approach, providing more accurate review intervals based on individual memory patterns.
 
-Uses the [FSRS](https://github.com/open-spaced-repetition/ts-fsrs) algorithm for optimal review scheduling instead of the older SM-2 approach.
+## Demo
+
+The fastest way to try it:
+
+```bash
+docker compose up -d
+cd server && cp .env.example .env && npm i && npx prisma migrate dev && npm run start:dev
+cd client && npm i && npm run dev
+```
+
+Open `http://localhost:8000` and click **Try Demo** — a pre-seeded deck with 900+ Ukrainian→German flashcards will be created automatically.
 
 ## Stack
 
-**Client** — Next.js 15, React, TypeScript, Tailwind CSS, shadcn/ui  
-**Server** — NestJS, Prisma, PostgreSQL, Passport JWT  
-**Infra** — Docker, Docker Compose
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 15, React 19, TypeScript, Tailwind CSS 4, shadcn/ui |
+| Backend | NestJS 11, Prisma 6, PostgreSQL 16 |
+| Auth | Passport JWT, cookie-based sessions, bcrypt |
+| SRS Engine | ts-fsrs (FSRS v5) on both client preview and server persistence |
+| Infra | Docker Compose |
 
 ## Features
 
-- Cookie-based JWT authentication (register, login, logout)
-- Create and manage flashcard decks with descriptions and tags
-- Add cards with question/answer pairs and optional tags
-- FSRS-based spaced repetition with schedule preview
-- Keyboard shortcuts during review (Space to flip, 1-4 to rate)
-- CSV import and export
-- Tag filtering in card list
+- FSRS-based spaced repetition with real-time schedule preview
+- Keyboard shortcuts during review (Space to flip, 1–4 to rate)
+- Deck management with color coding and tag filtering
+- CSV and Anki (.apkg) import/export
 - Global search across decks and cards
+- Activity heatmap, daily review charts, per-deck mastery tracking
+- Achievement system (streaks, XP milestones, deck mastery)
 - i18n support (Ukrainian, English, German)
-- Dark mode
+- Dark mode UI with glassmorphism design
 
-## Getting started
-
-```bash
-# start postgres
-docker compose up -d
-
-# server
-cd server
-cp .env.example .env   # edit DATABASE_URL + JWT_SECRET
-npm install
-npx prisma migrate dev
-npm run start:dev
-
-# client
-cd client
-npm install
-npm run dev
-```
-
-## Project structure
+## Architecture
 
 ```
 druido/
-├── client/          # Next.js frontend
-│   ├── app/         # Pages (login, app, decks, search)
-│   ├── components/  # UI components (shadcn + custom)
-│   ├── hooks/       # useAuth, useFSRS
-│   └── lib/         # API client, i18n, utils
-├── server/          # NestJS backend
+├── client/             Next.js frontend
+│   ├── app/            Pages and layouts (App Router)
+│   ├── components/     UI components (shadcn + custom)
+│   ├── hooks/          useAuth, useFSRS
+│   └── lib/            API client, i18n, APKG parser, utils
+├── server/             NestJS backend
 │   ├── src/
-│   │   ├── auth/    # JWT auth module
-│   │   ├── decks/   # Decks CRUD
-│   │   ├── cards/   # Cards + FSRS scheduling
-│   │   └── prisma/  # Prisma service
-│   └── prisma/      # Schema + migrations
-└── docker-compose.yml
+│   │   ├── auth/       JWT auth (register, login, demo mode)
+│   │   ├── decks/      Deck CRUD
+│   │   ├── cards/      Card CRUD + FSRS scheduling
+│   │   └── stats/      Review tracking, heatmap, streaks
+│   └── prisma/         Schema, migrations, demo seed
+└── docker-compose.yml  PostgreSQL
 ```
 
 ## License

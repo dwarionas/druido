@@ -82,7 +82,6 @@ export class DecksService {
     }
 
     async update(userId: string, id: string, dto: UpdateDeckDto) {
-        // make sure it belongs to user first
         await this.findById(userId, id);
 
         return this.prisma.deck.update({

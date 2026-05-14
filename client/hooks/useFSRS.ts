@@ -12,7 +12,6 @@ export function useFSRS(deckId: string, version?: number) {
 	const [finished, setFinished] = useState(false);
 
 	useEffect(() => {
-		// cleanup fn to avoid setting state after unmount (React docs)
 		let cancelled = false;
 
 		async function load() {
